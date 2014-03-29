@@ -21,3 +21,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'devise', '> 3.2'
