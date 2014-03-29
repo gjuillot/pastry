@@ -3,19 +3,24 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Type</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @ingredients.each do |ingredient| %>
+  <% price = ingredient.price %>
   <tr>
     <td><%= ingredient.name %></td>
-    <td><%= ingredient.unit %></td>
+    <td><%= price.nil? ? '' : "#{price.price} € pour #{price.quantity} #{ingredient.unit} - #{price.place} - #{price.created_at}" %></td>
     <td><%= link_to 'Show', ingredient %></td>
     <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
     <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Add price', new_price_path({ingredient: ingredient})%></td>
+    <td><%= link_to 'Prices', prices_path({ingredient: ingredient})%></td>
   </tr>
 <% end %>
 </table>

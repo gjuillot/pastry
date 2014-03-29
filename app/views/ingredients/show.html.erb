@@ -10,6 +10,14 @@
   <%= @ingredient.unit %>
 </p>
 
+<% price = @ingredient.price %>
+<% unless price.blank? %>
+  <p>
+    <b>Price:</b>
+    <%= "#{price.price} € pour #{price.quantity} #{@ingredient.unit} - #{price.place} - #{price.created_at}" %>
+  </p>
+<% end %>
 
+<%= link_to 'Prices', prices_path({ingredient: @ingredient}) %> |
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>
