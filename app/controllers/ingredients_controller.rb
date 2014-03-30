@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients.json
   def index
     @ingredients_by_unit = {}
-    Ingredient.select("DISTINCT unit").each do |unit|
+    Ingredient.unscoped.select("DISTINCT unit").each do |unit|
       @ingredients_by_unit[unit.unit] = Ingredient.where("unit = ?", unit.unit).all
     end
   end
