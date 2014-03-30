@@ -1,0 +1,27 @@
+<h1>Listing recipe_steps</h1>
+
+<table>
+  <tr>
+    <th>Recipe</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @recipe_steps.each do |recipe_step| %>
+  <tr>
+    <td><%= recipe_step.recipe %></td>
+    <td><%= recipe_step.name %></td>
+    <td><%= recipe_step.description %></td>
+    <td><%= link_to 'Show', recipe_step %></td>
+    <td><%= link_to 'Edit', edit_recipe_step_path(recipe_step) %></td>
+    <td><%= link_to 'Destroy', recipe_step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recipe step', new_recipe_step_path %>

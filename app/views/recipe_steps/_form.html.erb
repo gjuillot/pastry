@@ -1,0 +1,31 @@
+<%= form_for(@recipe_step, html: { class:'form-horizontal'}) do |f| %>
+  <% if @recipe_step.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe_step.errors.count, "error") %> prohibited this recipe_step from being saved:</h2>
+
+      <ul>
+      <% @recipe_step.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :recipe_id, value: @recipe.id %>
+
+  <div class="control-group">
+    <%= f.label "Nom", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Description", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.submit %>
+  </div>
+<% end %>

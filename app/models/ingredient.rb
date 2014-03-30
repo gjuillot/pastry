@@ -9,4 +9,8 @@ class Ingredient < ActiveRecord::Base
   def price
     Price.where("ingredient_id = ?", self.id).first
   end
+  
+  def to_s
+    "#{name} (#{unit})"
+  end
 end

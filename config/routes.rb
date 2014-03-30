@@ -1,4 +1,13 @@
 Pastry::Application.routes.draw do  
+  resources :recipe_ingredients
+
+
+  resources :recipe_steps
+
+
+  resources :recipes
+
+
   resources :prices
 
 

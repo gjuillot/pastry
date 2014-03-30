@@ -20,6 +20,7 @@
           <% if user_signed_in? %>
             <ul class="nav navbar-nav pull-left">
               <li><%= link_to "Ingrédients", ingredients_path %></li>
+              <li><%= link_to "Recettes", recipes_path %></li>
             </ul>
             <ul class="nav navbar-nav  pull-right">
               <li><a><%= current_user.email %></a></li>

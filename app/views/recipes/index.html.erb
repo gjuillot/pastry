@@ -1,0 +1,18 @@
+<h1>Recettes</h1>
+
+<table class="table table-condensed">
+  <tr>
+    <th>Nom</th>
+    <th>Base pour</th>
+  </tr>
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%= link_to recipe.name, recipe %></td>
+      <td><%= "#{recipe.quantity} #{recipe.unit}" %></td>
+    </tr>
+  <% end %>
+  </table>
+
+<br />
+
+<%= link_to 'Nouvelle recette', new_recipe_path %>

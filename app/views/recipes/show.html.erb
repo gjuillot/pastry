@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @recipe.name %></h1>
+
+Pour <%= "#{@recipe.quantity} #{@recipe.unit}" %><br />
+
+<% full_cost = true %>
+<% @recipe.steps.each do |step| %>
+  <% step.ingredients.each do |ingredient| %>
+    <% full_cost &= ingredient.has_cost? %>
+  <% end %>
+<% end %>
+<%= @recipe.cost %> €<%= "(incomplet)" unless full_cost %>
+
+<% steps = 0 %>
+<% @recipe.steps.each do |step| %>
+  <% steps += 1 %>
+  <h2>Etape <%= steps %> - <%= step.name %></h2>
+  <table class="table table-condensed">
+    <% step.ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= "#{ingredient.quantity} #{ingredient.ingredient.unit}" %></td>
+        <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
+        <td>
+          <% if ingredient.has_cost? %>
+            <%= ingredient.cost %> €
+          <% else %>
+            ???????
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "Nouvel ingrédient", new_recipe_ingredient_path({step: steps, step_id: step}) %><br />
+  <p>
+    <%= step.description %>
+  </p>
+<% end %>
+
+
+<br /><br />
+<%= link_to "Ajouter une étape", new_recipe_step_path(recipe: @recipe) %>
