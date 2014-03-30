@@ -1,9 +1,0 @@
-            
-<% if user_signed_in? %>
-  <%= current_user.email %><br />
-  <%= link_to t("menu.profile.sign_out"), destroy_user_session_path, method: :delete %><br /><br />
-  <%= link_to "Ingrédients", ingredients_path %>
-<% else %>
-  <%= link_to t("menu.profile.sign_up"), new_user_registration_path %><br />
-  <%= link_to t("menu.profile.sign_in"), new_user_session_path %>
-<% end %>

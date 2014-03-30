@@ -36,7 +36,7 @@ class PricesController < ApplicationController
   def create
     @price = Price.new(params[:price])
     if @price.save
-      redirect_to @price, notice: 'Price was successfully created.'
+      redirect_to @price.ingredient, notice: 'Price was successfully created.'
     else
       render action: "new"
     end

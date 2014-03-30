@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pastry</title>
+  <title>Pâtisserie 3000</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-
-<%= yield %>
-
+  <header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to "Pâtisserie", root_path, id: "logo" %>
+        <nav>
+          <% if user_signed_in? %>
+            <ul class="nav navbar-nav pull-left">
+              <li><%= link_to "Ingrédients", ingredients_path %></li>
+            </ul>
+            <ul class="nav navbar-nav  pull-right">
+              <li><a><%= current_user.email %></a></li>
+              <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav  pull-right">
+              <li><%= link_to "Créer un compte", new_user_registration_path %></li>
+              <li><%= link_to "Se connecter", new_user_session_path %></li>
+            </ul>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <% if notice %>
+      <div class="alert"><%= raw t('flash.' + notice) %></div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-error"><%= raw t('flash.' + alert) %></div>
+    <% end %>
+    
+    <%= yield %>
+  </div>
 </body>
 </html>

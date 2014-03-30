@@ -2,11 +2,9 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @ingredients }
+    @ingredients_by_unit = {}
+    Ingredient.select("DISTINCT unit").each do |unit|
+      @ingredients_by_unit[unit.unit] = Ingredient.where("unit = ?", unit.unit).all
     end
   end
 

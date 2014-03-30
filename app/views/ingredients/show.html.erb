@@ -1,23 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @ingredient.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @ingredient.name %>
-</p>
+<% if @ingredient.prices.empty? %>
+  Aucun prix enregistré
+<% else %>
 
-<p>
-  <b>Type:</b>
-  <%= @ingredient.unit %>
-</p>
+  <table class="table table-condensed">
+    <% @ingredient.prices.each do |price| %>
+      <tr>
+        <td><%= "#{price.price} € pour #{price.quantity} #{@ingredient.unit}" %></td>
+        <td><%= price.place %></td>
+        <td><%= l price.date %></td>
+      </tr>
+    <% end %>
+  </table>
 
-<% price = @ingredient.price %>
-<% unless price.blank? %>
-  <p>
-    <b>Price:</b>
-    <%= "#{price.price} € pour #{price.quantity} #{@ingredient.unit} - #{price.place} - #{price.created_at}" %>
-  </p>
 <% end %>
-
-<%= link_to 'Prices', prices_path({ingredient: @ingredient}) %> |
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+<%= link_to "Nouveau prix", new_price_path(ingredient: @ingredient)%>
