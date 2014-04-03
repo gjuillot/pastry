@@ -30,6 +30,15 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.submit %>
+    <%= f.label "Catégorie", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :category, Recipe::CATEGORIES, :to_s, :to_s %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <br />
+      <%= f.submit "Créer cette recette" %>
+    </div>
   </div>
 <% end %>
