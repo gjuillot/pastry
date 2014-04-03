@@ -2,7 +2,12 @@
 
 <h1><%= @recipe.name %></h1>
 
-Pour <%= "#{@recipe.quantity} #{@recipe.unit}" %><br />
+<%= form_for(@recipe, :method => :get) do |f| %>
+  Pour 
+  <%= text_field_tag :quantity, @quantity %>
+  <%= @recipe.unit %>
+  <%= f.submit "Calculer" %>
+<% end %>
 
 <% full_cost = true %>
 <% @recipe.steps.each do |step| %>
@@ -10,7 +15,7 @@ Pour <%= "#{@recipe.quantity} #{@recipe.unit}" %><br />
     <% full_cost &= ingredient.has_cost? %>
   <% end %>
 <% end %>
-<%= @recipe.cost %> €<%= "(incomplet)" unless full_cost %>
+<%= @recipe.cost * @ratio %> €<%= "(incomplet)" unless full_cost %>
 
 <% steps = 0 %>
 <% @recipe.steps.each do |step| %>
@@ -19,11 +24,11 @@ Pour <%= "#{@recipe.quantity} #{@recipe.unit}" %><br />
   <table class="table table-condensed">
     <% step.ingredients.each do |ingredient| %>
       <tr>
-        <td><%= "#{ingredient.quantity} #{ingredient.ingredient.unit}" %></td>
+        <td><%= "#{ingredient.quantity * @ratio} #{ingredient.ingredient.unit}" %></td>
         <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
         <td>
           <% if ingredient.has_cost? %>
-            <%= ingredient.cost %> €
+            <%= ingredient.cost * @ratio %> €
           <% else %>
             ???????
           <% end %>

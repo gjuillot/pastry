@@ -14,6 +14,14 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+    
+    if (params[:quantity].blank?)
+      @quantity = @recipe.quantity
+      @ratio = 1
+    else
+      @quantity = params[:quantity]
+      @ratio = @quantity.to_d / @recipe.quantity
+    end
 
     respond_to do |format|
       format.html # show.html.erb
