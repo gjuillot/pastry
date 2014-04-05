@@ -45,4 +45,10 @@
 
 
 <br /><br />
+<%= form_tag basic_insertion_recipe_path do %>
+  <%= select_tag "basic", options_for_select(Recipe.basics.map {|b| ["#{b.name} (en #{b.unit})", b.id]}) %>
+  <%= text_field_tag "quantity", "Quantité" %>
+  <%= submit_tag "Insérer en tant qu'étape" %>
+<% end %>
+ou<br />
 <%= link_to "Ajouter une étape", new_recipe_step_path(recipe: @recipe) %>

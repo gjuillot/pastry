@@ -16,4 +16,15 @@ class RecipeStep < ActiveRecord::Base
       ingredients.map(&:cost).inject(:+)
     end
   end
+  
+  def duplicate(recipe, new_step_name, ratio)
+    new_recipe_step = RecipeStep.create!(
+      :name => new_step_name,
+      :description => self.description,
+      :recipe_id => recipe.id
+    )
+    self.ingredients.each do |ingredient|
+      ingredient.duplicate(new_recipe_step, ratio)
+    end
+  end
 end

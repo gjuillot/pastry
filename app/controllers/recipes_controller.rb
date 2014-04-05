@@ -49,4 +49,15 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_url
   end
+  
+  def basic_insertion
+    @recipe = Recipe.find(params[:id])
+    basic = Recipe.find_by_id(params[:basic])
+    ratio = params[:quantity].to_d / basic.quantity
+    basic.steps.each do |step|
+      step_name = basic.steps.size == 1 ? basic.name : basic.name + " - " + step.name
+      step.duplicate(@recipe, step_name, ratio)
+    end
+    redirect_to @recipe
+  end
 end

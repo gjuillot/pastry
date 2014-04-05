@@ -14,4 +14,12 @@ class RecipeIngredient < ActiveRecord::Base
       0
     end
   end
+  
+  def duplicate(new_step, ratio)
+    RecipeIngredient.create(
+      :quantity => self.quantity * ratio,
+      :recipe_step_id => new_step.id,
+      :ingredient_id => self.ingredient_id
+    )
+  end
 end

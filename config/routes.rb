@@ -5,7 +5,11 @@ Pastry::Application.routes.draw do
   resources :recipe_steps
 
 
-  resources :recipes
+  resources :recipes do
+    member do
+      post 'basic_insertion'
+    end
+  end
 
 
   resources :prices
