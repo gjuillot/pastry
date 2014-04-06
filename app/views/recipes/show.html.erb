@@ -18,37 +18,60 @@
 <% end %>
 <%= @recipe.cost * @ratio %> €<%= "(incomplet)" unless full_cost %>
 
+<hr />
+
 <% steps = 0 %>
 <% @recipe.steps.each do |step| %>
   <% steps += 1 %>
   <h2>Etape <%= steps %> - <%= step.name %></h2>
-  <table class="table table-condensed">
-    <% step.ingredients.each do |ingredient| %>
-      <tr>
-        <td><%= "#{ingredient.quantity * @ratio} #{ingredient.ingredient.unit}" %></td>
-        <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
-        <td>
-          <% if ingredient.has_cost? %>
-            <%= ingredient.cost * @ratio %> €
-          <% else %>
-            ???????
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <% step.ingredients.each do |ingredient| %>
+          <tr>
+            <td><%= "#{ingredient.quantity * @ratio} #{ingredient.ingredient.unit}" %></td>
+            <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
+            <td>
+              <% if ingredient.has_cost? %>
+                <%= ingredient.cost * @ratio %> €
+              <% else %>
+                ???????
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <%= form_for RecipeIngredient.new do |f| %>
+          <%= f.hidden_field :recipe_step_id, value: step.id %>
+          <td><%= f.text_field :quantity, size: 10 %></td>
+          <td><%= f.collection_select :ingredient_id, Ingredient.all, :id, :to_s %></td>
+          <td><%= f.submit "Ajouter ingrédient "%></td>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-  <%= link_to "Nouvel ingrédient", new_recipe_ingredient_path({step: steps, step_id: step}) %><br />
-  <p>
-    <%= step.description %>
-  </p>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <%= step.description %>
+    </div>
+  </div>
+  <hr />
 <% end %>
-
 
 <br /><br />
-<%= form_tag basic_insertion_recipe_path do %>
-  <%= select_tag "basic", options_for_select(Recipe.basics.map {|b| ["#{b.name} (en #{b.unit})", b.id]}) %>
-  <%= text_field_tag "quantity", "Quantité" %>
-  <%= submit_tag "Insérer en tant qu'étape" %>
-<% end %>
-ou<br />
-<%= link_to "Ajouter une étape", new_recipe_step_path(recipe: @recipe) %>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_tag basic_insertion_recipe_path do %>
+      <%= select_tag "basic", options_for_select(Recipe.basics.map {|b| ["#{b.name} (en #{b.unit})", b.id]}) %>
+      <%= text_field_tag "quantity", "Quantité" %>
+      <%= submit_tag "Insérer en tant qu'étape" %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= form_for RecipeStep.new do |f| %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id %>
+      <%= f.text_field :name, value: "Nom de l'étape" %><br />
+      <%= f.text_area :description, value: "Description de l'étape" %><br />
+      <%= f.submit "Ajouter une étape" %>
+    <% end %>
+  </div>
+</div>
