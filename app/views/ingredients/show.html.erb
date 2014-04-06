@@ -1,10 +1,12 @@
 <h1><%= @ingredient.name %></h1>
 
-<% if @ingredient.prices.empty? %>
-  Aucun prix enregistré
-<% else %>
-
-  <table class="table table-condensed">
+<table class="table table-condensed">
+  <thead>
+    <th>Prix</th>
+    <th>Lieu</th>
+    <th>Date</th>
+  </thead>
+  <tbody>
     <% @ingredient.prices.each do |price| %>
       <tr>
         <td><%= "#{price.price} € pour #{price.quantity} #{@ingredient.unit}" %></td>
@@ -12,7 +14,13 @@
         <td><%= l price.date %></td>
       </tr>
     <% end %>
-  </table>
-
-<% end %>
-<%= link_to "Nouveau prix", new_price_path(ingredient: @ingredient)%>
+    <tr>
+      <%= form_for Price.new do |f| %>
+        <%= f.hidden_field :ingredient_id, value: @ingredient.id %>
+        <td><%= f.text_field :price, size: 10 %> € pour <%= f.number_field :quantity, size: 10 %> <%= @ingredient.unit %></td>
+        <td><%= f.text_field :place, size: 20 %></td>
+        <td><%= f.submit "Ajouter un prix" %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

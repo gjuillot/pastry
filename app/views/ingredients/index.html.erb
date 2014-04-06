@@ -1,25 +1,33 @@
-<table class="table table-condensed">
+<div class="row">
   <% @ingredients_by_unit.each do |unit, ingredients| %>
-    <thead>
-      <th>Nom</th>
-      <th>Dernier prix enregistré</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <% ingredients.each do |ingredient| %>
-        <tr>
-          <td><%= link_to ingredient.name, ingredient %></td>
-          <td>
-            <% price = ingredient.price %>
-            <% unless price.blank? %>
-              <%= "#{price.price} € pour #{price.quantity} #{ingredient.unit} - #{price.place} - " %><%= l price.date, format: :default %>
+    <div class="col-md-4">
+      <h4>Ingrédients en <%= unit %></h4>
+      <table class="table table-condensed">
+        <thead>
+          <th>Nom</th>
+          <th>Dernier prix enregistré</th>
+        </thead>
+        <tbody>
+          <% ingredients.each do |ingredient| %>
+            <tr>
+              <td><%= link_to ingredient.name, ingredient %></td>
+              <td>
+                <% price = ingredient.price %>
+                <% unless price.blank? %>
+                  <%= "#{price.price} € pour #{price.quantity} #{ingredient.unit}" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <tr>
+            <%= form_for Ingredient.new do |f| %>
+              <%= f.hidden_field :unit, value: unit %>
+              <td><%= f.text_field :name, size: 20 %></td>
+              <td><%= f.submit "Ajouter ingrédient" %></td>
             <% end %>
-          </td>
-          <td><%= link_to "Nouveau prix", new_price_path(ingredient: ingredient)%></td>
-        </tr>
-      <% end %>
-    </tbody>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   <% end %>
-</table>
-
-<%= link_to "Nouvel ingrédient", new_ingredient_path %>
+</div>
