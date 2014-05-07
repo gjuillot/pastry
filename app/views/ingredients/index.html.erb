@@ -42,7 +42,7 @@
               <% end %>
             </td>
             <td>
-              <%= delete_icon ingredient %>
+              <%= delete_icon ingredient unless ingredient.is_used_in_recipes?%>
             </td>
           </tr>
         <% end %>

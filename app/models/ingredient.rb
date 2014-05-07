@@ -18,4 +18,8 @@ class Ingredient < ActiveRecord::Base
   def to_s
     "#{name} (#{unit})"
   end
+  
+  def is_used_in_recipes?
+    not RecipeIngredient.where("ingredient_id = ?", self.id).empty?
+  end
 end
