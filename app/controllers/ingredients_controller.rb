@@ -2,10 +2,11 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients_by_unit = {}
-    Ingredient.unscoped.select("DISTINCT unit").each do |unit|
-      @ingredients_by_unit[unit.unit] = Ingredient.where("unit = ?", unit.unit).all
+    @ingredients_by_category = {}
+    IngredientCategory.all.each do |category|
+      @ingredients_by_category[category.name] = Ingredient.where("ingredient_category_id = ?", category.id).all
     end
+    @ingredients_by_category["Sans categorie"] = Ingredient.where("ingredient_category_id IS NULL").all
   end
 
   # GET /ingredients/1

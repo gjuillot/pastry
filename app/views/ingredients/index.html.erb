@@ -1,33 +1,56 @@
+
 <div class="row">
-  <% @ingredients_by_unit.each do |unit, ingredients| %>
-    <div class="col-md-4">
-      <h4>Ingrédients en <%= unit %></h4>
-      <table class="table table-condensed">
-        <thead>
-          <th>Nom</th>
-          <th>Dernier prix enregistré</th>
-        </thead>
-        <tbody>
-          <% ingredients.each do |ingredient| %>
-            <tr>
-              <td><%= link_to ingredient.name, ingredient %></td>
-              <td>
-                <% price = ingredient.price %>
-                <% unless price.blank? %>
-                  <%= "#{price.price} € pour #{price.quantity} #{ingredient.unit}" %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-          <tr>
-            <%= form_for Ingredient.new do |f| %>
-              <%= f.hidden_field :unit, value: unit %>
-              <td><%= f.text_field :name, size: 20 %></td>
-              <td><%= f.submit "Ajouter ingrédient" %></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
+  <div class="col-md-8">
+    <%= form_for Ingredient.new do |f| %>
+      <%= f.text_field :name, size: 20 %>
+      <%= f.collection_select :unit, Ingredient::UNITS, :to_s, :to_s %>
+      <%= f.collection_select :ingredient_category_id, IngredientCategory.all, :id, :name %>
+      <%= f.submit "Ajouter ingrédient" %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <%= form_for IngredientCategory.new do |f| %>
+      <%= f.text_field :name, size: 20 %>
+      <%= f.submit "Ajouter catégorie" %>
+    <% end %>
+  </div>
 </div>
+
+<br />
+<hr />
+
+<% i = 0 %>
+<% @ingredients_by_category.each do |category, ingredients| %>
+  <% if i % 3 == 0 %>
+    <div class="row">
+  <% end %>
+  <div class="col-md-4">
+    <h4><%= category %></h4>
+    <table class="table table-condensed">
+      <thead>
+        <th>Nom</th>
+        <th>Dernier prix enregistré</th>
+      </thead>
+      <tbody>
+        <% ingredients.each do |ingredient| %>
+          <tr>
+            <td><%= link_to ingredient.to_s, ingredient %></td>
+            <td>
+              <% price = ingredient.price %>
+              <% unless price.blank? %>
+                <%= "#{price.price} € pour #{price.quantity} #{ingredient.unit}" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% if i % 3 == 2 %>
+    </div><br />
+  <% end %>
+  <% i += 1 %>
+<% end %>
+<% if i % 3 < 2 %>
+  </div>
+<% end %>
