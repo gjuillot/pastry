@@ -36,7 +36,7 @@ class RecipeStepsController < ApplicationController
     @recipe_step = RecipeStep.find(params[:id])
 
     if @recipe_step.update_attributes(params[:recipe_step])
-      redirect_to @recipe_step.step
+      redirect_to @recipe_step.recipe
     else
       render action: "edit"
     end

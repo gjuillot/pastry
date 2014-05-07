@@ -27,7 +27,7 @@
     <h2>Etape <%= steps %> - <%= step.name %></h2>
   <% end %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
       <table class="table table-condensed">
         <% step.ingredients.each do |ingredient| %>
           <tr>
@@ -53,8 +53,10 @@
         </tr>
       </table>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
       <%= step.description %>
+      <br /><br />
+      <%= delete_icon step, " Supprimer cette étape" %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= edit_icon step, " Modifier cette étape" %>
     </div>
   </div>
   <hr />
