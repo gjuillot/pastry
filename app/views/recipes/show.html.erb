@@ -67,17 +67,23 @@
   <div class="row">
     <div class="col-md-6">
       <%= form_tag basic_insertion_recipe_path do %>
-        <%= select_tag "basic", options_for_select(Recipe.basics.map {|b| ["#{b.name} (en #{b.unit})", b.id]}) %>
-        <%= text_field_tag "quantity", "Quantité" %>
-        <%= submit_tag "Insérer en tant qu'étape" %>
+        <fieldset>
+          <legend>Insérer une recette de base</legend>
+          <%= select_tag "basic", options_for_select(Recipe.basics.map {|b| ["#{b.name} (en #{b.unit})", b.id]}) %>
+          <%= text_field_tag "quantity", "Quantité" %>
+          <%= submit_tag "Insérer en tant qu'étape" %>
+        </fieldset>
       <% end %>
     </div>
     <div class="col-md-6">
       <%= form_for RecipeStep.new do |f| %>
-        <%= f.hidden_field :recipe_id, value: @recipe.id %>
-        <%= f.text_field :name, value: "Nom de l'étape" %><br />
-        <%= f.text_area :description, value: "Description de l'étape" %><br />
-        <%= f.submit "Ajouter une étape" %>
+        <fieldset>
+          <legend>Ou créer une nouvelle étape</legend>
+          <%= f.hidden_field :recipe_id, value: @recipe.id %>
+          <%= f.text_field :name, value: "Nom de l'étape" %><br />
+          <%= f.text_area :description, value: "Description de l'étape" %><br />
+          <%= f.submit "Ajouter une étape" %>
+        </fieldset>
       <% end %>
     </div>
   </div>
