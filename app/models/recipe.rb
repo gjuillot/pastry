@@ -14,4 +14,8 @@ class Recipe < ActiveRecord::Base
   def cost
     steps.map(&:cost).inject(0, :+)
   end
+  
+  def base?
+    category == "Base"
+  end
 end

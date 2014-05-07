@@ -3,7 +3,7 @@
 <table class="table table-condensed">
   <tr>
     <th>Nom</th>
-    <th>Base pour</th>
+    <th>Recette pour</th>
   </tr>
   <% @recipes.each do |recipe| %>
     <tr>
@@ -14,5 +14,8 @@
   </table>
 
 <br />
+<hr />
 
-<%= link_to 'Nouvelle recette', new_recipe_path %>
+<%= form_for(Recipe.new) do |f| %>
+  <%= f.text_field :name, size: 40 %> pour <%= f.number_field :quantity, size: 4 %> <%= f.collection_select :unit, Recipe::UNITS, :to_s, :to_s %> <%= f.collection_select :category, Recipe::CATEGORIES, :to_s, :to_s %> <%= f.submit "Créer cette recette" %>
+<% end %>

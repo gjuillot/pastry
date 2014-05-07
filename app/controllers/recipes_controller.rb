@@ -28,6 +28,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
 
     if @recipe.save
+        if @recipe.base?
+          RecipeStep.create({:recipe_id => @recipe.id, :name => @recipe.name, :description => "Ecrire la recette"})
+        end
+      
         redirect_to @recipe
     else
         render action: "new"
