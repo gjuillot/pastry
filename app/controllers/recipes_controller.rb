@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @edit_mode = params[:edit_mode].blank? ? true : (params[:edit_mode] == "true")
     
     if (params[:quantity].blank?)
       @quantity = @recipe.quantity

@@ -3,12 +3,21 @@
 <h1><%= @recipe.name %></h1>
 <h2><%= @recipe.category %></h2>
 
-<%= form_for(@recipe, :method => :get) do |f| %>
-  Pour 
-  <%= text_field_tag :quantity, @quantity %>
-  <%= @recipe.unit %>
-  <%= f.submit "Calculer" %>
-<% end %>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@recipe, :method => :get) do |f| %>
+      Pour 
+      <%= text_field_tag :quantity, @quantity %>
+      <%= @recipe.unit %>
+      <%= f.submit "Calculer" %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "Affichage pour consultation", recipe_path(@recipe, :edit_mode => "false")%>
+    &nbsp;&nbsp;-&nbsp;&nbsp;
+    <%= link_to "Affichage pour modification", recipe_path(@recipe, :edit_mode => "true")%>
+  </div>
+</div>
 
 <% full_cost = true %>
 <% @recipe.steps.each do |step| %>
@@ -40,29 +49,35 @@
                 ???????
               <% end %>
             </td>
-            <td><%= delete_icon ingredient %></td>
+            <% if @edit_mode %>
+              <td><%= delete_icon ingredient %></td>
+            <% end %>
           </tr>
         <% end %>
-        <tr>
-          <%= form_for RecipeIngredient.new do |f| %>
-          <%= f.hidden_field :recipe_step_id, value: step.id %>
-          <td><%= f.text_field :quantity, size: 10 %></td>
-          <td><%= f.collection_select :ingredient_id, Ingredient.all, :id, :to_s %></td>
-          <td><%= f.submit "Ajouter ingrédient "%></td>
-          <% end %>
-        </tr>
+        <% if @edit_mode %>
+          <tr>
+            <%= form_for RecipeIngredient.new do |f| %>
+            <%= f.hidden_field :recipe_step_id, value: step.id %>
+            <td><%= f.text_field :quantity, size: 10 %></td>
+            <td><%= f.collection_select :ingredient_id, Ingredient.all, :id, :to_s %></td>
+            <td><%= f.submit "Ajouter ingrédient "%></td>
+            <% end %>
+          </tr>
+        <% end %>
       </table>
     </div>
     <div class="col-md-7">
       <%= step.description %>
-      <br /><br />
-      <%= delete_icon step, " Supprimer cette étape" %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= edit_icon step, " Modifier cette étape" %>
+      <% if @edit_mode %>
+        <br /><br />
+        <%= delete_icon step, " Supprimer cette étape" %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= edit_icon step, " Modifier cette étape" %>
+      <% end %>
     </div>
   </div>
   <hr />
 <% end %>
 
-<% unless @recipe.base? %>
+<% if @edit_mode and not @recipe.base? %>
   <br /><br />
   <div class="row">
     <div class="col-md-6">
