@@ -41,6 +41,9 @@
                 <%= "#{price.price} € pour #{price.quantity} #{ingredient.unit}" %>
               <% end %>
             </td>
+            <td>
+              <%= delete_icon ingredient %>
+            </td>
           </tr>
         <% end %>
       </tbody>
