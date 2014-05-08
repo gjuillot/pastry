@@ -3,7 +3,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :recipe_category
   has_many :recipe_steps
   
-  scope :basics, where("recipe_category_id == 1")
+  scope :basics, where("recipe_category_id = 1")
   
   UNITS = ["personnes", "parts", "g", "cl"]
   
