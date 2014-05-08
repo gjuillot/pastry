@@ -1,4 +1,7 @@
 Pastry::Application.routes.draw do  
+  resources :recipe_categories
+
+
   resources :ingredient_categories
 
 

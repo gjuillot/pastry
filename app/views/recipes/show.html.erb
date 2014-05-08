@@ -89,6 +89,17 @@
           <%= submit_tag "Insérer en tant qu'étape" %>
         </fieldset>
       <% end %>
+      <br /><br />
+<% end %>
+<% if @edit_mode %>
+      <%= form_for(@recipe) do |f| %>
+        <fieldset>
+          <legend>Modifier cette recette</legend>
+          <%= f.text_field :name, size: 40 %> <%= f.collection_select :recipe_category_id, RecipeCategory.all, :id, :name %> <%= f.submit "Modifier cette recette" %>
+        </fieldset>
+      <% end %>
+<% end %>
+<% if @edit_mode and not @recipe.base? %>
     </div>
     <div class="col-md-6">
       <%= form_for RecipeStep.new do |f| %>

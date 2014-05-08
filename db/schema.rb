@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507093455) do
+ActiveRecord::Schema.define(:version => 20140508103926) do
 
   create_table "ingredient_categories", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(:version => 20140507093455) do
 
   add_index "prices", ["ingredient_id"], :name => "index_prices_on_ingredient_id"
 
+  create_table "recipe_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "recipe_ingredients", :force => true do |t|
     t.integer  "recipe_step_id"
     t.integer  "ingredient_id"
@@ -63,9 +69,9 @@ ActiveRecord::Schema.define(:version => 20140507093455) do
     t.string   "name"
     t.integer  "quantity"
     t.string   "unit"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "category"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "recipe_category_id"
   end
 
   create_table "users", :force => true do |t|

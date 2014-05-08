@@ -1,11 +1,15 @@
 class Recipe < ActiveRecord::Base
-  attr_accessible :name, :quantity, :unit, :category
+  attr_accessible :name, :quantity, :unit, :recipe_category_id
+  belongs_to :recipe_category
   has_many :recipe_steps
   
-  scope :basics, where("category = ?", "Base")
+  scope :basics, where("recipe_category_id == 1")
   
   UNITS = ["personnes", "parts", "g", "cl"]
-  CATEGORIES = ["Base", "Entremet", "Autre"]
+  
+  def category
+    recipe_category.name rescue "Sans categorie"
+  end
   
   def steps
     recipe_steps
@@ -16,6 +20,6 @@ class Recipe < ActiveRecord::Base
   end
   
   def base?
-    category == "Base"
+    recipe_category_id == 1
   end
 end
