@@ -25,3 +25,11 @@
     </tr>
   </tbody>
 </table>
+
+<hr /><br />
+
+<%= form_for @ingredient do |f| %>
+  <%= f.text_field :name, size: 20 %>
+  <%= f.collection_select :ingredient_category_id, IngredientCategory.all, :id, :name %>
+  <%= f.submit "Modifier l'ingrédient" %>
+<% end %>
