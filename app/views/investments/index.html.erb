@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for Investment.new do |f| %>
+      <%= f.text_field :name, size: 20 %>
+      <%= f.collection_select :investment_category_id, InvestmentCategory.all, :id, :name %>
+      <%= f.text_field :price, size: 10 %> €
+      <%= f.text_field :created_at, size: 10, :value => Date.today, :locale => "fr" %>
+      <%= f.submit "Ajouter investissement" %><br />
+      <%= f.text_area :comment, :size => "93x3" %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <%= form_for InvestmentCategory.new do |f| %>
+      <%= f.text_field :name, size: 20 %>
+      <%= f.submit "Ajouter catégorie" %>
+    <% end %>
+  </div>
+</div>
+
+<br />
+<hr />
+
+<% @users.each do |u| %>
+  <%= u.email %> : <%= u.investments_sum %>€
+<% end %>
+
+<br />
+<hr />
+
+<table class="table table-condensed">
+  <thead>
+    <th>Date</th>
+    <th>Catégorie</th>
+    <th>Investissement</th>
+    <th>Montant</th>
+    <th>Investisseur</th>
+    <th>Commentaire</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @investments.each do |i| %>
+      <tr>
+        <td><%= l i.created_at %></td>
+        <td><%= i.category %></td>
+        <td><%= i.name %></td>
+        <td><%= i.price %> €</td>
+        <td><%= i.user.email %></td>
+        <td><%= i.comment %></td>
+        <td><%= delete_icon i %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

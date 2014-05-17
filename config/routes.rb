@@ -1,30 +1,22 @@
 Pastry::Application.routes.draw do  
-  resources :recipe_categories
+  
+  devise_for :users
 
-
+  resources :ingredients
   resources :ingredient_categories
-
-
-  resources :recipe_ingredients
-
-
-  resources :recipe_steps
-
+  resources :prices
 
   resources :recipes do
     member do
       post 'basic_insertion'
     end
   end
-
-
-  resources :prices
-
-
-  resources :ingredients
-
-
-  devise_for :users
+  resources :recipe_categories
+  resources :recipe_steps
+  resources :recipe_ingredients
+  
+  resources :investments
+  resources :investment_categories
 
   root :to => "home#index"
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  investment_category: 
+  user: 
+  price: 9.99
+  comment: MyText
+
+two:
+  name: MyString
+  investment_category: 
+  user: 
+  price: 9.99
+  comment: MyText

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140508103926) do
+ActiveRecord::Schema.define(:version => 20140516050737) do
 
   create_table "ingredient_categories", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,25 @@ ActiveRecord::Schema.define(:version => 20140508103926) do
     t.datetime "updated_at",             :null => false
     t.integer  "ingredient_category_id"
   end
+
+  create_table "investment_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "investments", :force => true do |t|
+    t.string   "name"
+    t.integer  "investment_category_id"
+    t.integer  "user_id"
+    t.decimal  "price"
+    t.text     "comment"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "investments", ["investment_category_id"], :name => "index_investments_on_investment_category_id"
+  add_index "investments", ["user_id"], :name => "index_investments_on_user_id"
 
   create_table "prices", :force => true do |t|
     t.integer  "ingredient_id"
