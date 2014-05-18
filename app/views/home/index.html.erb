@@ -1,0 +1,11 @@
+<% @recipes_by_category.each do |category, recipes| %>
+  <% unless recipes.empty? %>
+    <h2><%= category %></h2>
+    <% recipes.each do |recipe| %>
+      <h3><%= recipe.name %></h3>
+      <quote>
+        <%= simple_format recipe.public_comment %>
+      </quote>
+    <% end %>
+  <% end %>
+<% end %>

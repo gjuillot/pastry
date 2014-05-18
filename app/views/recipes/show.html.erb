@@ -98,6 +98,23 @@
           <%= f.text_field :name, size: 40 %> <%= f.collection_select :recipe_category_id, RecipeCategory.all, :id, :name %> <%= f.submit "Modifier cette recette" %>
         </fieldset>
       <% end %>
+      <%= form_for(@recipe) do |f| %>
+        <fieldset>
+          <legend>Informations publiques</legend>
+          <%= f.check_box :sellable %> A la vente ?<br />
+          <%= f.text_area :public_comment, value: "Texte publique (description, prix indicatif...)", size: "80x5" %><br />
+          <%= f.submit "Modifier cette recette" %>
+        </fieldset>
+      <% end %>
+<% else %>
+  <hr />
+  <% if @recipe.sellable %>
+    <quote>
+      <%= simple_format @recipe.public_comment %>
+    </quote>
+  <% else %>
+    Non mis à la vente
+  <% end %>
 <% end %>
 <% if @edit_mode and not @recipe.base? %>
     </div>

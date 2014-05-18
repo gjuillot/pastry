@@ -1,9 +1,10 @@
 class Recipe < ActiveRecord::Base
-  attr_accessible :name, :quantity, :unit, :recipe_category_id
+  attr_accessible :name, :quantity, :unit, :recipe_category_id, :sellable, :public_comment
   belongs_to :recipe_category
   has_many :recipe_steps
   
   scope :basics, where("recipe_category_id = 1")
+  scope :sellables, where("sellable = ?", true)
   
   UNITS = ["personnes", "parts", "g", "cl"]
   

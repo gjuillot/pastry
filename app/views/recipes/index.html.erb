@@ -8,6 +8,7 @@
         <th>Nom</th>
         <th>Recette pour</th>
         <th>Coût</th>
+        <th></th>
       </tr>
       <% recipes.each do |recipe| %>
         <tr>
@@ -20,6 +21,7 @@
               <%= recipe.cost.round(2) %>€
             <% end %>
           </td>
+          <td><%= "A la vente" if recipe.sellable %></td>
         </tr>
       <% end %>
     </table>
