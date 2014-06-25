@@ -24,27 +24,19 @@ class RecipeStepsController < ApplicationController
 
   def create
     @recipe_step = RecipeStep.new(params[:recipe_step])
-
-    if @recipe_step.save
-      redirect_to @recipe_step.recipe
-    else
-      render action: "new"
-    end
+    @recipe_step.save
+    redirect_to edit_recipe_path(@recipe_step.recipe)
   end
 
   def update
     @recipe_step = RecipeStep.find(params[:id])
-
-    if @recipe_step.update_attributes(params[:recipe_step])
-      redirect_to @recipe_step.recipe
-    else
-      render action: "edit"
-    end
+    @recipe_step.update_attributes(params[:recipe_step])
+    redirect_to edit_recipe_path(@recipe_step.recipe)
   end
 
   def destroy
     @recipe_step = RecipeStep.find(params[:id])
     @recipe_step.destroy
-    redirect_to recipe_steps_url
+    redirect_to edit_recipe_path(@recipe_step.recipe)
   end
 end

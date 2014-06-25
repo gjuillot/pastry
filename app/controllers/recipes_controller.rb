@@ -10,7 +10,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @edit_mode = params[:edit_mode].blank? ? false : (params[:edit_mode] == "true")
     
     if (params[:quantity].blank?)
       @quantity = @recipe.quantity
@@ -37,7 +36,7 @@ class RecipesController < ApplicationController
           RecipeStep.create({:recipe_id => @recipe.id, :name => @recipe.name, :description => "Ecrire la recette"})
         end
       
-        redirect_to @recipe
+        redirect_to edit_recipe_path(@recipe)
     else
         render action: "new"
     end
@@ -45,12 +44,8 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-
-    if @recipe.update_attributes(params[:recipe])
-      redirect_to @recipe
-    else
-      render action: "edit"
-    end
+    @recipe.update_attributes(params[:recipe])
+    redirect_to edit_recipe_path(@recipe)
   end
 
   def destroy
@@ -67,6 +62,6 @@ class RecipesController < ApplicationController
       step_name = basic.steps.size == 1 ? basic.name : basic.name + " - " + step.name
       step.duplicate(@recipe, step_name, ratio)
     end
-    redirect_to @recipe
+    redirect_to edit_recipe_path(@recipe)
   end
 end

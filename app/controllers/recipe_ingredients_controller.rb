@@ -23,25 +23,19 @@ class RecipeIngredientsController < ApplicationController
 
   def create
     @recipe_ingredient = RecipeIngredient.new(params[:recipe_ingredient])
-    if @recipe_ingredient.save
-      redirect_to @recipe_ingredient.recipe_step.recipe
-    else
-      render action: "new"
-    end
+    @recipe_ingredient.save
+    redirect_to edit_recipe_path(@recipe_ingredient.recipe_step.recipe)
   end
 
   def update
     @recipe_ingredient = RecipeIngredient.find(params[:id])
-    if @recipe_ingredient.update_attributes(params[:recipe_ingredient])
-      redirect_to @recipe_ingredient.recipe_step.recipe
-    else
-      render action: "edit"
-    end
+    @recipe_ingredient.update_attributes(params[:recipe_ingredient])
+    redirect_to edit_recipe_path(@recipe_ingredient.recipe_step.recipe)
   end
 
   def destroy
     @recipe_ingredient = RecipeIngredient.find(params[:id])
     @recipe_ingredient.destroy
-    redirect_to @recipe_ingredient.recipe_step.recipe
+    redirect_to edit_recipe_path(@recipe_ingredient.recipe_step.recipe)
   end
 end
