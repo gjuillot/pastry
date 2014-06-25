@@ -6,6 +6,7 @@
     <th>Prix</th>
     <th>Lieu</th>
     <th>Date</th>
+    <th></th>
   </thead>
   <tbody>
     <% @ingredient.prices.each do |price| %>
@@ -13,6 +14,7 @@
         <td><%= "#{price.price} € pour #{price.quantity} #{@ingredient.unit}" %></td>
         <td><%= price.place %></td>
         <td><%= l price.date %></td>
+        <td><%= delete_icon price %></td>
       </tr>
     <% end %>
     <tr>
@@ -21,6 +23,7 @@
         <td><%= f.text_field :price, size: 10 %> € pour <%= f.number_field :quantity, size: 10 %> <%= @ingredient.unit %></td>
         <td><%= f.text_field :place, size: 20 %></td>
         <td><%= f.submit "Ajouter un prix" %></td>
+        <td></td>
       <% end %>
     </tr>
   </tbody>

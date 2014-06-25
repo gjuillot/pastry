@@ -59,6 +59,6 @@ class PricesController < ApplicationController
   def destroy
     @price = Price.find(params[:id])
     @price.destroy
-    redirect_to prices_url
+    redirect_to @price.ingredient
   end
 end
