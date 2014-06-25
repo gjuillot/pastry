@@ -3,7 +3,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :recipe_category
   has_many :recipe_steps
   
-  scope :basics, where("recipe_category_id = 1")
+  scope :basics, joins(:recipe_category).where('"recipe_categories".basic = ?', true)
   scope :sellables, where("sellable = ?", true)
   
   UNITS = ["personnes", "parts", "g", "cl"]
@@ -21,6 +21,6 @@ class Recipe < ActiveRecord::Base
   end
   
   def base?
-    recipe_category_id == 1
+    !recipe_category_id.nil? && recipe_category.basic
   end
 end

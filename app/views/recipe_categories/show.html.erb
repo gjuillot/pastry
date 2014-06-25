@@ -1,10 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @recipe_category.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @recipe_category.name %>
-</p>
+<%= form_for(@recipe_category) do |f| %>
+  <%= f.text_field :name, size: 20 %>
+  <%= f.check_box :basic %> Base
+  <%= f.submit "Modifier cette catégorie" %>
+<% end %>
 
+<br /><br />
 
-<%= link_to 'Edit', edit_recipe_category_path(@recipe_category) %> |
-<%= link_to 'Back', recipe_categories_path %>
+<table class="table table-condensed">
+  <tr>
+    <th>Nom</th>
+    <th>Recette pour</th>
+    <th>Coût</th>
+    <th></th>
+  </tr>
+  <%= render @recipe_category.recipes %>
+</table>

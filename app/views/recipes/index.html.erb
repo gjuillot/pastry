@@ -2,7 +2,7 @@
 
 <% @recipes_by_category.each do |category, recipes| %>
   <% unless recipes.empty? %>
-    <h2><%= category %></h2>
+    <h2><%= link_to category.name, category rescue "Sans catégorie" %></h2>
     <table class="table table-condensed">
       <tr>
         <th>Nom</th>
@@ -10,20 +10,7 @@
         <th>Coût</th>
         <th></th>
       </tr>
-      <% recipes.each do |recipe| %>
-        <tr>
-          <td><%= link_to recipe.name, recipe %></td>
-          <td><%= "#{recipe.quantity} #{recipe.unit}" %></td>
-          <td>
-            <% if recipe.unit == "personnes" or recipe.unit == "parts" %>
-              <%= (recipe.cost / recipe.quantity).round(2) %>€ par <%= recipe.unit %>
-            <% else %>
-              <%= recipe.cost.round(2) %>€
-            <% end %>
-          </td>
-          <td><%= "A la vente" if recipe.sellable %></td>
-        </tr>
-      <% end %>
+      <%= render recipes %>
     </table>
   <% end %>
 <% end %>
@@ -37,5 +24,6 @@
 <br />
 <%= form_for(RecipeCategory.new) do |f| %>
   <%= f.text_field :name, size: 20 %>
+  <%= f.check_box :basic %> Base
   <%= f.submit "Ajouter catégorie" %>
 <% end %>

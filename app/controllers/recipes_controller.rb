@@ -3,9 +3,9 @@ class RecipesController < ApplicationController
   def index
     @recipes_by_category = {}
     RecipeCategory.all.each do |category|
-      @recipes_by_category[category.name] = Recipe.where("recipe_category_id = ?", category.id).all
+      @recipes_by_category[category] = Recipe.where("recipe_category_id = ?", category.id).all
     end
-    @recipes_by_category["Sans categorie"] = Recipe.where("recipe_category_id IS NULL").all
+    @recipes_by_category[nil] = Recipe.where("recipe_category_id IS NULL").all
   end
 
   def show
