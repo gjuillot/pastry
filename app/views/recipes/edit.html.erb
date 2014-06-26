@@ -57,7 +57,21 @@
       <%= form_tag basic_insertion_recipe_path do %>
         <fieldset>
           <legend>Insérer une recette de base</legend>
-          <%= select_tag "basic", options_for_select(Recipe.basics.map {|b| ["#{b.name} (en #{b.unit})", b.id]}) %>
+          <% grouped_options = {}  %>
+          <% latest_category = nil %>
+          <% latest_group = [] %>
+          <% Recipe.basics.each do |r| %>
+            <% latest_category = r.recipe_category if latest_category.nil? %>
+            <% if latest_category == r.recipe_category %>
+              <% latest_group << ["#{r.name} (en #{r.unit})", r.id] %>
+            <% else %>
+              <% grouped_options[latest_category.name] = latest_group %>
+              <% latest_group = [["#{r.name} (en #{r.unit})", r.id]] %>
+              <% latest_category = r.recipe_category %>
+            <% end %>
+          <% end %>
+          <% grouped_options[latest_category.name] = latest_group %>
+          <%= select_tag "basic", grouped_options_for_select(grouped_options) %>
           <%= text_field_tag "quantity", "Quantité" %>
           <%= submit_tag "Insérer en tant qu'étape" %>
         </fieldset>

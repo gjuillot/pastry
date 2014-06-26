@@ -1,11 +1,15 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes_by_category = {}
-    RecipeCategory.all.each do |category|
-      @recipes_by_category[category] = Recipe.where("recipe_category_id = ?", category.id).all
+    @basic_recipes_by_category = {}
+    RecipeCategory.basics.each do |category|
+      @basic_recipes_by_category[category] = Recipe.where("recipe_category_id = ?", category.id).all
     end
-    @recipes_by_category[nil] = Recipe.where("recipe_category_id IS NULL").all
+    @unbasic_recipes_by_category = {}
+    RecipeCategory.unbasics.each do |category|
+      @unbasic_recipes_by_category[category] = Recipe.where("recipe_category_id = ?", category.id).all
+    end
+    @unbasic_recipes_by_category[nil] = Recipe.where("recipe_category_id IS NULL").all
   end
 
   def show
