@@ -42,7 +42,7 @@
             <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
             <td>
               <% if ingredient.has_cost? %>
-                <%= (ingredient.cost * @ratio).ceil(2) %> €
+                <%= (ingredient.cost[:cost] * @ratio).ceil(2) %> € (<%= ingredient.cost[:place] %> - <%= l ingredient.cost[:date]%>)
               <% else %>
                 ???????
               <% end %>

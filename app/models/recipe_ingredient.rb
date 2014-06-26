@@ -9,9 +9,17 @@ class RecipeIngredient < ActiveRecord::Base
   
   def cost
     if has_cost?
-      ingredient.price.price * quantity / ingredient.price.quantity
+      {
+        :cost => ingredient.price.price * quantity / ingredient.price.quantity,
+        :place => ingredient.price.place,
+        :date => ingredient.price.date
+      }
     else
-      0
+      {
+        :cost => 0,
+        :place => nil,
+        :date => nil
+      }
     end
   end
   

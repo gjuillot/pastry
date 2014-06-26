@@ -13,7 +13,7 @@ class RecipeStep < ActiveRecord::Base
     if ingredients.empty?
       0
     else
-      ingredients.map(&:cost).inject(:+)
+      ingredients.map{|i| i.cost[:cost]}.inject(:+)
     end
   end
   
