@@ -28,13 +28,6 @@
           <tr>
             <td><%= "#{ingredient.quantity} #{ingredient.ingredient.unit}" %></td>
             <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
-            <td>
-              <% if ingredient.has_cost? %>
-                <%= ingredient.cost %> €
-              <% else %>
-                ???????
-              <% end %>
-            </td>
             <td><%= delete_icon ingredient %></td>
           </tr>
         <% end %>
