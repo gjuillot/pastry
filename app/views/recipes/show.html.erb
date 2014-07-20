@@ -13,7 +13,7 @@
     <% end %>
   </div>
   <div class="col-md-6">
-    <%= link_to "Modifier cette recette", edit_recipe_path(@recipe)%>
+    <%= edit_icon @recipe, " Modifier cette recette" %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= delete_icon @recipe, " Supprimer cette recette" %>
   </div>
 </div>
 
