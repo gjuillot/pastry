@@ -82,7 +82,10 @@
 <%= form_for(@recipe) do |f| %>
   <fieldset>
     <legend>Modifier cette recette</legend>
-    <%= f.text_field :name, size: 40 %> <%= f.collection_select :recipe_category_id, RecipeCategory.all, :id, :name %> <%= f.submit "Modifier cette recette" %>
+    <%= f.text_field :name, size: 40 %>&nbsp;
+    <%= f.collection_select :recipe_category_id, RecipeCategory.all, :id, :name %>&nbsp;
+    <%= f.number_field :quantity, size: 4 %>&nbsp;<%= @recipe.unit %>&nbsp;&nbsp;
+    <%= f.submit "Modifier cette recette" %>
   </fieldset>
 <% end %><br /><br />
 <%= form_for(@recipe) do |f| %>
