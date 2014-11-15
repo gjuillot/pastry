@@ -5,6 +5,8 @@ class Ingredient < ActiveRecord::Base
   
   default_scope order("name ASC")
   
+  validates :name, length: { minimum: 2 }
+  
   UNITS = ["cl", "g", "unitaire"]
   
   def price

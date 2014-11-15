@@ -5,6 +5,8 @@ class RecipeStep < ActiveRecord::Base
   
   default_scope order("id ASC")
   
+  validates :name, length: { minimum: 2 }
+  
   def ingredients
     recipe_ingredients
   end

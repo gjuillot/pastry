@@ -5,6 +5,9 @@ class Investment < ActiveRecord::Base
   
   default_scope order("created_at DESC")
   
+  validates :name, length: { minimum: 2 }
+  validates :price, :numericality => { :greater_than => 0 }
+  
   def category
     investment_category.name
   end

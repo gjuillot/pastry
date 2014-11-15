@@ -3,6 +3,8 @@ class RecipeIngredient < ActiveRecord::Base
   belongs_to :ingredient
   attr_accessible :quantity, :recipe_step_id, :ingredient_id
   
+  validates :quantity, :numericality => { :only_integer => true, :greater_than => 0 }
+  
   def has_cost?
     !ingredient.price.nil?
   end

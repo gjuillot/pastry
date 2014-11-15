@@ -4,4 +4,6 @@ class RecipeCategory < ActiveRecord::Base
   
   scope :basics, where('basic = ?', true)
   scope :unbasics, where('basic = ?', false)
+  
+  validates :name, length: { minimum: 2 }
 end

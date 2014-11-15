@@ -6,6 +6,9 @@ class Recipe < ActiveRecord::Base
   scope :basics, joins(:recipe_category).where('"recipe_categories".basic = ?', true)
   scope :sellables, where("sellable = ?", true)
   
+  validates :name, length: { minimum: 2 }
+  validates :quantity, :numericality => { :only_integer => true, :greater_than => 0 }
+  
   UNITS = ["personnes", "parts", "g", "cl"]
   
   def category
