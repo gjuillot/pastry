@@ -5,7 +5,7 @@ class Price < ActiveRecord::Base
   default_scope order("id DESC")
   
   validates :price, :numericality => { :greater_than => 0 }
-  validates :quantity, :numericality => { :only_integer => true, :greater_than => 0 }
+  validates :quantity, :numericality => { :greater_than => 0 }
   
   def date
     created_at
