@@ -3,7 +3,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :recipe_category
   has_many :recipe_steps
   
-  scope :basics, joins(:recipe_category).where('"recipe_categories".basic = ?', true)
+  scope :basics, joins(:recipe_category).where('"recipe_categories".basic = ?', true).order('"recipe_categories".name ASC, name ASC')
   scope :sellables, where("sellable = ?", true)
   
   validates :name, length: { minimum: 2 }
