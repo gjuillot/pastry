@@ -23,8 +23,9 @@
     <% full_cost &= ingredient.has_cost? %>
   <% end %>
 <% end %>
-<%= (@recipe.cost * @ratio).round(2) %> €  -  <%= (@recipe.cost / @recipe.quantity).round(2) %> € par <%= @recipe.unit %><%= " (incomplet)" unless full_cost %>
-
+<% cost = (@recipe.cost * @ratio).round(2) %>
+<%= cost %> €  -  <%= (@recipe.cost / @recipe.quantity).round(2) %> € par <%= @recipe.unit %><%= " (incomplet)" unless full_cost %><br />
+soit x3 = <%= cost * 3 %>€ - x3.5 = <%= cost * 3.5 %>€ - x4 = <%= cost * 4 %>€
 <hr />
 
 <% steps = 0 %>
@@ -38,7 +39,7 @@
       <table class="table table-condensed">
         <% step.ingredients.each do |ingredient| %>
           <tr>
-            <td><%= "#{(ingredient.quantity * @ratio).round} #{ingredient.ingredient.unit}" %></td>
+            <td><%= "#{(ingredient.quantity * @ratio).round(2)} #{ingredient.ingredient.unit}" %></td>
             <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
             <td>
               <% if ingredient.has_cost? %>
