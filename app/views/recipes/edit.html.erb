@@ -25,11 +25,14 @@
     <div class="col-md-5">
       <table class="table table-condensed">
         <% step.ingredients.each do |ingredient| %>
-          <tr>
-            <td><%= "#{ingredient.quantity} #{ingredient.ingredient.unit}" %></td>
-            <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
-            <td><%= delete_icon ingredient %></td>
-          </tr>
+          <%= form_for(ingredient) do |f| %>
+            <tr>
+              <td><%= f.text_field :quantity, size: 10 %> <%= ingredient.ingredient.unit %></td>
+              <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
+              <td><%= f.submit "Modifier" %></td>
+              <td><%= delete_icon ingredient %></td>
+            </tr>
+          <% end %>
         <% end %>
         <tr>
           <%= form_for RecipeIngredient.new do |f| %>
