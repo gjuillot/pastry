@@ -27,7 +27,7 @@
         <% step.ingredients.each do |ingredient| %>
           <%= form_for(ingredient) do |f| %>
             <tr>
-              <td><%= f.text_field :quantity, size: 10 %> <%= ingredient.ingredient.unit %></td>
+              <td><%= f.text_field :quantity, size: 10, value: ingredient.quantity.round(2) %> <%= ingredient.ingredient.unit %></td>
               <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
               <td><%= f.submit "Modifier" %></td>
               <td><%= delete_icon ingredient %></td>
