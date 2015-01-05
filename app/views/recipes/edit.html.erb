@@ -22,12 +22,12 @@
     <h2>Etape <%= steps %> - <%= step.name %></h2>
   <% end %>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <table class="table table-condensed">
         <% step.ingredients.each do |ingredient| %>
           <%= form_for(ingredient) do |f| %>
             <tr>
-              <td><%= f.text_field :quantity, size: 10, value: ingredient.quantity.round(2) %> <%= ingredient.ingredient.unit %></td>
+              <td><%= f.text_field :quantity, size: 6, value: ingredient.quantity.round(2) %> <%= ingredient.ingredient.unit %></td>
               <td><%= link_to ingredient.ingredient.name, ingredient.ingredient %></td>
               <td><%= f.submit "Modifier" %></td>
               <td><%= delete_icon ingredient %></td>
@@ -37,14 +37,14 @@
         <tr>
           <%= form_for RecipeIngredient.new do |f| %>
             <%= f.hidden_field :recipe_step_id, value: step.id %>
-            <td><%= f.text_field :quantity, size: 10 %></td>
+            <td><%= f.text_field :quantity, size: 6 %></td>
             <td><%= f.collection_select :ingredient_id, Ingredient.all, :id, :to_s %></td>
-            <td><%= f.submit "Ajouter ingrédient "%></td>
+            <td><%= f.submit "Ajouter"%></td>
           <% end %>
         </tr>
       </table>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <%= step.description %>
       <br /><br />
       <%= delete_icon step, " Supprimer cette étape" %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= edit_icon step, " Modifier cette étape" %>
@@ -53,10 +53,33 @@
   <hr />
 <% end %>
 
-<% unless @recipe.base? %>
-  <br /><br />
-  <div class="row">
-    <div class="col-md-6">
+<br /><br />
+
+<div class="row">
+  <div class="col-md-6">
+    <h2>Informations générales</h2>
+    <%= form_for(@recipe) do |f| %>
+      <fieldset>
+        <legend>Modifier cette recette</legend>
+        <%= f.text_field :name, size: 40 %>&nbsp;
+        <%= f.collection_select :recipe_category_id, RecipeCategory.all, :id, :name %>&nbsp;
+        <%= f.number_field :quantity, size: 4 %>&nbsp;<%= @recipe.unit %>&nbsp;&nbsp;
+        <%= f.submit "Modifier cette recette" %>
+      </fieldset>
+    <% end %><br /><br />
+    <%= form_for(@recipe) do |f| %>
+      <fieldset>
+        <legend>Informations publiques</legend>
+        <%= f.check_box :sellable %> A la vente ?<br />
+        <%= f.text_area :public_comment, value: (@recipe.public_comment.blank? ? "Texte publique (description, prix indicatif...)" : @recipe.public_comment.blank?), size: "75x15" %><br />
+        <%= f.submit "Modifier cette recette" %>
+      </fieldset>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Ajouter une étape</h2>
+    <% unless @recipe.base? %>
       <%= form_tag basic_insertion_recipe_path do %>
         <fieldset>
           <legend>Insérer une recette de base</legend>
@@ -79,39 +102,16 @@
           <%= submit_tag "Insérer en tant qu'étape" %>
         </fieldset>
       <% end %>
-      <br /><br />
-<% end %>
-
-<%= form_for(@recipe) do |f| %>
-  <fieldset>
-    <legend>Modifier cette recette</legend>
-    <%= f.text_field :name, size: 40 %>&nbsp;
-    <%= f.collection_select :recipe_category_id, RecipeCategory.all, :id, :name %>&nbsp;
-    <%= f.number_field :quantity, size: 4 %>&nbsp;<%= @recipe.unit %>&nbsp;&nbsp;
-    <%= f.submit "Modifier cette recette" %>
-  </fieldset>
-<% end %><br /><br />
-<%= form_for(@recipe) do |f| %>
-  <fieldset>
-    <legend>Informations publiques</legend>
-    <%= f.check_box :sellable %> A la vente ?<br />
-    <%= f.text_area :public_comment, value: (@recipe.public_comment.blank? ? "Texte publique (description, prix indicatif...)" : @recipe.public_comment.blank?), size: "80x5" %><br />
-    <%= f.submit "Modifier cette recette" %>
-  </fieldset>
-<% end %>
-
-<% unless @recipe.base? %>
+    <br /><br />
+    <% end %>
+    <%= form_for RecipeStep.new do |f| %>
+      <fieldset>
+        <legend><%= @recipe.base? ? "Créer une nouvelle étape" : "Ou créer une nouvelle étape" %></legend>
+        <%= f.hidden_field :recipe_id, value: @recipe.id %>
+        <%= f.text_field :name, value: "Nom de l'étape" %><br />
+        <%= f.text_area :description, value: "Description de l'étape", size: "75x15" %><br />
+        <%= f.submit "Ajouter une étape" %>
+      </fieldset>
+    <% end %>
     </div>
-    <div class="col-md-6">
-      <%= form_for RecipeStep.new do |f| %>
-        <fieldset>
-          <legend>Ou créer une nouvelle étape</legend>
-          <%= f.hidden_field :recipe_id, value: @recipe.id %>
-          <%= f.text_field :name, value: "Nom de l'étape" %><br />
-          <%= f.text_area :description, value: "Description de l'étape" %><br />
-          <%= f.submit "Ajouter une étape" %>
-        </fieldset>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+</div>

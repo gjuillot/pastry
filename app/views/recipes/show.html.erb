@@ -35,7 +35,7 @@ soit x3 = <%= cost * 3 %>€ - x3.5 = <%= cost * 3.5 %>€ - x4 = <%= cost * 4 %
     <h2>Etape <%= steps %> - <%= step.name %></h2>
   <% end %>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <table class="table table-condensed">
         <% step.ingredients.each do |ingredient| %>
           <tr>
@@ -52,7 +52,7 @@ soit x3 = <%= cost * 3 %>€ - x3.5 = <%= cost * 3.5 %>€ - x4 = <%= cost * 4 %
         <% end %>
       </table>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <%= step.description %>
     </div>
   </div>
