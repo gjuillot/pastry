@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
 
   def index
+    @display_prices = params[:no_price].blank? ? true : (params[:no_price] == "false")
+    
     @basic_recipes_by_category = {}
     RecipeCategory.basics.each do |category|
       @basic_recipes_by_category[category] = Recipe.where("recipe_category_id = ?", category.id).all

@@ -2,10 +2,12 @@
       <td><%= link_to recipe.name, recipe %></td>
       <td><%= "#{recipe.quantity} #{recipe.unit}" %></td>
       <td>
-        <% if recipe.unit == "personnes" or recipe.unit == "parts" %>
-          <%= (recipe.cost / recipe.quantity).round(2) %>€ par <%= recipe.unit %>
-        <% else %>
-          <%= recipe.cost.round(2) %>€
+        <% if @display_prices %>
+          <% if recipe.unit == "personnes" or recipe.unit == "parts" %>
+            <%= (recipe.cost / recipe.quantity).round(2) %>€ par <%= recipe.unit %>
+          <% else %>
+            <%= recipe.cost.round(2) %>€
+          <% end %>
         <% end %>
       </td>
       <td><%= "A la vente" if recipe.sellable %></td>

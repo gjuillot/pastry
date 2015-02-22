@@ -8,7 +8,7 @@
           <tr>
             <th>Nom</th>
             <th>Recette pour</th>
-            <th>Coût</th>
+            <% if @display_prices %><th>Coût</th><% end %>
             <th></th>
           </tr>
           <%= render recipes %>
@@ -25,7 +25,7 @@
           <tr>
             <th>Nom</th>
             <th>Recette pour</th>
-            <th>Coût</th>
+            <% if @display_prices %><th>Coût</th><% end %>
             <th></th>
           </tr>
           <%= render recipes %>
