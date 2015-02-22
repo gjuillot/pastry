@@ -20,7 +20,7 @@
           <% if user_signed_in? %>
             <ul class="nav navbar-nav pull-left">
               <li><%= link_to "Consommables", ingredients_path %></li>
-              <li><%= link_to "Recettes", recipes_path %></li>
+              <li><%= link_to "Recettes", recipes_path(no_price: true) %></li>
               <li><%= link_to "Investissements", investments_path %></li>
             </ul>
             <ul class="nav navbar-nav  pull-right">
