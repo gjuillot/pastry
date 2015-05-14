@@ -6,4 +6,8 @@ class HomeController < ApplicationController
     end
     @recipes_by_category["Sans categorie"] = Recipe.sellables.where("recipe_category_id IS NULL").all
   end
+  
+  def welcome
+    render :layout => false
+  end
 end

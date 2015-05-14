@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>L'Îlot Sucré</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <link href='http://fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-color: black; color: #c1323d">
+    <div align="center">
+      <p>
+        <%= image_tag 'logo.jpg', width: '500' %>
+      </p>
+      <p>
+        18 rue de Cannes, 67400 Illkirch-Graffenstaden
+        <br />
+        Ingrid 06.60.43.58.33 - Vincent 06.34.44.97.56
+      </p>
+      <p>
+        <strong>Site en construction</strong>
+      </p>
+    </div>
+  </body>
+</html>

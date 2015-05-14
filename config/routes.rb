@@ -17,6 +17,7 @@ Pastry::Application.routes.draw do
   
   resources :investments
   resources :investment_categories
-
-  root :to => "home#index"
+  
+  match '/admin', :to => "home#index"
+  root :to => "home#welcome"
 end
