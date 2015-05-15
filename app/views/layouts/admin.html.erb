@@ -15,18 +15,24 @@
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <%= link_to image_tag('logo_shorten.jpg', height: '100'), '/index', id: "logo" %>
-        <nav><br /><br /><br />
-          <ul class="nav navbar-nav pull-left">
-            <li><%= link_to "Présentation", '/index' %></li>
-            <li><%= link_to "Nos produits", '/produits' %></li>
-            <li><%= link_to "Nos évènements", '/evenements' %></li>
-            <li><%= link_to "Nos partenaires", '/partenaires' %></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li><%= link_to "Contact", '/contact' %></li>
-            <li><%= link_to "Mentions légales", '/legal' %></li>
-          </ul>
+        <%= link_to "L'Îlot Sucré", '/admin', id: "logo" %>
+        <nav>
+          <% if user_signed_in? %>
+            <ul class="nav navbar-nav pull-left">
+              <li><%= link_to "Consommables", ingredients_path %></li>
+              <li><%= link_to "Recettes", recipes_path(no_price: true) %></li>
+              <li><%= link_to "Investissements", investments_path %></li>
+            </ul>
+            <ul class="nav navbar-nav  pull-right">
+              <li><a><%= current_user.email %></a></li>
+              <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav  pull-right">
+              <li><%= link_to "Créer un compte", new_user_registration_path %></li>
+              <li><%= link_to "Se connecter", new_user_session_path %></li>
+            </ul>
+          <% end %>
         </nav>
       </div>
     </div>

@@ -18,6 +18,12 @@ Pastry::Application.routes.draw do
   resources :investments
   resources :investment_categories
   
-  match '/admin', :to => "home#index"
+  match '/index', :to => "home#index"
+  match '/produits', :to => "home#produits"
+  match '/evenements', :to => "home#evenements"
+  match '/partenaires', :to => "home#partenaires"
+  match '/contact', :to => "home#contact"
+  match '/legal', :to => "home#legal"
+  match '/admin', :to => "home#admin"
   root :to => "home#welcome"
 end
