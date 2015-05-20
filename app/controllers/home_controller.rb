@@ -18,6 +18,30 @@ class HomeController < ApplicationController
   def produits
   end
   
+  def entremets
+  end
+  
+  def tartes
+  end
+  
+  def macarons_geants
+  end
+  
+  def macarons
+  end
+  
+  def cheese_cakes
+  end
+  
+  def gateaux_decores
+  end
+  
+  def autres_patisseries_americaines
+  end
+  
+  def pour_vos_evenements
+  end
+  
   def evenements
   end
   
