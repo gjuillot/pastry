@@ -1,6 +1,7 @@
 class PricesController < ApplicationController
-  # GET /prices
-  # GET /prices.json
+  
+  layout "admin"
+  
   def index
     if (params[:ingredient].blank?)
       @prices = Price.all
@@ -9,14 +10,10 @@ class PricesController < ApplicationController
     end
   end
 
-  # GET /prices/1
-  # GET /prices/1.json
   def show
     @price = Price.find(params[:id])
   end
 
-  # GET /prices/new
-  # GET /prices/new.json
   def new
     if (params[:ingredient].blank?)
       redirect_to ingredients_path
@@ -26,13 +23,10 @@ class PricesController < ApplicationController
     end
   end
 
-  # GET /prices/1/edit
   def edit
     @price = Price.find(params[:id])
   end
 
-  # POST /prices
-  # POST /prices.json
   def create
     @price = Price.new(params[:price])
     if @price.save
@@ -42,8 +36,6 @@ class PricesController < ApplicationController
     end
   end
 
-  # PUT /prices/1
-  # PUT /prices/1.json
   def update
     @price = Price.find(params[:id])
 
@@ -54,8 +46,6 @@ class PricesController < ApplicationController
     end
   end
 
-  # DELETE /prices/1
-  # DELETE /prices/1.json
   def destroy
     @price = Price.find(params[:id])
     @price.destroy

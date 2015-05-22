@@ -1,4 +1,6 @@
 class RecipeStepsController < ApplicationController
+  
+  layout "admin"
 
   def index
     @recipe_steps = RecipeStep.all

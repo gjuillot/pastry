@@ -1,4 +1,7 @@
 class InvestmentsController < ApplicationController
+  
+  layout "admin"
+  
   def index
     @investments = Investment.all
     @users = User.all

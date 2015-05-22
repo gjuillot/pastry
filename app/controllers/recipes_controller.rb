@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  
+  layout "admin"
 
   def index
     @display_prices = params[:no_price].blank? ? true : (params[:no_price] == "false")

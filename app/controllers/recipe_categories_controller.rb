@@ -1,4 +1,7 @@
 class RecipeCategoriesController < ApplicationController
+  
+  layout "admin"
+  
   def create
     @recipe_category = RecipeCategory.new(params[:recipe_category])
     @recipe_category.save

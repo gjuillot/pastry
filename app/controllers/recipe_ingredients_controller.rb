@@ -1,4 +1,7 @@
 class RecipeIngredientsController < ApplicationController
+  
+  layout "admin"
+  
   def index
     @recipe_ingredients = RecipeIngredient.all
   end
