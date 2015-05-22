@@ -2,32 +2,14 @@
 <html>
   <head>
     <title>L'Îlot Sucré</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <link href='http://fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body style="background-color: black; color: #BE1621">
     <div align="center">
-      <p>
-        <%= image_tag 'logoblanc.png', width: '500' %>
-      </p>
-      <p>
-        18 rue de Cannes, 67400 Illkirch-Graffenstaden
-        <br />
-        Ingrid <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>06.60.43.58.33 - Vincent <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>06.34.44.97.56
-        <br />
-        <a href="mailto:contact@lilotsucre.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> contact@lilotsucre.com</a>
-        <br />
-        <a href="https://www.facebook.com/lilotsucre">Facebook</a>
-      </p>
-      <p>
-        <strong>Site en construction</strong>
-      </p>
+      <%= image_tag 'logoblanc.png', width: '500' %><br />
+      <%= image_tag 'ingrid_phone.png', style: 'position: relative; left: -200px; top: -100px' %>
+      <%= image_tag 'vincent_phone.png', style: 'position: relative; left: 200px; top: -100px' %><br />
+      <%= image_tag 'adresse.png', style: 'position: relative; top: -80px' %><br />
+      <strong>Site en construction. En attendant, n'hésitez pas à nous <a href="mailto:contact@lilotsucre.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>contacter</a> ou consulter notre page <a href="https://www.facebook.com/lilotsucre">Facebook</a></strong>
     </div>
   </body>
 </html>
