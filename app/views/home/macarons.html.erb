@@ -1,13 +1,51 @@
-<div class="row">
+<%
+
+macarons = [
+  {parfum: "Café", offset: "0px", image: "cafe"},
+  {parfum: "Chocolat", offset: "100px", image: "chocolat"},
+  {parfum: "Citron", offset: "158px", image: "citron"},
+  {parfum: "Coco", offset: "194px", image: "coco"},
+  {parfum: "Fraise", offset: "215px", image: "fraise"},
+  {parfum: "Framboise", offset: "225px", image: "framboise"},
+  {parfum: "Mangue", offset: "228px", image: "mangue"},
+  {parfum: "Myrtille", offset: "228px", image: "myrtille"},
+  {parfum: "Orange Passion Chocolat", offset: "225px", image: "orange-passion-chocolat"},
+  {parfum: "Pistache", offset: "215px", image: "pistache"},
+  {parfum: "Pistache Griotte", offset: "194px", image: "pistache-griotte"},
+  {parfum: "Rose Litchi", offset: "158px", image: "rose-litchi"},
+  {parfum: "Toffee Beurre salé", offset: "100px", image: "toffee"},
+  {parfum: "Vanille", offset: "0px", image: "vanille"}
+]
+
+%>
+
+<div class="row" style="background-image: url(<%= image_path 'macarons/macaron_4.jpg' %>)">
   <div class="col-md-3">
-    <%= image_tag 'macarons/macaron_2.jpg', width: '100%' %>
+    <span style="color: white; font-size: 300%; font-weight: bold">MACARONS</span>
   </div>
-  <div class="col-md-6">
-    <div style="width: 100%; height: 500px; padding-bottom: 30px;">
-      <script src="http://cdn.tagul.com/embed/vogtprk7aaer"></script>
+  <div class="col-md-4" style="background-color: rgba(253,229,140,0.8);">
+    <% macarons.each do |macaron| %>
+      <span style="position: relative; left: <%= macaron[:offset] %>" class="parfum" id="<%= macaron[:image] %>">
+        <%= image_tag 'macarons/'+macaron[:image]+'.png', height: '35px' %> <%= macaron[:parfum] %>
+      </span><br />
+    <% end %>
+  </div>
+  <% macarons.each do |macaron| %>
+    <div id="<%= macaron[:image] %>" class="macaron col-md-3 col-md-offset-1" style="background-color: rgba(253,229,140,0.8)">
+      <h3 style="color: white;"><%= macaron[:parfum] %></h3>
+      <%= image_tag 'macarons/'+macaron[:image]+'.png', width: '100%' %>
+      <br />
     </div>
-  </div>
-  <div class="col-md-3">
-    <%= image_tag 'macarons/macaron_3.jpg', width: '100%' %>
-  </div>
+  <% end %>
 </div>
+
+<script>
+  <!--
+  $("div.macaron").hide();
+  $("span.parfum").mouseover(function() {
+    $("div.macaron").hide();
+    $("div#" + this.id).show();
+  });
+  //-->
+</script>
+
