@@ -2,14 +2,81 @@
 <html>
   <head>
     <title>L'Îlot Sucré</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <style media="screen" type="text/css">
+      .rotate {
+        /* Safari */
+        -webkit-transform: rotate(-45deg);
+        /* Firefox */
+        -moz-transform: rotate(-45deg);
+        /* IE */
+        -ms-transform: rotate(-45deg);
+        /* Opera */
+        -o-transform: rotate(-45deg);
+        /* Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        
+        font-family: 'Architects Daughter', cursive;
+      }
+      .rotate2 {
+        /* Safari */
+        -webkit-transform: rotate(45deg);
+        /* Firefox */
+        -moz-transform: rotate(45deg);
+        /* IE */
+        -ms-transform: rotate(45deg);
+        /* Opera */
+        -o-transform: rotate(45deg);
+        /* Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        
+        font-family: 'Architects Daughter', cursive;
+      }
+      .bandeau {
+        width: 650px;
+        padding: 15px;
+        border: groove white;
+        background-color: #BE1621;
+        color: white;
+      }
+      a {
+        color: white;
+      }
+      a:hover {
+        color: #be1621;
+      }
+    </style>
   </head>
-  <body style="background-color: black; color: #BE1621">
+  <body style="background-color: black; color: white; font-family: 'Josefin Sans', sans-serif; font-style: bold; font-size: 24px;">
     <div align="center">
+      <!--div class="rotate" style="position: relative; top: 200px; left: -300px">
+        Une touche d'évasion<br />et de voyage
+      </div>
+      
+      <div class="rotate2" style="position: relative; top: 150px; left: 300px">
+        Qualité des produits<br />Equilibre des saveurs
+      </div-->
+      
       <%= image_tag 'logoblanc.png', width: '500' %><br />
       <%= image_tag 'ingrid_phone.png', style: 'position: relative; left: -200px; top: -100px' %>
-      <%= image_tag 'vincent_phone.png', style: 'position: relative; left: 200px; top: -100px' %><br />
-      <%= image_tag 'adresse.png', style: 'position: relative; top: -80px' %><br />
-      <strong>Site en construction. En attendant, n'hésitez pas à nous <a href="mailto:contact@lilotsucre.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>contacter</a> ou consulter notre page <a href="https://www.facebook.com/lilotsucre">Facebook</a></strong>
+      <%= image_tag 'vincent_phone.png', style: 'position: relative; left: 200px; top: -100px' %>
+      <br />
+      
+      <div style="position: relative; top: -90px;">
+        <a href="mailto:contact@lilotsucre.com">contact@lilotsucre.com</a><br />
+        18 rue de Cannes - Illkirch-Graffenstaden
+      </div>
+      
+      <div class="bandeau" style="position: relative; top: -70px;">
+        Entremets - Macarons - Gâteaux décorés - Gâteaux 3D<br />
+        Sur commande uniquement
+      </div>
+      
+      <div style="position: relative; top: -60px;">
+        Site en construction. Pour patienter, découvrez-nous sur <a href="https://www.facebook.com/lilotsucre">Facebook</a>
+      </div>
     </div>
   </body>
 </html>
