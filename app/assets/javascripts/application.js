@@ -11,3 +11,19 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.browser.min
+//= require jquery.easing
+//= require bootstrap.min
+//= require jquery.stellar.min
+//= require jquery.jcarousel.min
+//= require nivo-lightbox.min
+//= require jquery.BlackAndWhite
+//= require jquery.onscreen.min
+//= require jquery.validate
+//= require validate.contact
+//= require jquery.isotope.min
+//= require jquery.columnizer
+//= require skrollr
+//= require SmoothScroll
+//= require jquery.flexslider
+//= require ht-js
