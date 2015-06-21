@@ -1,0 +1,45 @@
+
+  <div id="ht-main-content" class="menu">
+
+    <div class="ht-page-heading">
+      <div class="container">
+        <div class="row">
+          <div class="main-heading col-xs-12">
+            <h1><strong>&middot;</strong> Nos macarons géants <strong>&middot;</strong></h1>
+          </div><!-- / main-heading -->
+          <div class="sub-heading col-sm-6 col-sm-offset-3 col-xs-12">
+            <p>Deux coques géantes de macarons, à partager.</p>
+          </div><!-- / sub-heading -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / page-heading -->
+    
+    <div id="ht-menu" class="grid">
+      <div class="container">
+        <div id="filter-container" class="menu-single-grid grid-2col">
+          <div class="row">
+            
+<% @produits.each do |produit| %>
+
+            <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
+              <div class="media-container col-xs-12">
+                <div class="inner">
+                   <%= image_tag "macarons_geants/" + produit[:image] + ".jpg", class: "img-responsive" %>
+                    <a href="<%= "macarons_geants/" + produit[:image] + ".html" %>" class="icon">
+                      <%= image_tag "macarons_geants/" + produit[:image] + "_zoom.jpg", class: "img-responsive" %>
+                    </a>
+                </div><!-- / inner -->
+
+              </div><!-- media-container -->
+              <div class="content col-xs-12">
+                <a href="<%= "macarons_geants/" + produit[:image] + ".html" %>"><h3><%= produit[:name] %></h3></a>
+                <p><%= produit[:text] %></p>
+              </div><!-- content -->
+            </div><!-- / dish -->
+
+<% end %>
+
+          </div><!-- / row -->
+        </div><!-- / filter-container menu-single-grid -->
+      </div><!-- container -->
+    </div><!-- / ht-menu -->

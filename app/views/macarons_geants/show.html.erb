@@ -1,0 +1,79 @@
+  <div id="ht-main-content" class="menu">
+
+    <div class="ht-page-heading">
+      <div class="container">
+        <div class="row">
+          <div class="main-heading col-xs-12">
+            <h1><strong>&middot;</strong> Macaron géant <%= @produit[:name] %> <strong>&middot;</strong></h1>
+          </div><!-- / main-heading -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / page-heading -->
+    
+    <div id="ht-menu-detail">
+      <div class="container">       
+        <div class="gallery-dish row">
+          <div class="gallery col-sm-6 col-xs-12 onscreen-marker">          
+            <div class="main-img media-container">
+              <div class="inner col-xs-12">
+                <!-- No need to define image source -->
+                <img class="img-responsive" src="" alt="">
+                <a class="hover-overlay nivo-lightbox" href=""></a>
+              </div><!-- / col-sm-4 col-xs-12 -->
+            </div><!-- / row -->
+
+            <div class="jcarousel-wrapper">
+              <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                        <div class="jcarousel navigation">
+                          <ul>
+<% @produit[:images].each do |image| %>
+                            <li class="bw-wrapper onscreen-marker">
+                              <%= image_tag "macarons_geants/" + image + ".jpg", class: "img-responsive" %>
+                            </li>
+<% end %>
+                          </ul>
+                        </div><!-- / jcarousel -->
+            </div><!-- / jcarousel-wrapper -->
+          </div><!-- / gallery -->
+
+          <div class="dish col-sm-6 col-xs-12 onscreen-marker">
+            <br />
+            <h2><%= raw @produit[:text] %></h2>
+            <div class="price">Toutes nos pâtisseries sont réalisées sur commande uniquement</div>
+            <form action="/contact">
+              <button type="submit" class="ht-btn btn-float"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
+            </form>
+          </div><!-- / dish -->
+        </div><!-- / row -->
+
+        <div class="recommended">
+          <h2>Nous vous recommandons également</h2>
+          <hr>
+          <div class="jcarousel-wrapper row">
+            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                      <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+            <div class="jcarousel onscreen-marker">
+              <ul><!-- Jcarousel -->
+
+<% @recommandations.each do |r| %>
+
+                <li class="item col-sm-3 col-xs-6">
+                  <div class="media-container">
+                    <div class="inner">
+                      <%= image_tag r[:image] + ".jpg", class: "img-responsive center-block" %>
+                      <a href="<%= r[:url] %>" class="hover-overlay" title="<%= raw r[:name] %>" data-lightbox-gallery="gallery1"></a><!-- / hover-overlay -->
+                    </div><!-- / inner -->
+                  </div><!-- / media-container -->
+                  <span class="name"><a href="#"><%= raw r[:name] %></a></span>
+                </li><!-- / item -->
+
+<% end %>
+
+              </ul><!-- / Jcarousel -->
+            </div><!-- / jcarousel -->
+          </div><!-- / related-dishes -->
+        </div><!-- / row -->
+
+      </div><!-- container -->
+    </div><!-- / ht-menu -->

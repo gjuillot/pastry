@@ -7,8 +7,19 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
+ * 
+ * <link rel="stylesheet" href="plugin/datetimepicker/DateTimePicker.css" media="screen">
+ * <link rel="stylesheet" href="css/style-switcher.css"> 
+ * <link rel="stylesheet" href="css/style.css" id="main-style">
+ * <link rel="stylesheet" href="" id="theme">
+ * <!--[if lt IE 9]> <link rel="stylesheet" type="text/css" href="plugin/datetimepicker/DateTimePicker-ltie9.css" /> <![endif]-->
  *
- *= require_self
- *= require bootstrap_import
- *= require lavish
+ *= require bootstrap.min
+ *= require font-awesome
+ *= require social
+ *= require isotope
+ *= require flexslider
+ *= require style
+ *= require nivo-lightbox
+ *= require nivo-lightbox-default
 */

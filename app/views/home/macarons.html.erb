@@ -1,51 +1,94 @@
 <%
 
 macarons = [
-  {parfum: "Café", offset: "0px", image: "cafe"},
-  {parfum: "Chocolat", offset: "100px", image: "chocolat"},
-  {parfum: "Citron", offset: "158px", image: "citron"},
-  {parfum: "Coco", offset: "194px", image: "coco"},
-  {parfum: "Fraise", offset: "215px", image: "fraise"},
-  {parfum: "Framboise", offset: "225px", image: "framboise"},
-  {parfum: "Mangue", offset: "228px", image: "mangue"},
-  {parfum: "Myrtille", offset: "228px", image: "myrtille"},
-  {parfum: "Orange Passion Chocolat", offset: "225px", image: "orange-passion-chocolat"},
-  {parfum: "Pistache", offset: "215px", image: "pistache"},
-  {parfum: "Pistache Griotte", offset: "194px", image: "pistache-griotte"},
-  {parfum: "Rose Litchi", offset: "158px", image: "rose-litchi"},
-  {parfum: "Toffee Beurre salé", offset: "100px", image: "toffee"},
-  {parfum: "Vanille", offset: "0px", image: "vanille"}
+  {
+    type: "specialites",
+    nom: "Nos spécialités",
+    macarons: [
+      {parfum: "Coco", image: "bientot"},
+      {parfum: "Orange Passion Chocolat", image: "bientot"},
+      {parfum: "Pistache Griotte", image: "pistache-griotte"},
+      {parfum: "Rose Litchi", image: "rose-litchi"},
+      {parfum: "Toffee Beurre salé", image: "bientot"}
+    ]
+  },
+  {
+    type: "fruits",
+    nom: "Aux fruits",
+    macarons: [
+      {parfum: "Citron", image: "citron"},
+      {parfum: "Fraise", image: "fraise"},
+      {parfum: "Framboise", image: "framboise"},
+      {parfum: "Mangue", image: "mangue"},
+      {parfum: "Myrtille", image: "myrtille"}
+    ]
+  },
+  {
+    type: "classiqes",
+    nom: "Les classiques",
+    macarons: [
+      {parfum: "Café", image: "cafe"},
+      {parfum: "Chocolat", image: "chocolat"},
+      {parfum: "Pistache", image: "pistache"},
+      {parfum: "Vanille", image: "vanille"}
+    ]
+  }
 ]
 
 %>
 
-<div class="row" style="background-image: url(<%= image_path 'macarons/macaron_4.jpg' %>)">
-  <div class="col-md-3">
-    <span style="color: white; font-size: 300%; font-weight: bold">MACARONS</span>
-  </div>
-  <div class="col-md-4" style="background-color: rgba(253,229,140,0.8);">
-    <% macarons.each do |macaron| %>
-      <span style="position: relative; left: <%= macaron[:offset] %>" class="parfum" id="<%= macaron[:image] %>">
-        <%= image_tag 'macarons/'+macaron[:image]+'.png', height: '35px' %> <%= macaron[:parfum] %>
-      </span><br />
-    <% end %>
-  </div>
-  <% macarons.each do |macaron| %>
-    <div id="<%= macaron[:image] %>" class="macaron col-md-3 col-md-offset-1" style="background-color: rgba(253,229,140,0.8)">
-      <h3 style="color: white;"><%= macaron[:parfum] %></h3>
-      <%= image_tag 'macarons/'+macaron[:image]+'.png', width: '100%' %>
-      <br />
-    </div>
+  <div id="ht-main-content" class="menu">
+
+    <div class="ht-page-heading">
+      <div class="container">
+        <div class="row">
+          <div class="main-heading col-xs-12">
+            <h1><strong>&middot;</strong> Nos macarons <strong>&middot;</strong></h1>
+          </div><!-- / main-heading -->
+          <div class="sub-heading col-sm-6 col-sm-offset-3 col-xs-12">
+            <p>Régaler vos papilles avec nos macarons entièrement faits maison.</p>
+          </div><!-- / sub-heading -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / page-heading -->
+
+    <div id="ht-menu" class="set">
+      <div class="container">
+        <div id="filter-container" class="menu-set">
+          <div class="row">
+            
+<% macarons.each do |type| %>
+
+            <div class="a-set <%= type[:type] %> col-sm-4 col-xs-12">
+              <div class="col-xs-12">
+                <h2><%= type[:nom] %></h2>
+              </div>
+            
+  <% type[:macarons].each do |macaron| %>
+  
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="media-container col-lg-5 col-md-5 col-xs-12">
+                  <div class="inner">
+                    <%= image_tag "macarons/" + macaron[:image] + ".jpg", class: "img-responsive" %>
+                    <a href="<%= image_path "macarons/" + macaron[:image] + ".jpg" %>" class="icon nivo-lightbox">
+                      <%= image_tag "macarons/" + macaron[:image] + "_zoom.jpg", class: "img-responsive" %>
+                    </a>
+                  </div><!-- / inner -->
+                </div><!-- media-container -->
+                <div class="content col-lg-7 col-md-7 col-xs-12">
+                  <a href="#"><h3><%= macaron[:parfum] %></h3></a>
+                </div><!-- content -->
+              </div><!-- / dish -->
+  
   <% end %>
-</div>
+  
+            </div><!-- / a-set -->
 
-<script>
-  <!--
-  $("div.macaron").hide();
-  $("span.parfum").mouseover(function() {
-    $("div.macaron").hide();
-    $("div#" + this.id).show();
-  });
-  //-->
-</script>
+<% end %>
 
+          </div><!-- / row -->
+        </div><!-- / filter-container -->
+
+      </div><!-- container -->
+
+    </div><!-- / ht-menu -->

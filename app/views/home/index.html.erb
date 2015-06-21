@@ -1,29 +1,139 @@
-<div class="row">
-  <h1>Présentation</h1>
-  <div class="col-md-8">
-    Situé au c&oelig;ur d'un quartier résidentiel, à la jonction de Strasbourg et d'Illkirch, L'Îlot Sucré vous propose une escapade gourmande dans l'univers de la pâtisserie d'Ingrid et Vincent. Alliant modernité et classicisme, nos pâtisseries sont à l'image de leurs créateurs : une touche d'évasion et de voyage, un soucis de la qualité des produits et de l'équilibre des saveurs.<br /><br />
-    La Canal Rhin-Rhône, aux abords duquel se trouve notre atelier, est pour nous source d'inspiration et d'invitation au voyage. Ainsi, nous mêlons saveurs d'ici et d'ailleurs, et sommes fiers de vous présenter les grands classiques de la pâtisserie française, tels les macarons, aux côtés de gâteaux décorés typiques des Etats-Unis.<br /><br />
-    Imaginées et créées dans notre laboratoire, nos pâtisseries sont disponibles à la commande, à effectuer sur place, au téléphone ou par l'intermédiaire de notre site internet. Vous pouvez alors retirer vos commandes à notre atelier, ou très prochainement chez nos îlots partenaires, ou vous faire livrer par nos soins.
-  </div>
-  <div class="col-md-4">
-    <%= image_tag 'ingrid.jpg', width: '100%' %>
-  </div>
-</div>
+  <div id="ht-main-content" class="homepage">
+    <div id="ht-ultility">
+      <div class="container">
+        <div class="row">
+          <h1 class="sr-only">Ultility</h1>
+          <div class="col-sm-4 col-xs-12">
+            <div class="item">
+              <div class="background" style="background: url('<%= image_path "homepage/nous_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
+              <div class="icon foods"></div>
+              <h2>Nos valeurs</h2>
+              <p class="onscreen-marker">L'Îlot Sucré vous propose une escapade gourmande dans l'univers de la pâtisserie d'Ingrid et Vincent. Alliant modernité et classicisme, nos pâtisseries sont à l'image de leurs créateurs : une touche d'évasion et de voyage, un soucis de la qualité des produits et de l'équilibre des saveurs.</p>
+              <a class="ht-btn center-block" href="#ht-team">Qui sommes-nous ?</a>
+            </div><!-- / ultility item -->
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="item">
+              <div class="background" style="background: url('<%= image_path "homepage/vincent_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
+              <div class="icon openning"></div>
+              <h2>Escapade gourmande</h2>
+              <p>Le Canal Rhin-Rhône, aux abords duquel se trouve notre atelier, est pour nous source d'inspiration et d'invitation au voyage. Ainsi, nous mêlons saveurs d'ici et d'ailleurs, et sommes fiers de vous présenter les grands classiques de la pâtisserie française, tels les macarons, aux côtés de gâteaux décorés typiques des Etats-Unis.</p>
+              <a class="ht-btn center-block" href="#nos-produits">Nos produits</a>
+            </div><!-- / ultility item -->
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="item">
+              <div class="background" style="background: url('<%= image_path "homepage/saupoudrage_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
+              <div class="icon reservation"></div>
+              <h2>&Agrave; la commande</h2>
+              <p>Imaginées et créées dans notre laboratoire, nos pâtisseries sont disponibles à la commande, à effectuer sur place, au téléphone ou par l'intermédiaire de notre site internet. Vous pouvez alors retirer vos commandes à notre atelier, ou très prochainement chez nos îlots partenaires, ou vous faire livrer par nos soins.</p>
+              <a class="ht-btn center-block" href="/contact">Nous contacter</a>
+            </div><!-- / ultility item -->
+          </div>
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / ht-ultility -->
+  </div><!-- / homepage -->
+  
+  <div id="ht-main-content" class="menu"> 
+    <div id="nos-produits" class="ht-page-heading">
+      <div class="container">
+        <div class="row">
+          <div class="main-heading col-xs-12">
+            <h1><strong>&middot;</strong> Nos produits <strong>&middot;</strong></h1>
+          </div><!-- / main-heading -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / page-heading -->
 
-<br />
+    <div id="ht-menu" class="grid">
+      <div class="container">
+        <div id="filter-container" class="menu-single-grid grid-3col">
+          <div class="row">
+            
+<%
+  produits = [
+    { name: "macarons", title: "Nos macarons", text: "Régaler vos papilles avec nos macarons entièrement faits maison." },
+    { name: "macarons_geants", title: "Nos macarons géants", text: "Toute la gourmandise et la qualité de nos macarons, en version à partager." },
+    { name: "tartes", title: "Nos tartes", text: "Des créations modernes pour réinventer ce classique de nos grand-mères." },
+    { name: "entremets", title: "Nos entremets", text: "" },
+    { name: "gateaux_decores", title: "Nos gâteaux décorés et 3D", text: "Gâteaux décorés et gâteaux 3D faits sur mesure pour épater vos invités." },
+    { name: "patisseries_americaines", title: "Nos pâtisseries américaines", text: "" },
+    { name: "pour_vos_evenements", title: "Pour vos évènements", text: "Outre gâteaux décorés et gâteaux 3D, nous sommes à votre disposition pour animer vos évènements." },
+    { name: "pour_les_pros", title: "Pour les professionnels", text: "" }
+  ]
+  
+  produits.each do |produit|
+%>         
+            <div class="dish col-sm-4 col-xs-12 onscreen-marker">
+              <div class="media-container col-xs-12">
+                <div class="inner">
+                  <%= image_tag "homepage/" + produit[:name]+".jpg", class: "img-responsive" %>
+                  <%= link_to "", "/" + produit[:name], {class: "hover-overlay color nivo-lightbox", title: produit[:title]} %>
+                  <a href="/<%= produit[:name] %>" class="icon"><%= image_tag "icones/magnifying-glass_64px.png", class: "img-responsive" %></a>
+                </div><!-- / inner -->
+              </div><!-- media-container -->
+              <div class="content col-xs-12">
+                <a href="/<%= produit[:name] %>"><h3><%= produit[:title] %></h3></a>
+                <p><%= produit[:text] %></p>
+              </div><!-- content -->
+            </div><!-- / dish -->
+<% end %>
 
-<div class="row">
-  <div class="col-md-6">
-    <h1>Ingrid</h1>
-    <%= image_tag 'ingrid.png', width: '20%', class: 'pull-left', style: 'margin-right: 10px;' %>
-    « Déjà enfant, je régalais ma famille en leur confectionnant des crèmes au chocolat. Aujourd'hui, c'est avec vous que je souhaite partager ma passion pour la pâtisserie, en vous faisant découvrir mon amour pour la recherche de l'équilibre et des associations de saveurs. Originaire de l'Île de la Réunion, j'aime apporter un peu d'exotisme et de soleil à vos papilles. »<br /><br />
+          </div><!-- / row -->
+        </div><!-- / tab-content -->
+      </div><!-- container -->
 
-<em>L'entremet qui me plaît</em> : Macaron géant rose litchi et son confit framboise et litchi<br />
-<em>Le macaron pour lequel je fonds</em> : Macaron noix de coco<br />
-<em>Ma tarte préférée</em> : Tarte au marron et crémeux myrtille<br />
-<em>Ma spécialité</em> : le travail du chocolat
-  </div>
-  <div class="col-md-6">
-    <h1>Vincent</h1>
-  </div>
-</div>
+    </div><!-- / ht-menu -->
+</div><!-- / menu -->
+
+  <div id="ht-main-content" class="about">
+    <div id="ht-team">
+      <div class="container">
+        <div class="ht-page-heading">
+          <div class="container">
+            <div class="row">
+              <div class="main-heading col-xs-12">
+                <h1><strong>&middot;</strong> Qui sommes-nous ? <strong>&middot;</strong></h1>
+              </div><!-- / main-heading -->
+            </div><!-- / row -->
+          </div><!-- / container -->
+        </div><!-- / page-heading -->
+        <div class="row">
+          <div class="col-sm-offset-2 col-sm-4 col-xs-12 onscreen-marker">
+            <div class="media-container">
+              <div class="inner">
+                <%= image_tag "homepage/ingrid.jpg", class: "img-responsive center-block"%>
+                <div class="hover-overlay"></div><!-- / hover-overlay -->
+
+                <p class="caption-heading">Ingrid</p>
+                <div class="caption-overlay">
+                  <p class="heading">Ingrid PEYRICHOU</p>
+                  <p class="bio">
+                    <em>Déjà enfant, je régalais ma famille en leur confectionnant des crèmes au chocolat. Aujourd'hui, c'est avec vous que je souhaite partager ma passion pour la pâtisserie, en vous faisant découvrir mon amour pour la recherche de l'équilibre et des associations de saveurs. Originaire de l'Île de la Réunion, j'aime apporter un peu d'exotisme et de soleil à vos papilles.</em><br /><br />
+
+<strong>L'entremet qui me plaît</strong> : Macaron géant rose litchi et son confit framboise et litchi<br />
+<strong>Le macaron pour lequel je fonds</strong> : Macaron noix de coco<br />
+<strong>Ma tarte préférée</strong> : Tarte au marron et crémeux myrtille<br />
+<strong>Ma spécialité</strong> : le travail du chocolat</p>
+                </div><!-- / caption-overlay -->
+              </div><!-- / inner -->
+            </div><!-- / media-container -->
+          </div><!-- / col-sm-4 col-xs-12 -->
+          <div class="col-sm-4 col-xs-12 onscreen-marker">
+            <div class="media-container">
+              <div class="inner">
+                <%= image_tag "homepage/vincent.jpg", class: "img-responsive center-block"%>
+                <div class="hover-overlay"></div><!-- / hover-overlay -->
+
+                <p class="caption-heading">Vincent</p>
+                <div class="caption-overlay">
+                  <p class="heading">Vincent OHL</p>
+                  <p class="bio">Duis ac ultrices diam. Vestibulum arcu metus, hendrerit quis lacus quis, eleifend tincidunt odio. Sed id diam euismod, feugiat elit ut, blandit quam. Aenean eget varius mauris. Sed non elit molestie, pulvinar nulla non, fringilla lacus.</p>
+                </div><!-- / caption-overlay -->
+              </div><!-- / inner -->
+            </div><!-- / media-container -->
+          </div><!-- / col-sm-4 col-xs-12 -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / ht-team -->

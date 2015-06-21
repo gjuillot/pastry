@@ -1,49 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+  <!-- Basic needs -->
   <title>L'Îlot Sucré</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link href='http://fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content=""> 
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <!-- Mobile specific meta -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone-no"> 
+
+  <!-- CSS files -->
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+
+  <!-- JS files -->
+  <%= javascript_include_tag "jquery" %>
+
+  <!-- Font -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,300,700,800,500' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700bold' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <%= link_to image_tag('logoblanc_court.png', height: '120'), '/index', id: "logo" %>
-        <nav><br /><br /><br />
-          <ul class="nav navbar-nav pull-left">
-            <li><%= link_to "Présentation", '/index' %></li>
-            <li><%= link_to "Nos produits", '/produits' %></li>
-            <li><%= link_to "Nos évènements", '/evenements' %></li>
-            <li><%= link_to "Nos partenaires", '/partenaires' %></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li><%= link_to "Contact", '/contact' %></li>
-            <li><%= link_to "Mentions légales", '/legal' %></li>
-          </ul>
-        </nav>
+  <!-- P A G E   P R E L O A D -->
+  <div id="preload">
+    <div class="inner">
+      <%= image_tag "logo/logo_blanc_preload.png", class: "logo pulse" %>
+      <div class="rotate rotating">
+        <div class="inner">
+          <div class="dot dot-1"></div>
+          <div class="dot dot-2"></div>
+        </div>
       </div>
     </div>
-  </header>
-  <div class="container-fluid">
-    <% if notice %>
-      <div class="alert"><%= raw t('flash.' + notice) %></div>
-    <% end %>
-    <% if alert %>
-      <div class="alert alert-error"><%= raw t('flash.' + alert) %></div>
-    <% end %>
-    <br />
-    
+  </div>
+  <!-- / preload -->
+  
+<!-- TODO -->
+  <header id="ht-header" data-ht-parallax="300" style="background-image: url('<%= image_path "background/menu.jpg" %>')">
+    <div class="filter-overlay"></div><!-- / filter-overlay -->
+    <div class="container">
+      <!-- Logo -->
+<!-- TODO -->
+      <a id="ht-logo" href="/index">
+        <%= image_tag "logo/logo_blanc_preload.png", class: "img-responsive center-block" %>
+      </a>
+
+      <button type="button" class="ht-navbar-toggle center-block" data-target="#ht-main-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <nav id="ht-main-nav" role="navigation">
+        <ul class="main-nav nav-text">
+          <li class="nav">
+            <a href="index.html" class="animated wobble nav home">
+              <i class="icon fa fa-home"></i>
+              <span class="text"> Présentation</span>
+              <span class="mobile"> Présentation</span>
+            </a>
+          </li>
+          <li class="nav">
+            <a class="animated wobble nav menu">
+              <i class="icon fa fa-coffee"></i>
+              <span class="text">Nos produits</span>
+              <span class="mobile"> Nos produits</span>
+            </a>
+            <div class="link-list hidden">
+              <div class="caret-top"></div>
+              <ul>
+                <li class="nav-head">Nos produits</li>
+                <li><a href="/macarons">Nos macarons</a></li>
+                <li><a href="/macarons_geants">Nos macarons géants</a></li>
+                <li><a href="menu-grid-2col.html">Nos gâteaux décorés et 3D</a></li>
+                <li><a href="menu-grid-3col.html">Nos tartes</a></li>
+                <li><a href="menu-grid-4col.html">Nos entrements</a></li>
+                <li><a href="menu-detail.html">Nos pâtisseries américaines</a></li>
+                <li><a href="menu-detail.html">Pour vos évènements</a></li>
+              </ul>
+            </div><!-- / link-list -->
+          </li>
+          <li class="nav">
+            <a class="animated wobble nav history">
+              <i class="icon fa fa-book"></i>
+              <span class="text">Nos partenaires</span>
+              <span class="mobile"> Nos partenaires</span>
+            </a>
+          </li>
+          <li class="nav">
+            <a href="contact.html" class="animated wobble nav contact">
+              <i class="icon fa fa-phone"></i>
+              <span class="text">Contact</span>
+              <span class="mobile"> Contact</span>
+            </a>
+          </li>
+        </ul><!-- / main-nav -->
+      </nav><!-- / main-nav -->
+    </div><!-- /container -->
+  </header><!-- / header -->
+
     <%= yield %>
     
-    <br /><br /><br />
-  </div>
+    <div id="ht-pre-footer">
+      <h1 class="sr-only">Hain Theme Pre Footer</h1>
+      <div class="container">
+        <div class="row">
+          <div class="about item col-sm-4 col-xs-12">
+            <h2 class="sr-only">About us</h2>
+            <%= image_tag "logo/logo_blanc_preload.png", class: "logo img-reponsive center-block" %>
+            <p>L'Îlot Sucré vous propose une escapade gourmande dans l'univers de la pâtisserie d'Ingrid et Vincent. Alliant modernité et classicisme, nos pâtisseries sont à l'image de leurs créateurs : une touche d'évasion et de voyage, un soucis de la qualité des produits et de l'équilibre des saveurs.</p>
+          </div><!-- / item -->
+          <div class="contact item col-sm-4 col-xs-12">
+            <h2>A la commande uniquement</h2>
+            <p>Imaginées et créées dans notre laboratoire, nos pâtisseries sont disponibles à la commande, à effectuer sur place, au téléphone ou par l'intermédiaire de notre site internet.</p>
+            <address class="address">
+              <div class="item">
+                <i class="marker"></i><p>18 rue de Cannes, Illkirch-Graffenstaden</p>
+              </div>
+              <div class="item">
+                <i class="phone"></i><p>Ingrid : 06.60.43.58.33</p>
+              </div>
+              <div class="item">
+                <i class="phone"></i><p>Vincent : 06.34.44.97.56</p>
+              </div>
+              <div class="item">
+                <i class="mail"></i><p>contact@lilotsucre.com</p>
+              </div>
+            </address>
+          </div><!-- / item -->
+          <div class="gallery item col-sm-4 col-xs-12">
+            <h2>Gallerie</h2>
+            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
+              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
+            </div>
+            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
+              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
+            </div>
+            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
+              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
+            </div>
+            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
+              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
+            </div>
+            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
+              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
+            </div>
+          </div><!-- / item -->
+        </div><!-- / row -->
+      </div><!-- / container -->  
+    </div><!-- pre-footer -->
+    
+  </div><!-- / main-content -->
+
+  <footer id="ht-footer">
+    <div class="container">
+      <div class="row">
+        <div class="copy col-sm-4 col-xs-12">
+          <p>2015 - SAS L'Îlot Sucré – RCS Strasbourg TI 810 850 651</p>
+        </div>
+        <div class="copy col-sm-4 col-xs-12">
+          <%= link_to "Mentions légales", "/legal" %>
+        </div>
+        <div class="ht-social col-sm-4 col-xs-12">
+          <a href="www.facebook.com/lilotsucre" class="fa fa-facebook"></a>
+          <a href="https://www.linkedin.com/company/l%27%C3%AElot-sucr%C3%A9" class="fa fa-linkedin"></a>
+        </div><!-- social -->
+      </div><!-- / row -->
+    </div><!-- / container -->
+  </footer><!-- / footer -->
+
+  <!-- JS Files -->
+  <%= javascript_include_tag "jquery.browser.min" %>
+  <%= javascript_include_tag "jquery.easing" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= javascript_include_tag "jquery.stellar.min" %>
+  <%= javascript_include_tag "jquery.jcarousel.min" %>
+  <%= javascript_include_tag "nivo-lightbox.min" %>
+  <%= javascript_include_tag "jquery.BlackAndWhite" %>
+  <%= javascript_include_tag "jquery.onscreen.min" %>
+  <%= javascript_include_tag "jquery.validate" %>
+  <%= javascript_include_tag "validate.contact" %>
+  <%= javascript_include_tag "jquery.isotope.min" %>
+  <%= javascript_include_tag "jquery.columnizer" %>
+  <%= javascript_include_tag "skrollr" %>
+  <%= javascript_include_tag "SmoothScroll" %>
+  <script src="plugin/datetimepicker/DateTimePicker.js"></script>
+  <%= javascript_include_tag "jquery.flexslider" %>
+  <script src="js/.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <!--[if lt IE 9]>
+   <script type="text/javascript" src="plugin/datetimepicker/DateTimePicker-ltie9.js"></script>
+  <![endif]-->
+  <%= javascript_include_tag "ht-js" %>
+  
 </body>
 </html>
