@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += [ 'admin.css', 'jquery.js' ]
+Rails.application.config.assets.precompile += [ 'admin.css', 'jquery.js', 'admin.js' ]
