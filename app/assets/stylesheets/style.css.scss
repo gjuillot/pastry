@@ -3692,6 +3692,8 @@ ul#ht-collapsed-list {
         color: #e52d27; }
       #ht-main-content.contact #ht-social ul li a.skype :hover {
         color: #12a5f4; }
+      #ht-main-content.contact #ht-social ul li a.mail :hover {
+        color: #000000; }
 #ht-main-content.contact #ht-map {
   padding-top: 100px; }
   #ht-main-content.contact #ht-map .map-wrapper {
@@ -3713,14 +3715,14 @@ ul#ht-collapsed-list {
       top: 50%;
       right: 50px;
       width: 330px;
-      height: 360px;
+      height: 410px;
       padding: 20px;
       background: rgba(255, 255, 255, 0.8); }
       #ht-main-content.contact #ht-map .map-wrapper .contact .logo {
         margin: 0 33px; }
       #ht-main-content.contact #ht-map .map-wrapper .contact .address {
-        padding: 0 50px;
-        margin: 30px 0; }
+        padding: 0 10px;
+        margin: 5px 0; }
         #ht-main-content.contact #ht-map .map-wrapper .contact .address .marker, #ht-main-content.contact #ht-map .map-wrapper .contact .address .phone, #ht-main-content.contact #ht-map .map-wrapper .contact .address .mail {
           display: inline-block;
           float: left;
@@ -3728,11 +3730,11 @@ ul#ht-collapsed-list {
           width: 26px;
           margin-right: 10px; }
         #ht-main-content.contact #ht-map .map-wrapper .contact .address .marker {
-          background: url(../img/pre-ft-ico-marker.png) no-repeat 1px 0; }
+          background: asset-data-url("icones/pre-ft-ico-marker.png") no-repeat 1px 0; }
         #ht-main-content.contact #ht-map .map-wrapper .contact .address .phone {
-          background: url(../img/pre-ft-ico-phone.png) no-repeat 3px 0; }
+          background: asset-data-url("icones/pre-ft-ico-phone.png") no-repeat 3px 0; }
         #ht-main-content.contact #ht-map .map-wrapper .contact .address .mail {
-          background: url(../img/pre-ft-ico-mail.png) no-repeat; }
+          background: asset-data-url("icones/pre-ft-ico-mail.png") no-repeat; }
         #ht-main-content.contact #ht-map .map-wrapper .contact .address p {
           line-height: 32px; }
     #ht-main-content.contact #ht-map .map-wrapper #map {
