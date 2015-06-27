@@ -18,7 +18,7 @@
 
 
   <!-- JS files -->
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery" %>
 
   <!-- Font -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,300,700,800,500' rel='stylesheet' type='text/css'>
@@ -39,12 +39,10 @@
   </div>
   <!-- / preload -->
   
-<!-- TODO -->
   <header id="ht-header" data-ht-parallax="300" style="background-image: url('<%= image_path "background/menu.jpg" %>')">
     <div class="filter-overlay"></div><!-- / filter-overlay -->
     <div class="container">
       <!-- Logo -->
-<!-- TODO -->
       <a id="ht-logo" href="/index">
         <%= image_tag "logo/logo_blanc_preload.png", class: "img-responsive center-block" %>
       </a>
@@ -59,7 +57,7 @@
       <nav id="ht-main-nav" role="navigation">
         <ul class="main-nav nav-text">
           <li class="nav">
-            <a href="index.html" class="animated wobble nav home">
+            <a href="/index" class="animated wobble nav home">
               <i class="icon fa fa-home"></i>
               <span class="text"> Présentation</span>
               <span class="mobile"> Présentation</span>
@@ -77,16 +75,16 @@
                 <li class="nav-head">Nos produits</li>
                 <li><a href="/macarons">Nos macarons</a></li>
                 <li><a href="/macarons_geants">Nos macarons géants</a></li>
-                <li><a href="menu-grid-2col.html">Nos gâteaux décorés et 3D</a></li>
-                <li><a href="menu-grid-3col.html">Nos tartes</a></li>
-                <li><a href="menu-grid-4col.html">Nos entrements</a></li>
-                <li><a href="menu-detail.html">Nos pâtisseries américaines</a></li>
-                <li><a href="menu-detail.html">Pour vos évènements</a></li>
+                <li><a href="/gateaux_decores">Nos gâteaux décorés et 3D</a></li>
+                <li><a href="/tartes">Nos tartes</a></li>
+                <li><a href="/entremets">Nos entrements</a></li>
+                <li><a href="/patisseries_americaines">Nos pâtisseries américaines</a></li>
+                <li><a href="/pour_vos_evenements.html">Pour vos évènements</a></li>
               </ul>
             </div><!-- / link-list -->
           </li>
           <li class="nav">
-            <a class="animated wobble nav history">
+            <a href="/partenaires" class="animated wobble nav history">
               <i class="icon fa fa-book"></i>
               <span class="text">Nos partenaires</span>
               <span class="mobile"> Nos partenaires</span>
@@ -133,23 +131,25 @@
               </div>
             </address>
           </div><!-- / item -->
+          
+<%=
+  images = ["background/menu.jpg", "macarons_geants/pistache-griotte.jpg", "tartes/orange-passion.jpg"]
+%>
+          
           <div class="gallery item col-sm-4 col-xs-12">
             <h2>Gallerie</h2>
+            
+<% images.shuffle.first(9).each do |i| %>
             <div class="media-container bw-wrapper col-sm-4 col-xs-2">
-              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
+              <div class="inner">
+                <%= image_tag i, class: "img-responsive" %>
+                <a href="<%= image_path i %>" class="icon nivo-lightbox">
+                  <%= image_tag i, class: "img-responsive" %>
+                </a>
+              </div>
             </div>
-            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
-              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
-            </div>
-            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
-              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
-            </div>
-            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
-              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
-            </div>
-            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
-              <img class="img-responsive" src="img/img-placeholder/1300x866.gif" alt="">
-            </div>
+<% end %>
+
           </div><!-- / item -->
         </div><!-- / row -->
       </div><!-- / container -->  
@@ -175,6 +175,7 @@
   </footer><!-- / footer -->
 
   <!-- JS Files -->
+  <%= javascript_include_tag "application" %>
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <!--[if lt IE 9]>
    <script type="text/javascript" src="plugin/datetimepicker/DateTimePicker-ltie9.js"></script>

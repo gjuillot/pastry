@@ -9,7 +9,11 @@ class HomeController < ApplicationController
   end
   
   def welcome
-    render :layout => false
+    if (!current_user.nil?)
+      redirect_to admin_path()
+    else
+      render :layout => false
+    end
   end
   
   def index

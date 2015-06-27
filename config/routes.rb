@@ -19,15 +19,14 @@ Pastry::Application.routes.draw do
   resources :investment_categories
   
   resources :macarons_geants
+  resources :tartes
+  resources :entremets
+  resources :patisseries_americaines
   
   match '/index', :to => "home#index"
   match '/produits', :to => "home#produits"
-  match '/entremets', :to => "home#entremets"
-  match '/tartes', :to => "home#tartes"
   match '/macarons', :to => "home#macarons"
-  match '/cheese_cakes', :to => "home#cheese_cakes"
   match '/gateaux_decores', :to => "home#gateaux_decores"
-  match '/autres_patisseries_americaines', :to => "home#autres_patisseries_americaines"
   match '/pour_vos_evenements', :to => "home#pour_vos_evenements"
   match '/evenements', :to => "home#evenements"
   match '/partenaires', :to => "home#partenaires"

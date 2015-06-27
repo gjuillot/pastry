@@ -1,49 +1,64 @@
-<div class="row">
-  <div class="col-md-6">
-    <h1>Nos gâteaux décorés</h1>
-    Envie d'un gâteau décoré pour vos occasions : mariage, anniversaire, goûter d'enfant... ? Nous vous proposons des gâteaux décorés, personnalisés sur mesure, à base de pâte à sucre ainsi que des gâteaux 3D. Nous <%= link_to "contacter", "/contact" %> pour concevoir ensemble un gâteau qui vous ressemble.
-  </div>
-  <div class="col-md-6">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
+  <div id="ht-main-content" class="gallery">
+
+    <div class="ht-page-heading">
+      <div class="container">
+        <div class="row">
+          <div class="main-heading col-xs-12">
+            <h1><strong>&middot;</strong> Nos gâteaux décorés et gâteaux 3D <strong>&middot;</strong></h1>
+          </div><!-- / main-heading -->
+          <div class="sub-heading col-sm-6 col-sm-offset-3 col-xs-12">
+            <p>Envie d'un gâteau décoré pour vos occasions : mariage, anniversaire, goûter d'enfant... ? Nous vous proposons des gâteaux décorés, personnalisés sur mesure, à base de pâte à sucre ainsi que des gâteaux 3D. Nous <%= link_to "contacter", "/contact" %> pour concevoir ensemble un gâteau qui vous ressemble.</p>
+          </div><!-- / sub-heading -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </div><!-- / page-heading -->
     
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <!--div class="item active">
-          <%= image_tag 'gateaux_decores/baby_shower.jpg' %>
-        </div-->
-        <div class="item active">
-          <%= image_tag 'gateaux_decores/decore_mouton.jpg' %>
-        </div>
-        <div class="item">
-          <%= image_tag 'gateaux_decores/decore_neige.jpg' %>
-        </div>
-        <!--div class="item">
-          <%= image_tag 'gateaux_decores/mario.jpg' %>
-        </div-->
-        <div class="item">
-          <%= image_tag 'gateaux_decores/minnie.jpg' %>
-        </div>
-        <!--div class="item">
-          <%= image_tag 'gateaux_decores/minnie_2.jpg' %>
-        </div-->
-      </div>
+    <div id="ht-menu-sortbar">
+      <div class="ht-tab-nav text-center">
+        <ul id="filter-controller">
+          <li><a href="#filter" data-filter="*" class="active">Tous</a></li>
+          <li><a href="#filter" data-filter=".enfant">Pour enfants</a></li>
+          <li><a href="#filter" data-filter=".adulte">Pour adultes</a></li>
+          <li><a href="#filter" data-filter=".3d">3D</a></li>
+        </ul>
+      </div><!-- / ht-tab-nav -->
+    </div><!-- / ht-menu-sortbar -->
     
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-</div>
-  
+    <div id="ht-gallery" class="masonry">
+      <div class="container">
+        <div id="filter-container">
+          <div class="row">
+
+<%
+  photos = [
+    { name: "baby_shower", theme: "adulte" },
+    { name: "decore_mouton", theme: "enfant" },
+    { name: "decore_neige", theme: "enfant" },
+    { name: "mario", theme: "enfant" },
+    { name: "minnie", theme: "enfant" },
+    { name: "minnie_2", theme: "enfant" },
+    { name: "tracteur", theme: "enfant 3d" },
+    {name: "fin_exams", theme: "adulte" }
+  ].shuffle
+%>
+
+<% photos.each do |photo| %>            
+            <div class="frame <%= photo[:theme] %> col-md-3 col-sm-4 onscreen-marker">
+              <div class="media-container">
+                <div class="inner">
+                  <%= image_tag "gateaux_decores/" + photo[:name] + ".jpg" ,  class: "img-responsive" %>
+                  <div class="hover-overlay color"></div><!-- / hover-overlay -->
+                  <a data-lightbox-gallery="gallery1" href="<%= image_path "gateaux_decores/" + photo[:name] + ".jpg" %>" class="nivo-lightbox icon" title="">
+                    <%= image_tag "icones/magnifying-glass_64px.png" %>
+                  </a>
+                </div><!-- / inner -->
+              </div><!-- media-container -->
+            </div><!-- / frame -->
+<% end %>            
+
+          </div><!-- / row -->
+        </div><!-- / filter container -->
+      </div><!-- container -->
+
+    </div><!-- / ht-menu -->
+    
