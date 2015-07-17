@@ -7,49 +7,80 @@ class ApplicationController < ActionController::Base
   
   @@entremet_chocolat_caramel = {
     name: "Le Chocolat Caramel beurre sal&eacute;",
-    images: ["entremets/chocolat-caramel"],
+    images: [
+      "https://40.media.tumblr.com/ccb18e8ddd416609343a81ff0751ce86/tumblr_nrkyp7ve2j1uadryro1_1280.jpg",
+      "https://36.media.tumblr.com/3978664abbc2cec1a13d8a874f924919/tumblr_nrkyp7ve2j1uadryro2_1280.jpg",
+      "https://40.media.tumblr.com/4f4745e9f566ef417bc074504eab2f46/tumblr_nrkyp7ve2j1uadryro3_1280.jpg",
+      "https://41.media.tumblr.com/71c6bc2360d92f9e51c8582ea4bf14e6/tumblr_nrkyp7ve2j1uadryro4_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/567f0aa045b31fc476523f131df53ac8/tumblr_nrkyp7ve2j1uadryro5_1280.jpg",
     text: "Brownie, mousse chocolat au lait et f&egrave;ve de Tonka, cr&eacute;meux caramel au beurre sal&eacute; et mousse chocolat noir",
     url: "/entremets/chocolat-caramel.html"
   }
   
-  @@entremet_mangue_passion = {
-    name: "Mangue passion",
-    images: ["entremets/mangue-passion"],
+  @@entremet_exotique = {
+    name: "Exotique",
+    images: [
+      "https://40.media.tumblr.com/4dc719427192f80507beb48f2a17a8f3/tumblr_nrl494jtjq1uadryro1_1280.jpg",
+      "https://40.media.tumblr.com/030fb3acfc71eae12e4b5179df98b351/tumblr_nrl494jtjq1uadryro2_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/fe7b9f08b45fca0b2775039bb8b3e76d/tumblr_nrl494jtjq1uadryro3_1280.jpg",
     text: "Dacquoise coco, confit orange passion, mousse mague passion, cr&eacute;meux citron vert, nougatine coco, chantilly mascarpone des &icirc;les",
-    url: "/entremets/mangue-passion.html"
+    url: "/entremets/exotique.html"
   }
   
   @@entremet_myrtille_framboise = {
     name: "Myrtille Framboise",
-    images: ["entremets/myrtille-framboise"],
+    images: [
+      "https://40.media.tumblr.com/8d82d45041a9789895cb8ccc468943de/tumblr_nrky0kS6I91uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/945ff03c1b265f63c6f6205cced1742d/tumblr_nrky0kS6I91uadryro2_1280.jpg",
+      "https://41.media.tumblr.com/bb42bb1f00513eac78d8a35ccb4dd705/tumblr_nrky0kS6I91uadryro3_1280.jpg",
+      "https://41.media.tumblr.com/ce23cd4f7cc67ab967856c9b74b9c0a1/tumblr_nrky0kS6I91uadryro4_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/5d6ccd5b2dc3fec17c04ec6590147d1c/tumblr_nrky0kS6I91uadryro5_1280.jpg",
     text: "Dacquoise pistache, mousse myrtille, confit framboise, nougatine amande",
     url: "/entremets/myrtille-framboise.html"
   }
   
-  @@entremet_passionnement_framboise = {
-    name: "Passionn&eacute;ment framboise",
-    images: ["entremets/passionnement-framboise"],
-    text: "Dacquoise pistache, mousse framboise, confit fruit de la passion, nougatine amande",
-    url: "/entremets/passionnement-framboise.html"
+  @@entremet_mangue_fraise = {
+    name: "Mangue fraise",
+    images: [
+      "https://40.media.tumblr.com/871515960a457deedbc60ce2e2df1c4d/tumblr_nrl53rmljM1uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/b0acd2f28ee902a4973bc74df6872b8e/tumblr_nrl53rmljM1uadryro2_1280.jpg",
+      "https://40.media.tumblr.com/2aab5b10db3c84cbe02713da831f432a/tumblr_nrl53rmljM1uadryro3_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/03251c14f5d954cc97fe6773847870f0/tumblr_nrl53rmljM1uadryro4_1280.jpg",
+    text: "Biscuit joconde, croustillant chocolat blanc et fraise, mousse fraise, mousse mangue",
+    url: "/entremets/mangue-fraise.html"
   }
   
   @@entremet_royal = {
     name: "Le Royal",
-    images: ["entremets/royal"],
+    images: [
+      "https://40.media.tumblr.com/e21cdbd05e390730dda787019d1b5f9f/tumblr_nrkx7uyTo41uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/904703af0b4cc6f82af3e05b66941b7e/tumblr_nrkx7uyTo41uadryro2_1280.jpg",
+      "https://41.media.tumblr.com/27455912ceae8b897e140b4eec1ff4e9/tumblr_nrkx7uyTo41uadryro3_1280.jpg",
+      "https://40.media.tumblr.com/97a1b5b1b76a20d8cef1aabb6681c4e9/tumblr_nrkx7uyTo41uadryro4_1280.jpg"],
+    zoom: "https://40.media.tumblr.com/911b8d2c05b0a20777446dad5e4ef92e/tumblr_nrkx7uyTo41uadryro5_1280.jpg",
     text: "Dacquoise amande noisette, croustillant pralin&eacute;, mousse chocolat noir.",
     url: "/entremets/royal.html"
   }
   
   @@entremet_souffle_passion = {
     name: "Souffl&eacute; passion",
-    images: ["entremets/souffle-passion"],
+    images: [
+      "https://41.media.tumblr.com/3852eaf8125921d25ec42928e5f94158/tumblr_nrl35jH0Cs1uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/b3b0d55844c6843c1b57b40baacbc3bc/tumblr_nrl35jH0Cs1uadryro2_1280.jpg",
+      "https://41.media.tumblr.com/6738d1b27f19d4ebd0c0c01161b553dc/tumblr_nrl35jH0Cs1uadryro3_1280.jpg"],
+    zoom: "https://36.media.tumblr.com/715295de9568bce2ef75458e2c665950/tumblr_nrl35jH0Cs1uadryro4_1280.jpg",
     text: "Dacquoise coco, souffl&eacute; passion, &eacute;clats de framboises",
     url: "/entremets/souffle-passion.html"
   }
   
   @@entremet_trois_chocolats = {
     name: "Le Trois Chocolats",
-    images: ["entremets/trois-chocolats"],
+    images: [
+      "https://40.media.tumblr.com/174a9289ad148567533fd78af4053f8e/tumblr_nrjn24sycj1uadryro6_r1_1280.jpg",
+      "https://41.media.tumblr.com/ea8ceaedaf7c3e7eea7c82d2c629d9b6/tumblr_nrjn24sycj1uadryro7_r1_1280.jpg",
+      "http://41.media.tumblr.com/ad68eda3a374aa4c25380557f2dbfb9f/tumblr_nrjn24sycj1uadryro3_r1_1280.jpg",
+      "http://40.media.tumblr.com/6bcca1793ee610381458e82ae20f5fba/tumblr_nrjn24sycj1uadryro4_r1_1280.jpg"],
+    zoom: "https://40.media.tumblr.com/e27a2641b700ed57320eec1cf2353b69/tumblr_nrjn24sycj1uadryro5_r1_540.jpg",
     text: "Biscuit chocolat, croustillant pralin&eacute;, mousse chocolat noir, mousse chocolat au lait, mousse chocolat blanc.",
     url: "/entremets/trois-chocolats.html"
   }
@@ -71,28 +102,43 @@ class ApplicationController < ActionController::Base
   
   @@macaron_geant_agrumes = {
     name: "Macaron g&eacute;ant Agrumes",
-    images: ["macarons_geants/agrumes"],
-    text: "Confit orange passion, cr&eacute;meux agrume, chantilly mascarpone des &icirc;les;",
+    images: [""],
+    zoom: "",
+    text: "Confit orange passion, cr&eacute;meux agrume, chantilly mascarpone des &icirc;les",
     url: "/macarons_geants/agrumes.html"
   }
   
   @@macaron_geant_framboise_rose_litchi = {
     name: "Macaron g&eacute;ant Framboise, rose et litchi",
-    images: ["macarons_geants/framboise-rose-litchi"],
+    images: [
+      "https://41.media.tumblr.com/c0dd64749831944875a17ccf76ba4dde/tumblr_nrm3sk2XJA1uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/8579d0131bf202106cfd289873391fd6/tumblr_nrm3sk2XJA1uadryro2_1280.jpg",
+      "https://41.media.tumblr.com/907ac4d968453c570587aadcf23d67af/tumblr_nrm3sk2XJA1uadryro3_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/10ecfafb3f1f04f1e9e0669c371fb05e/tumblr_nrm3sk2XJA1uadryro4_1280.jpg",
     text: "Confit framboise litchi, ganache mont&eacute;e rose litchi, framboises fraiches.",
     url: "/macarons_geants/framboise-rose-litchi.html"
   }
   
   @@macaron_geant_orange_passion = {
     name: "Macaron g&eacute;ant Orange passion",
-    images: ["macarons_geants/orange-passion"],
+    images: [
+      "https://41.media.tumblr.com/369a92d4f94db36f7ee6f9ca1dc7bcbd/tumblr_nrm35wWx3R1uadryro1_1280.jpg",
+      "https://40.media.tumblr.com/6dddf93911f046fb262217289ec1e822/tumblr_nrm35wWx3R1uadryro2_1280.jpg",
+      "https://41.media.tumblr.com/7f9c205aa5a86a640323cbb28d150f02/tumblr_nrm35wWx3R1uadryro3_1280.jpg",
+      "https://41.media.tumblr.com/2494281dc0f2dfc98e58bbe6095e2e14/tumblr_nrm35wWx3R1uadryro4_1280.jpg"],
+    zoom: "https://40.media.tumblr.com/a2e0963cb2b570a435c4a6e82c6bad26/tumblr_nrm35wWx3R1uadryro5_1280.jpg",
     text: "Confit orange passion, ganache mont&eacute;e chocolat noir, orange et fruit de la passion frais.",
     url: "/macarons_geants/orange-passion.html"
   }
   
   @@macaron_geant_pistache_griotte = {
     name: "Macaron g&eacute;ant Pistache griotte",
-    images: ["macarons_geants/pistache-griotte"],
+    images: [
+      "https://40.media.tumblr.com/d64fa38a21724784016171368306d20d/tumblr_nrm1euHtdy1uadryro1_1280.jpg",
+      "https://36.media.tumblr.com/228ec6f5d69a2d8b6431ed290622c662/tumblr_nrm1euHtdy1uadryro2_1280.jpg",
+      "https://36.media.tumblr.com/6538cab55ae83ac073da2e6410afe198/tumblr_nrm1euHtdy1uadryro3_1280.jpg",
+      "https://40.media.tumblr.com/a37659aa8cd27d6025b666ff72052dc0/tumblr_nrm1euHtdy1uadryro4_1280.jpg"],
+    zoom: "https://40.media.tumblr.com/1b73d1b1b4c48d6196bed51344708ade/tumblr_nrm1euHtdy1uadryro5_1280.jpg",
     text: "Confit griotte, ganache mont&eacute;e pistache, &eacute;clats de griottes et de pistache.",
     url: "/macarons_geants/pistache-griotte.html"
   }
@@ -101,23 +147,33 @@ class ApplicationController < ActionController::Base
   # TARTES #
   ##########
   
-  @@tarte_agrumes = {
-    name: "Tarte Agrumes meringu&eacute;e",
-    images: ["tartes/agrumes"],
-    text: "Fond sucr&eacute; frangipane, cr&eacute;meux aux agrumes et meringue.",
-    url: "/tartes/agrumes.html"
+  @@tarte_citron = {
+    name: "Tarte Citron meringu&eacute;e",
+    images: [
+      "https://40.media.tumblr.com/5e768867b2ca8253506bb6636ffe3705/tumblr_nrmkryVHLV1uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/87ac80dfc3eb883e1333b71e708628e0/tumblr_nrmkryVHLV1uadryro2_1280.jpg",
+      "https://40.media.tumblr.com/86778015a5d2ffa271ff8fe7aeb2bf85/tumblr_nrmkryVHLV1uadryro3_1280.jpg",
+      "https://41.media.tumblr.com/b1f8245d54ff1eed7f48e60041dee741/tumblr_nrmkryVHLV1uadryro4_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/d8527d252de17cdd556cf2277460cf30/tumblr_nrmkryVHLV1uadryro5_1280.jpg",
+    text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.<br />Existe aussi en version Tarte Agrumes meringu&eacute;e",
+    url: "/tartes/citron.html"
   }
   
   @@tarte_automne = {
     name: "Tarte d'automne",
     images: ["tartes/automne"],
-    text: "Fond sucr&eacute;, cr&eagrave;me de noisette, pomme poire, flan et fruits sec.",
+    text: "Fond sucr&eacute;, cr&egrave;me de noisette, pomme poire, flan et fruits sec.",
     url: "/tartes/automne.html"
   }
   
   @@tarte_orange_passion = {
     name: "Tarte Orange passion",
-    images: ["tartes/orange-passion"],
+    images: [
+      "https://40.media.tumblr.com/180e76046f3b0961ccf70467ba5fab87/tumblr_nrmhggwPL81uadryro1_1280.jpg",
+      "https://40.media.tumblr.com/ffd66484f72f0a8d4819458f0d30196c/tumblr_nrmhggwPL81uadryro2_1280.jpg",
+      "https://36.media.tumblr.com/f3a70a7a5390868ed33a39aac3e4a353/tumblr_nrmhggwPL81uadryro3_1280.jpg",
+      "https://41.media.tumblr.com/4e92b1699ba78558c017eb217047bb18/tumblr_nrmhggwPL81uadryro4_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/db225e5532fce4f215eab9e5dc3e4416/tumblr_nrmhggwPL81uadryro5_1280.jpg",
     text: "Fond sucr&eacute;, confit orange passion, cr&eacute;meux passion fa&ccedil;on cr&egrave;me br&ucirc;l&eacute;e.",
     url: "/tartes/orange-passion.html"
   }
@@ -131,7 +187,13 @@ class ApplicationController < ActionController::Base
   
   @@tarte_rhubarbe_fraise = {
     name: "Tarte Rhubarbe fraise",
-    images: ["tartes/rhubarbe-fraise"],
+    images: [
+      "https://40.media.tumblr.com/8c12a295a1f717575865e31646a4e54f/tumblr_nrm60nDM6v1uadryro1_1280.jpg",
+      "https://40.media.tumblr.com/485503b7e8788f9cb6ee6fdb5c7616c5/tumblr_nrm60nDM6v1uadryro2_1280.jpg",
+      "https://40.media.tumblr.com/644080eeaeab7e699c8b168df36d25df/tumblr_nrm60nDM6v1uadryro6_r1_1280.jpg",
+      "https://40.media.tumblr.com/fc5358148aea949bb585fb7191094f6e/tumblr_nrm60nDM6v1uadryro4_1280.jpg",
+      "https://40.media.tumblr.com/a3485d7dc9b3d9d42e85de4936a1d525/tumblr_nrm60nDM6v1uadryro3_1280.jpg"],
+    zoom: "https://40.media.tumblr.com/5aa3534da51de004086b26bf25991822/tumblr_nrm60nDM6v1uadryro5_1280.jpg",
     text: "Fond sucr&eacute;, compot&eacute; rhubarbe fraise, cr&eacute;meux vanille fa&ccedil;on cr&egrave;me br&ucirc;l&eacute;e et fraise fraiche et rhubarbe poch&eacute;e.",
     url: "/tartes/rhubarbe-fraise.html"
   }
@@ -142,8 +204,10 @@ class ApplicationController < ActionController::Base
   
   @@cheese_cake_nature = {
     name: "Cheese Cake nature",
-    images: ["amerique/cheese-cake-nature"],
-    text: "Fond biscuit maison et cream cheese Philadelphia&reg; citron&eacute;. Coulis au choix : faise, framboise, mangue, passion, lemon curd.",
+    images: [
+      "https://36.media.tumblr.com/67aa85b9099419c641de56d70f9c359f/tumblr_nrmp6c3cYL1uadryro1_1280.jpg"],
+    zoom: "https://40.media.tumblr.com/72ae0f8c7ed586ad91404f9686abc756/tumblr_nrmp6c3cYL1uadryro2_r1_1280.jpg",
+    text: "Fond biscuit maison et cream cheese Philadelphia&reg; citron&eacute;. Coulis au choix : fraise, framboise, mangue, passion, lemon curd.",
     url: "/patisseries_americaines/cheese-cake-nature.html"
   }
   

@@ -21,9 +21,9 @@
             <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
               <div class="media-container col-xs-12">
                 <div class="inner">
-                   <%= image_tag produit[:images][0] + ".jpg", class: "img-responsive" %>
+                   <%= image_tag produit[:images][0], class: "img-responsive" %>
                     <a href="<%= produit[:url] %>" class="icon">
-                      <%= image_tag produit[:images][0] + "_zoom.jpg", class: "img-responsive" %>
+                      <%= image_tag produit[:zoom], class: "img-responsive" %>
                     </a>
                 </div><!-- / inner -->
 
@@ -34,6 +34,22 @@
               </div><!-- content -->
             </div><!-- / dish -->
 
+<% end %>
+
+<% unless @also.empty? %>
+
+            <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
+              <div class="content col-xs-12">
+                <br /><br />
+                <h2>Découvrez également</h2>
+                <br /><br />
+
+  <% @also.each do |produit| %>
+                <h3><%= raw produit[:name] %></h3>
+                <p><%= raw produit[:text] %></p><br />
+  <% end %>
+              </div><!-- content -->
+            </div><!-- / dish -->
 <% end %>
 
           </div><!-- / row -->

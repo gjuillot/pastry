@@ -2,9 +2,9 @@ class EntremetsController < ApplicationController
   def index
     @produits = [
         @@entremet_chocolat_caramel,
-        @@entremet_mangue_passion,
+        @@entremet_exotique,
+        @@entremet_mangue_fraise,
         @@entremet_myrtille_framboise,
-        @@entremet_passionnement_framboise,
         @@entremet_royal,
         @@entremet_souffle_passion,
         @@entremet_trois_chocolats
@@ -19,20 +19,20 @@ class EntremetsController < ApplicationController
         @@macaron_geant_orange_passion,
         @@entremet_trois_chocolats,
         @@entremet_royal,
-        @@entremet_mangue_passion,
+        @@entremet_exotique,
         @@entremet_myrtille_framboise,
-        @@entremet_passionnement_framboise,
+        @@entremet_mangue_fraise,
         @@entremet_souffle_passion
       ]
-    when "mangue-passion"
-      @produit = @@entremet_mangue_passion
+    when "exotique"
+      @produit = @@entremet_exotique
       @recommandations = [
         @@entremet_souffle_passion,
         @@tarte_orange_passion,
         @@macaron_geant_orange_passion,
         @@entremet_chocolat_caramel,
         @@entremet_myrtille_framboise,
-        @@entremet_passionnement_framboise,
+        @@entremet_mangue_fraise,
         @@entremet_royal,
         @@entremet_trois_chocolats
       ]
@@ -42,20 +42,20 @@ class EntremetsController < ApplicationController
         @@macaron_geant_framboise_rose_litchi,
         @@tarte_marron_myrtille,
         @@entremet_chocolat_caramel,
-        @@entremet_mangue_passion,
-        @@entremet_passionnement_framboise,
+        @@entremet_exotique,
+        @@entremet_mangue_fraise,
         @@entremet_royal,
         @@entremet_souffle_passion,
         @@entremet_trois_chocolats
       ]
     when "passionnement-framboise"
-      @produit = @@entremet_passionnement_framboise 
+      @produit = @@entremet_mangue_fraise 
       @recommandations = [
         @@macaron_geant_framboise_rose_litchi,
         @@macaron_geant_orange_passion,
         @@tarte_orange_passion,
         @@entremet_chocolat_caramel,
-        @@entremet_mangue_passion,
+        @@entremet_exotique,
         @@entremet_myrtille_framboise,
         @@entremet_royal,
         @@entremet_souffle_passion,
@@ -65,9 +65,9 @@ class EntremetsController < ApplicationController
       @produit = @@entremet_royal
       @recommandations = [
         @@entremet_chocolat_caramel,
-        @@entremet_mangue_passion,
+        @@entremet_exotique,
         @@entremet_myrtille_framboise,
-        @@entremet_passionnement_framboise,
+        @@entremet_mangue_fraise,
         @@entremet_souffle_passion,
         @@entremet_trois_chocolats
       ]
@@ -78,9 +78,9 @@ class EntremetsController < ApplicationController
         @@macaron_geant_orange_passion,
         @@tarte_orange_passion,
         @@entremet_chocolat_caramel,
-        @@entremet_mangue_passion,
+        @@entremet_exotique,
         @@entremet_myrtille_framboise,
-        @@entremet_passionnement_framboise,
+        @@entremet_mangue_fraise,
         @@entremet_royal,
         @@entremet_trois_chocolats
       ]
@@ -89,9 +89,9 @@ class EntremetsController < ApplicationController
       @recommandations = [
         @@macaron_geant_orange_passion,
         @@entremet_chocolat_caramel,
-        @@entremet_mangue_passion,
+        @@entremet_exotique,
         @@entremet_myrtille_framboise,
-        @@entremet_passionnement_framboise,
+        @@entremet_mangue_fraise,
         @@entremet_royal,
         @@entremet_souffle_passion
       ]

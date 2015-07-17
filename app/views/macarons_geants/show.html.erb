@@ -1,15 +1,5 @@
   <div id="ht-main-content" class="menu">
 
-    <div class="ht-page-heading">
-      <div class="container">
-        <div class="row">
-          <div class="main-heading col-xs-12">
-            <h1><strong>&middot;</strong> <%= raw @produit[:name] %> <strong>&middot;</strong></h1>
-          </div><!-- / main-heading -->
-        </div><!-- / row -->
-      </div><!-- / container -->
-    </div><!-- / page-heading -->
-    
     <div id="ht-menu-detail">
       <div class="container">       
         <div class="gallery-dish row">
@@ -29,7 +19,7 @@
                           <ul>
 <% @produit[:images].each do |image| %>
                             <li class="bw-wrapper onscreen-marker">
-                              <%= image_tag image + ".jpg", class: "img-responsive" %>
+                              <%= image_tag image, class: "img-responsive" %>
                             </li>
 <% end %>
                           </ul>
@@ -38,18 +28,25 @@
           </div><!-- / gallery -->
 
           <div class="dish col-sm-6 col-xs-12 onscreen-marker">
-            <br />
-            <h2><%= raw @produit[:text] %></h2>
-            <div class="price">Toutes nos pâtisseries sont réalisées sur commande uniquement</div>
+            <div class="ht-page-heading">
+              <div class="container">
+                <div class="row">
+                  <div class="main-heading col-sm-6 col-xs-12">
+                    <h1><strong>&middot;</strong> <%= raw @produit[:name] %> <strong>&middot;</strong></h1>
+                  </div><!-- / main-heading -->
+                </div><!-- / row -->
+              </div><!-- / container -->
+            </div><!-- / page-heading -->
+            <div class="alert animated bounceInRight"><%= raw @produit[:text] %></div>
             <form action="/contact">
-              <button type="submit" class="ht-btn btn-float"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
+              <em>Toutes nos pâtisseries sont réalisées sur commande uniquement</em><br />
+              <button type="submit" class="btn btn-danger"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
             </form>
           </div><!-- / dish -->
         </div><!-- / row -->
 
         <div class="recommended">
           <h2>Nous vous recommandons également</h2>
-          <hr>
           <div class="jcarousel-wrapper row">
             <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
                       <a href="#" class="jcarousel-control-next">&rsaquo;</a>
@@ -61,7 +58,7 @@
                 <li class="item col-sm-3 col-xs-6">
                   <div class="media-container">
                     <div class="inner">
-                      <%= image_tag r[:images][0] + ".jpg", class: "img-responsive center-block" %>
+                      <%= image_tag r[:images][0], class: "img-responsive center-block" %>
                       <a href="<%= r[:url] %>" class="hover-overlay" title="<%= raw r[:name] %>" data-lightbox-gallery="gallery1"></a><!-- / hover-overlay -->
                     </div><!-- / inner -->
                   </div><!-- / media-container -->

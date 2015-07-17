@@ -21,9 +21,9 @@
             <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
               <div class="media-container col-xs-12">
                 <div class="inner">
-                   <%= image_tag produit[:images][0] + ".jpg", class: "img-responsive" %>
+                    <%= image_tag produit[:images][0], class: "img-responsive" %>
                     <a href="<%= produit[:url] %>" class="icon">
-                      <%= image_tag produit[:images][0] + "_zoom.jpg", class: "img-responsive" %>
+                      <%= image_tag produit[:zoom], class: "img-responsive" %>
                     </a>
                 </div><!-- / inner -->
 
