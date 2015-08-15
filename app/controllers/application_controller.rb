@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   @@entremet_chocolat_caramel = {
     name: "Le Chocolat Caramel beurre sal&eacute;",
     images: [
-      "https://40.media.tumblr.com/ccb18e8ddd416609343a81ff0751ce86/tumblr_nrkyp7ve2j1uadryro1_1280.jpg",
+      "https://40.media.tumblr.com/315c86f596f641289f261d03af188e4b/tumblr_nrkyp7ve2j1uadryro6_r1_1280.jpg",
       "https://36.media.tumblr.com/3978664abbc2cec1a13d8a874f924919/tumblr_nrkyp7ve2j1uadryro2_1280.jpg",
       "https://40.media.tumblr.com/4f4745e9f566ef417bc074504eab2f46/tumblr_nrkyp7ve2j1uadryro3_1280.jpg",
       "https://41.media.tumblr.com/71c6bc2360d92f9e51c8582ea4bf14e6/tumblr_nrkyp7ve2j1uadryro4_1280.jpg"],
@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   @@entremet_exotique = {
     name: "Exotique",
     images: [
-      "https://40.media.tumblr.com/4dc719427192f80507beb48f2a17a8f3/tumblr_nrl494jtjq1uadryro1_1280.jpg",
-      "https://40.media.tumblr.com/030fb3acfc71eae12e4b5179df98b351/tumblr_nrl494jtjq1uadryro2_1280.jpg"],
-    zoom: "https://41.media.tumblr.com/fe7b9f08b45fca0b2775039bb8b3e76d/tumblr_nrl494jtjq1uadryro3_1280.jpg",
+      "https://40.media.tumblr.com/3f1816c3350e6ce6c5f42940ebc31b82/tumblr_nrl494jtjq1uadryro4_r1_1280.jpg",
+      "https://40.media.tumblr.com/790db5407df4e9d6bea5ba7a7748d8ff/tumblr_nrl494jtjq1uadryro1_r1_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/5de7063036c9ea69b1cef64c433fc1ed/tumblr_nrl494jtjq1uadryro5_r1_540.jpg",
     text: "Dacquoise coco, confit orange passion, mousse mague passion, cr&eacute;meux citron vert, nougatine coco, chantilly mascarpone des &icirc;les",
     url: "/entremets/exotique.html"
   }
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   @@entremet_myrtille_framboise = {
     name: "Myrtille Framboise",
     images: [
-      "https://40.media.tumblr.com/8d82d45041a9789895cb8ccc468943de/tumblr_nrky0kS6I91uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/16d738ff288457fcb6731d4cb596a8a8/tumblr_nrky0kS6I91uadryro6_r1_1280.jpg",
       "https://41.media.tumblr.com/945ff03c1b265f63c6f6205cced1742d/tumblr_nrky0kS6I91uadryro2_1280.jpg",
       "https://41.media.tumblr.com/bb42bb1f00513eac78d8a35ccb4dd705/tumblr_nrky0kS6I91uadryro3_1280.jpg",
       "https://41.media.tumblr.com/ce23cd4f7cc67ab967856c9b74b9c0a1/tumblr_nrky0kS6I91uadryro4_1280.jpg"],
@@ -65,10 +65,10 @@ class ApplicationController < ActionController::Base
   @@entremet_souffle_passion = {
     name: "Souffl&eacute; passion",
     images: [
-      "https://41.media.tumblr.com/3852eaf8125921d25ec42928e5f94158/tumblr_nrl35jH0Cs1uadryro1_1280.jpg",
-      "https://41.media.tumblr.com/b3b0d55844c6843c1b57b40baacbc3bc/tumblr_nrl35jH0Cs1uadryro2_1280.jpg",
+      "https://36.media.tumblr.com/5817120dd74fa4d943da975bee815af3/tumblr_nrl35jH0Cs1uadryro5_r1_1280.jpg",
+      "https://40.media.tumblr.com/66c17cf79cd5bedaf7d390a7c42cb110/tumblr_nrl35jH0Cs1uadryro6_r1_1280.jpg",
       "https://41.media.tumblr.com/6738d1b27f19d4ebd0c0c01161b553dc/tumblr_nrl35jH0Cs1uadryro3_1280.jpg"],
-    zoom: "https://36.media.tumblr.com/715295de9568bce2ef75458e2c665950/tumblr_nrl35jH0Cs1uadryro4_1280.jpg",
+    zoom: "https://40.media.tumblr.com/989d532d3bb25594c9452cf67d695289/tumblr_nrl35jH0Cs1uadryro7_r1_540.jpg",
     text: "Dacquoise coco, souffl&eacute; passion, &eacute;clats de framboises",
     url: "/entremets/souffle-passion.html"
   }
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
     images: [
       "https://40.media.tumblr.com/174a9289ad148567533fd78af4053f8e/tumblr_nrjn24sycj1uadryro6_r1_1280.jpg",
       "https://41.media.tumblr.com/ea8ceaedaf7c3e7eea7c82d2c629d9b6/tumblr_nrjn24sycj1uadryro7_r1_1280.jpg",
-      "http://41.media.tumblr.com/ad68eda3a374aa4c25380557f2dbfb9f/tumblr_nrjn24sycj1uadryro3_r1_1280.jpg",
+      "https://41.media.tumblr.com/a542760838123c84f51115f0bb12169a/tumblr_nrjn24sycj1uadryro1_r2_1280.jpg",
       "http://40.media.tumblr.com/6bcca1793ee610381458e82ae20f5fba/tumblr_nrjn24sycj1uadryro4_r1_1280.jpg"],
     zoom: "https://40.media.tumblr.com/e27a2641b700ed57320eec1cf2353b69/tumblr_nrjn24sycj1uadryro5_r1_540.jpg",
     text: "Biscuit chocolat, croustillant pralin&eacute;, mousse chocolat noir, mousse chocolat au lait, mousse chocolat blanc.",
@@ -111,10 +111,10 @@ class ApplicationController < ActionController::Base
   @@macaron_geant_framboise_rose_litchi = {
     name: "Macaron g&eacute;ant Framboise, rose et litchi",
     images: [
-      "https://41.media.tumblr.com/c0dd64749831944875a17ccf76ba4dde/tumblr_nrm3sk2XJA1uadryro1_1280.jpg",
-      "https://41.media.tumblr.com/8579d0131bf202106cfd289873391fd6/tumblr_nrm3sk2XJA1uadryro2_1280.jpg",
-      "https://41.media.tumblr.com/907ac4d968453c570587aadcf23d67af/tumblr_nrm3sk2XJA1uadryro3_1280.jpg"],
-    zoom: "https://41.media.tumblr.com/10ecfafb3f1f04f1e9e0669c371fb05e/tumblr_nrm3sk2XJA1uadryro4_1280.jpg",
+      "https://36.media.tumblr.com/4cb0a2ec477ad6933684ec6609e63f60/tumblr_nrm3sk2XJA1uadryro5_r1_1280.jpg",
+      "https://36.media.tumblr.com/7c32a749265ec9ff46ae4bff92adf819/tumblr_nrm3sk2XJA1uadryro6_r1_1280.jpg",
+      "https://40.media.tumblr.com/2ae5994d9089dc04824cb5bb43708110/tumblr_nrm3sk2XJA1uadryro8_r1_1280.jpg"],
+    zoom: "https://41.media.tumblr.com/aca66381d5175401dca44b49f97829c0/tumblr_nrm3sk2XJA1uadryro7_r1_1280.jpg",
     text: "Confit framboise litchi, ganache mont&eacute;e rose litchi, framboises fraiches.",
     url: "/macarons_geants/framboise-rose-litchi.html"
   }
@@ -150,11 +150,11 @@ class ApplicationController < ActionController::Base
   @@tarte_citron = {
     name: "Tarte Citron meringu&eacute;e",
     images: [
-      "https://40.media.tumblr.com/5e768867b2ca8253506bb6636ffe3705/tumblr_nrmkryVHLV1uadryro1_1280.jpg",
+      "https://41.media.tumblr.com/e12f39a9333cb7a24b9e0704cfd75d64/tumblr_nrmkryVHLV1uadryro6_r1_540.jpg",
       "https://41.media.tumblr.com/87ac80dfc3eb883e1333b71e708628e0/tumblr_nrmkryVHLV1uadryro2_1280.jpg",
       "https://40.media.tumblr.com/86778015a5d2ffa271ff8fe7aeb2bf85/tumblr_nrmkryVHLV1uadryro3_1280.jpg",
       "https://41.media.tumblr.com/b1f8245d54ff1eed7f48e60041dee741/tumblr_nrmkryVHLV1uadryro4_1280.jpg"],
-    zoom: "https://41.media.tumblr.com/d8527d252de17cdd556cf2277460cf30/tumblr_nrmkryVHLV1uadryro5_1280.jpg",
+    zoom: "https://41.media.tumblr.com/5652d093686a149b503f5105c7013906/tumblr_nrmkryVHLV1uadryro1_r1_540.jpg",
     text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.<br />Existe aussi en version Tarte Agrumes meringu&eacute;e",
     url: "/tartes/citron.html"
   }
@@ -205,8 +205,8 @@ class ApplicationController < ActionController::Base
   @@cheese_cake_nature = {
     name: "Cheese Cake nature",
     images: [
-      "https://36.media.tumblr.com/67aa85b9099419c641de56d70f9c359f/tumblr_nrmp6c3cYL1uadryro1_1280.jpg"],
-    zoom: "https://40.media.tumblr.com/72ae0f8c7ed586ad91404f9686abc756/tumblr_nrmp6c3cYL1uadryro2_r1_1280.jpg",
+      "https://40.media.tumblr.com/03ef2fd18b6914cf7ecc03e788ee1cd2/tumblr_nrmp6c3cYL1uadryro3_r1_540.jpg"],
+    zoom: "https://40.media.tumblr.com/98617607dfef3fed7f291272657ffaa1/tumblr_nrmp6c3cYL1uadryro4_r1_1280.jpg",
     text: "Fond biscuit maison et cream cheese Philadelphia&reg; citron&eacute;. Coulis au choix : fraise, framboise, mangue, passion, lemon curd.",
     url: "/patisseries_americaines/cheese-cake-nature.html"
   }

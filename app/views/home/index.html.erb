@@ -2,29 +2,28 @@
     <div id="ht-ultility">
       <div class="container">
         <div class="row">
-          <h1 class="sr-only">Ultility</h1>
           <div class="col-sm-4 col-xs-12">
-            <div class="item">
+            <div class="item" id="white">
               <div class="background" style="background: url('<%= image_path "homepage/nous_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
-              <div class="icon foods"></div>
+              <div class="icon"></div>
               <h2>Nos valeurs</h2>
               <p class="onscreen-marker">L'Îlot Sucré vous propose une escapade gourmande dans l'univers de la pâtisserie d'Ingrid et Vincent. Alliant modernité et classicisme, nos pâtisseries sont à l'image de leurs créateurs : une touche d'évasion et de voyage, un soucis de la qualité des produits et de l'équilibre des saveurs.</p>
               <a class="ht-btn center-block" href="#ht-team">Qui sommes-nous ?</a>
             </div><!-- / ultility item -->
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="item">
-              <div class="background" style="background: url('<%= image_path "homepage/vincent_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
-              <div class="icon openning"></div>
+            <div class="item" id="black">
+              <div class="background" style="background: url('<%= image_path "homepage/saupoudrage_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
+              <div class="icon"></div>
               <h2>Escapade gourmande</h2>
               <p>Le Canal Rhin-Rhône, aux abords duquel se trouve notre atelier, est pour nous source d'inspiration et d'invitation au voyage. Ainsi, nous mêlons saveurs d'ici et d'ailleurs, et sommes fiers de vous présenter les grands classiques de la pâtisserie française, tels les macarons, aux côtés de gâteaux décorés typiques des Etats-Unis.</p>
               <a class="ht-btn center-block" href="#nos-produits">Nos produits</a>
             </div><!-- / ultility item -->
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="item">
-              <div class="background" style="background: url('<%= image_path "homepage/saupoudrage_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
-              <div class="icon reservation"></div>
+            <div class="item" id="white">
+              <div class="background" style="background: url('<%= image_path "homepage/vincent_nb.jpg" %>') 50% 0 no-repeat;"></div><!-- / background -->
+              <div class="icon"></div>
               <h2>&Agrave; la commande</h2>
               <p>Imaginées et créées dans notre laboratoire, nos pâtisseries sont disponibles à la commande, à effectuer sur place, au téléphone ou par l'intermédiaire de notre site internet. Vous pouvez alors retirer vos commandes à notre atelier, ou très prochainement chez nos îlots partenaires, ou vous faire livrer par nos soins.</p>
               <a class="ht-btn center-block" href="/contact">Nous contacter</a>
@@ -53,14 +52,15 @@
             
 <%
   produits = [
-    { name: "macarons", title: "Nos macarons", text: "Régaler vos papilles avec nos macarons entièrement faits maison." },
-    { name: "macarons_geants", title: "Nos macarons géants", text: "Toute la gourmandise et la qualité de nos macarons, en version à partager." },
-    { name: "tartes", title: "Nos tartes", text: "Des créations modernes pour réinventer ce classique de nos grand-mères." },
-    { name: "entremets", title: "Nos entremets", text: "" },
-    { name: "gateaux_decores", title: "Nos gâteaux décorés et 3D", text: "Gâteaux décorés et gâteaux 3D faits sur mesure pour épater vos invités." },
-    { name: "patisseries_americaines", title: "Nos pâtisseries américaines", text: "" },
-    { name: "pour_vos_evenements", title: "Pour vos évènements", text: "Outre gâteaux décorés et gâteaux 3D, nous sommes à votre disposition pour animer vos évènements." },
-    { name: "pour_les_pros", title: "Pour les professionnels", text: "" }
+    { name: "macarons", title: "Nos macarons", text: "Régaler vos papilles avec nos macarons entièrement faits maison.", img: "https://40.media.tumblr.com/43be6745e2da3876ea7c136cf7fda097/tumblr_nrqfnuz9fU1uadryro1_1280.jpg" },
+    { name: "macarons_geants", title: "Nos macarons géants", text: "Toute la gourmandise et la qualité de nos macarons, en version à partager.", img: "https://36.media.tumblr.com/228ec6f5d69a2d8b6431ed290622c662/tumblr_nrm1euHtdy1uadryro2_1280.jpg" },
+    { name: "tartes", title: "Nos tartes", text: "Des créations modernes pour réinventer ce classique de nos grand-mères.", img: "https://40.media.tumblr.com/180e76046f3b0961ccf70467ba5fab87/tumblr_nrmhggwPL81uadryro1_1280.jpg" },
+    { name: "entremets", title: "Nos entremets", text: "", img: "https://40.media.tumblr.com/ccb18e8ddd416609343a81ff0751ce86/tumblr_nrkyp7ve2j1uadryro1_1280.jpg" },
+    { name: "patisseries_americaines", title: "Nos pâtisseries américaines", text: "", img: "https://36.media.tumblr.com/67aa85b9099419c641de56d70f9c359f/tumblr_nrmp6c3cYL1uadryro1_1280.jpg" },
+    { name: "glaces", title: "Nos desserts glacés", text: "", img: "homepage/glaces.jpg" },
+    { name: "gateaux_decores", title: "Nos gâteaux décorés et 3D", text: "Gâteaux décorés et gâteaux 3D faits sur mesure pour épater vos invités.", img: "homepage/gateaux_decores.jpg" },
+    { name: "pour_vos_evenements", title: "Pour vos évènements", text: "Outre gâteaux décorés et gâteaux 3D, nous sommes à votre disposition pour animer vos évènements.", img: "homepage/pour_vos_evenements.jpg" },
+    { name: "pour_les_pros", title: "Pour les professionnels", text: "", img: "https://41.media.tumblr.com/4e92b1699ba78558c017eb217047bb18/tumblr_nrmhggwPL81uadryro4_1280.jpg" }
   ]
   
   produits.each do |produit|
@@ -68,7 +68,7 @@
             <div class="dish col-sm-4 col-xs-12 onscreen-marker">
               <div class="media-container col-xs-12">
                 <div class="inner">
-                  <%= image_tag "homepage/" + produit[:name]+".jpg", class: "img-responsive" %>
+                  <%= image_tag produit[:img], class: "img-responsive" %>
                   <%= link_to "", "/" + produit[:name], {class: "hover-overlay color", title: produit[:title]} %>
                   <a href="/<%= produit[:name] %>" class="icon"><%= image_tag "icones/magnifying-glass_64px.png", class: "img-responsive" %></a>
                 </div><!-- / inner -->

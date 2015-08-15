@@ -109,13 +109,16 @@
       <div class="container">
         <div class="row">
           <div class="about item col-sm-4 col-xs-12">
-            <h2 class="sr-only">About us</h2>
-            <%= image_tag "logo/logo_blanc_preload.png", class: "logo img-reponsive center-block" %>
+            <h2>L'Îlot Sucré</h2>
             <p>L'Îlot Sucré vous propose une escapade gourmande dans l'univers de la pâtisserie d'Ingrid et Vincent. Alliant modernité et classicisme, nos pâtisseries sont à l'image de leurs créateurs : une touche d'évasion et de voyage, un soucis de la qualité des produits et de l'équilibre des saveurs.</p>
           </div><!-- / item -->
           <div class="contact item col-sm-4 col-xs-12">
             <h2>A la commande uniquement</h2>
             <p>Imaginées et créées dans notre laboratoire, nos pâtisseries sont disponibles à la commande, à effectuer sur place, au téléphone ou par l'intermédiaire de notre site internet.</p>
+          </div><!-- / item -->
+          
+          <div class="contact item col-sm-4 col-xs-12">
+            <h2>Nous contacter</h2>
             <address class="address">
               <div class="item">
                 <i class="marker"></i><p>18 rue de Cannes, Illkirch-Graffenstaden</p>
@@ -130,26 +133,6 @@
                 <i class="mail"></i><p>contact@lilotsucre.com</p>
               </div>
             </address>
-          </div><!-- / item -->
-          
-<%
-  images = ["background/menu.jpg", "macarons_geants/pistache-griotte.jpg", "tartes/orange-passion.jpg"]
-%>
-          
-          <div class="gallery item col-sm-4 col-xs-12">
-            <h2>Gallerie</h2>
-            
-<% images.shuffle.first(9).each do |i| %>
-            <div class="media-container bw-wrapper col-sm-4 col-xs-2">
-              <div class="inner">
-                <%= image_tag i, class: "img-responsive" %>
-                <a href="<%= image_path i %>" class="icon nivo-lightbox">
-                  <%= image_tag i, class: "img-responsive" %>
-                </a>
-              </div>
-            </div>
-<% end %>
-
           </div><!-- / item -->
         </div><!-- / row -->
       </div><!-- / container -->  

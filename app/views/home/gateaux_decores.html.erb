@@ -31,14 +31,14 @@
 
 <%
   photos = [
-    { name: "baby_shower", theme: "adulte" },
-    { name: "decore_mouton", theme: "enfant" },
-    { name: "decore_neige", theme: "enfant" },
-    { name: "mario", theme: "enfant" },
-    { name: "minnie", theme: "enfant" },
-    { name: "minnie_2", theme: "enfant" },
-    { name: "tracteur", theme: "enfant 3d" },
-    {name: "fin_exams", theme: "adulte" }
+    { name: "baby_shower", theme: "adulte", url: "https://41.media.tumblr.com/9221464862fa0ec4a6fb89d72dce6c14/tumblr_nrmvckpUOO1uadryro1_1280.jpg" },
+    { name: "decore_mouton", theme: "enfant", url: "https://41.media.tumblr.com/5cef02edb9d677a61c0b9207ce4f4c8a/tumblr_nrmvckpUOO1uadryro2_1280.jpg" },
+    { name: "decore_neige", theme: "enfant", url: "https://40.media.tumblr.com/910a1e711c95854b95d9a9a96598d7c5/tumblr_nrmvckpUOO1uadryro7_1280.jpg" },
+    { name: "mario", theme: "enfant", url: "https://40.media.tumblr.com/df965abcf42555aefc51453a3d262934/tumblr_nrmvckpUOO1uadryro3_1280.jpg" },
+    { name: "minnie", theme: "enfant", url: "https://40.media.tumblr.com/224aaa31cb3d11435afc958f5b529751/tumblr_nrmvckpUOO1uadryro5_1280.jpg" },
+    { name: "minnie_2", theme: "enfant", url: "https://41.media.tumblr.com/a927d14ae38d15db37373045ac9e341b/tumblr_nrmvckpUOO1uadryro6_1280.jpg" },
+    { name: "tracteur", theme: "enfant 3d", url: "https://40.media.tumblr.com/03fafa5b7fdea6b89ab05ae3f86b9e2a/tumblr_nrmvckpUOO1uadryro8_1280.jpg" },
+    {name: "fin_exams", theme: "adulte", url: "https://41.media.tumblr.com/965d42f0d7f8077f350bfdb79fcdcd29/tumblr_nrmvckpUOO1uadryro4_1280.jpg" }
   ].shuffle
 %>
 
@@ -46,9 +46,9 @@
             <div class="frame <%= photo[:theme] %> col-md-3 col-sm-4 onscreen-marker">
               <div class="media-container">
                 <div class="inner">
-                  <%= image_tag "gateaux_decores/" + photo[:name] + ".jpg" ,  class: "img-responsive" %>
+                  <%= image_tag photo[:url] ,  class: "img-responsive" %>
                   <div class="hover-overlay color"></div><!-- / hover-overlay -->
-                  <a data-lightbox-gallery="gallery1" href="<%= image_path "gateaux_decores/" + photo[:name] + ".jpg" %>" class="nivo-lightbox icon" title="">
+                  <a data-lightbox-gallery="gallery1" href="<%= image_path photo[:url] %>" class="nivo-lightbox icon" title="">
                     <%= image_tag "icones/magnifying-glass_64px.png" %>
                   </a>
                 </div><!-- / inner -->

@@ -2496,7 +2496,7 @@ blockquote {
   display: block;
   width: 26px;
   height: 13px;
-  background: url("../img/@star.png") no-repeat;
+  background: asset-data-url("icones/@star.png") no-repeat;
   background-position: 0px 0px; }
 
 .rating:hover .rating-star:hover, .rating:hover .rating-star:hover ~ .rating-star, .rating-input:checked ~ .rating-star {
@@ -2694,7 +2694,7 @@ ul.ht-ulist {
       -o-opacity: 0.4; } }
   @media (min-width: 769px) {
     .filter-overlay {
-      background: url(../img/filter-pattern.png);
+      background: asset-data-url("icones/filter-pattern.png");
       opacity: 1;
       -webkit-opacity: 1;
       -moz-opacity: 1;
@@ -2723,10 +2723,10 @@ ul.ht-ulist {
       left: 50%; }
       @media (min-width: 1200px) {
         .gallery .main-img .shadow {
-          background: url(../img/about-shadow.png) no-repeat; } }
+          background: asset-data-url("icones/about-shadow.png") no-repeat; } }
       @media (max-width: 1200px) and (min-width: 768px) {
         .gallery .main-img .shadow {
-          background: url(../img/about-shadow-1.png) no-repeat; } }
+          background: asset-data-url("icones/about-shadow-1.png") no-repeat; } }
   .gallery .navigation {
     margin-top: 20px !important; }
     .gallery .navigation ul li {
@@ -3004,7 +3004,7 @@ ul#ht-collapsed-list {
               border: none !important;
               width: 16px;
               height: 10px;
-              background: url(../img/nav-stl1-buble-caret.png) no-repeat 0 0;
+              background: asset-data-url("icones/nav-stl1-buble-caret.png") no-repeat 0 0;
               margin-left: -8px;
               left: 50%; }
             #ht-header #ht-main-nav .main-nav .nav .link-list ul {
@@ -3235,10 +3235,11 @@ ul#ht-collapsed-list {
       margin-bottom: 40px;
       width: 200px; }
     #ht-main-content.homepage #ht-ultility .item .icon {
+      color: #da5252;
       display: block;
       height: 64px;
       margin: 50px auto 50px auto;
-      background: url(../img/@ultility-icons.png); }
+      /* background: asset-data-url("icones/@ultility-icons.png"); */ }
     #ht-main-content.homepage #ht-ultility .item .icon.foods {
       width: 63px;
       background-position: 0 -64px; }
@@ -3250,10 +3251,16 @@ ul#ht-collapsed-list {
       background-position: -123px -64px; }
   #ht-main-content.homepage #ht-ultility .item:hover .background {
     opacity: 1; }
-  #ht-main-content.homepage #ht-ultility .item:hover h2, #ht-main-content.homepage #ht-ultility .item:hover p, #ht-main-content.homepage #ht-ultility .item:hover a {
+  #ht-main-content.homepage #ht-ultility .item#black:hover p {
     color: #fff; }
-  #ht-main-content.homepage #ht-ultility .item:hover .ht-btn {
+  #ht-main-content.homepage #ht-ultility .item#black:hover a {
+    color: #fff;
     border-color: #fff; }
+  #ht-main-content.homepage #ht-ultility .item#white:hover p {
+    color: #000; }
+  #ht-main-content.homepage #ht-ultility .item#white:hover a {
+    color: #000;
+    border-color: #000; }
   #ht-main-content.homepage #ht-ultility .item:hover .icon.foods {
     background-position: 0 0; }
   #ht-main-content.homepage #ht-ultility .item:hover .icon.openning {
@@ -3589,7 +3596,7 @@ ul#ht-collapsed-list {
       display: block;
       height: 75px;
       margin: 0 auto;
-      background: url(../img/@services-sprite.png) no-repeat; }
+      background: asset-data-url("icones/@services-sprite.png") no-repeat; }
     #ht-main-content.services #ht-services .service .service-1 {
       width: 60px;
       background-position: 0 -25px; }
