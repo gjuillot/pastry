@@ -39,27 +39,43 @@ macarons = [
 
   <div id="ht-main-content" class="menu">
 
-    <div class="ht-page-heading">
-      <div class="container">
-        <div class="row">
-          <div class="main-heading col-xs-12">
-            <h1><strong>&middot;</strong> Nos macarons <strong>&middot;</strong></h1>
-          </div><!-- / main-heading -->
-          <div class="sub-heading col-sm-6 col-sm-offset-3 col-xs-12">
-            <p>Régaler vos papilles avec nos macarons entièrement faits maison.</p>
-          </div><!-- / sub-heading -->
-        </div><!-- / row -->
-      </div><!-- / container -->
-    </div><!-- / page-heading -->
-
     <div id="ht-menu" class="set">
       <div class="container">
         <div id="filter-container" class="menu-set">
           <div class="row">
             
+            <div class="a-set col-sm-6 col-xs-12">
+              <div class="ht-page-heading col-xs-12" style="padding-top: 50px;">
+                <div class="main-heading">
+                  <h1><strong>&middot;</strong> Nos macarons <strong>&middot;</strong></h1>
+                </div>
+              </div>
+            
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <img src="https://41.media.tumblr.com/2c39809519513f60b7a860981bc4cfb6/tumblr_nvpdwg11B31uadryro1_500h.jpg" />
+                </div><!-- content -->
+              </div><!-- / dish -->
+            
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  &Agrave; L'&Icirc;lot Sucré, pas de surgelés industriels ou de mix: nous réalisons nos coques en mélangeant du sucre glace et de la poudre d'amande de qualité. Quand à nos ganaches, nous imagineons sans cesse de nouvelles recettes pour vous surprendre et vous régaler.<br />
+                </div><!-- content -->
+              </div><!-- / dish -->
+            
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <form action="/contact">
+                    <em>Consultez-nous pour les nouveautés et la disponibilité des différents parfum</em><br />
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
+                  </form>
+                </div><!-- content -->
+              </div><!-- / dish -->
+            </div>
+
 <% macarons.each do |type| %>
 
-            <div class="a-set <%= type[:type] %> col-sm-4 col-xs-12">
+            <div class="a-set <%= type[:type] %> col-sm-2 col-xs-12">
               <div class="col-xs-12">
                 <h2><%= type[:nom] %></h2>
               </div>
@@ -67,16 +83,8 @@ macarons = [
   <% type[:macarons].each do |macaron| %>
   
               <div class="dish col-xs-12 onscreen-marker">
-                <div class="media-container col-lg-5 col-md-5 col-xs-12">
-                  <div class="inner" style="padding: 10px">
-                    <%= image_tag "macarons/" + macaron[:image] + ".jpg", class: "img-responsive" %>
-                    <a href="<%= image_path "macarons/" + macaron[:image] + ".jpg" %>" class="icon nivo-lightbox">
-                      <%= image_tag "macarons/" + macaron[:image] + "_zoom.jpg", class: "img-responsive" %>
-                    </a>
-                  </div><!-- / inner -->
-                </div><!-- media-container -->
-                <div class="content col-lg-7 col-md-7 col-xs-12">
-                  <a href="#"><h3><%= macaron[:parfum] %></h3></a>
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <h3><%= macaron[:parfum] %></h3>
                 </div><!-- content -->
               </div><!-- / dish -->
   
