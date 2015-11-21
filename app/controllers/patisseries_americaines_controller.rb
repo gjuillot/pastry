@@ -6,8 +6,8 @@ class PatisseriesAmericainesController < ApplicationController
     @also = [
       @@cheese_cake_acidule,
       @@cheese_cake_fruits_rouges,
-      @@cup_cakes,
-      @@tarte_banoffee
+      @@brownie,
+      @@lemon_square
     ]
   end
 

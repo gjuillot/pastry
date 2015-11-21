@@ -1,0 +1,102 @@
+<%
+
+parfums = [
+  {
+    type: "sorbet",
+    nom: "Nos sorbets",
+    parfums: [ "Chocolat", "Citron vert basilic", "Fraise", "Framboise", "Mangue passion" ]
+  },
+  {
+    type: "glace",
+    nom: "Nos glaces",
+    parfums: [ "Café", "Pistache", "Vanille" ]
+  }
+]
+
+%>
+
+  <div id="ht-main-content" class="menu">
+
+    <div id="ht-menu" class="set">
+      <div class="container">
+        <div id="filter-container" class="menu-set">
+          <div class="row">
+            
+            <div class="a-set col-sm-6 col-xs-12">
+              <div class="ht-page-heading col-xs-12" style="padding-top: 20px;">
+                <div class="main-heading">
+                  <h1><strong>&middot;</strong> Nos desserts glacés <strong>&middot;</strong></h1>
+                </div>
+              </div>
+            
+              <div class="dish col-xs-12 onscreen-marker" style="margin-top: -30px">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <%= image_tag "homepage/glaces.jpg" %>
+                </div><!-- content -->
+              </div><!-- / dish -->
+            
+              <div class="dish col-xs-12 onscreen-marker" style="margin-top: -30px">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+Pour nos <strong>vacherins</strong> et <strong>omelettes norvégiennes</strong>, nous réalisons nous-mêmes nos glaces et sorbets plein fruit (<strong>45% de fruit minimum</strong>) en utilisant les meilleurs produits, comme de la crème <strong>Alsace Lait&copy; Label Rouge</strong> ou du lait frais Alsace Lait&copy;.
+                </div><!-- content -->
+              </div><!-- / dish -->
+              
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  Allergènes: nous consulter
+                </div><!-- content -->
+              </div><!-- / dish -->
+            
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <form action="/contact">
+                    <em>Tous nos desserts glacés sont réalisées sur commande uniquement, de préférence <strong>5 jours ouvrés</strong> avant retrait/livraison.</em><br />
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
+                  </form>
+                </div><!-- content -->
+              </div><!-- / dish -->
+            </div>
+
+<% parfums.each do |type| %>
+
+            <div class="a-set <%= type[:type] %> col-sm-2 col-xs-12">
+              <div class="col-xs-12">
+                <h2><%= type[:nom] %></h2>
+              </div>
+            
+  <% type[:parfums].each do |parfum| %>
+  
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <h3><%= parfum %></h3>
+                </div><!-- content -->
+              </div><!-- / dish -->
+  
+  <% end %>
+  
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <h3>&nbsp;</h3>
+                </div><!-- content -->
+              </div><!-- / dish -->
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <h3>&nbsp;</h3>
+                </div><!-- content -->
+              </div><!-- / dish -->
+              <div class="dish col-xs-12 onscreen-marker">
+                <div class="content col-lg-12 col-md-12 col-xs-12">
+                  <h3>&nbsp;</h3>
+                </div><!-- content -->
+              </div><!-- / dish -->
+  
+            </div><!-- / a-set -->
+
+<% end %>
+
+          </div><!-- / row -->
+        </div><!-- / filter-container -->
+
+      </div><!-- container -->
+
+    </div><!-- / ht-menu -->

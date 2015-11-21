@@ -9,6 +9,10 @@ class EntremetsController < ApplicationController
         @@entremet_souffle_passion,
         @@entremet_trois_chocolats
         ]
+    @also = [
+        @@entremet_passionnement_framboise,
+        @@entremet_orangette
+    ]
   end
 
   def show
@@ -48,7 +52,7 @@ class EntremetsController < ApplicationController
         @@entremet_souffle_passion,
         @@entremet_trois_chocolats
       ]
-    when "passionnement-framboise"
+    when "mangue-fraise"
       @produit = @@entremet_mangue_fraise 
       @recommandations = [
         @@macaron_geant_framboise_rose_litchi,

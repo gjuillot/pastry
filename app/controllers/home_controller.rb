@@ -34,6 +34,9 @@ class HomeController < ApplicationController
   def macarons
   end
   
+  def desserts_glaces
+  end
+  
   def cheese_cakes
   end
   

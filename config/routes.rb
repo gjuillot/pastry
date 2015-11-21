@@ -26,6 +26,7 @@ Pastry::Application.routes.draw do
   match '/index', :to => "home#index"
   match '/produits', :to => "home#produits"
   match '/macarons', :to => "home#macarons"
+  match '/desserts_glaces', :to => "home#desserts_glaces"
   match '/gateaux_decores', :to => "home#gateaux_decores"
   match '/pour_vos_evenements', :to => "home#pour_vos_evenements"
   match '/evenements', :to => "home#evenements"

@@ -36,6 +36,23 @@
 
 <% end %>
 
+<% unless @also.empty? %>
+
+            <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
+              <div class="content col-xs-12">
+                <br /><br /><br />
+                <h2>Découvrez également</h2>
+                <br /><br />
+
+  <% @also.each do |produit| %>
+                <h3><%= raw produit[:name] %></h3>
+                <p><%= raw produit[:text] %></p><br />
+  <% end %>
+              </div><!-- content -->
+            </div><!-- / dish -->
+<% end %>
+
+
           </div><!-- / row -->
         </div><!-- / filter-container menu-single-grid -->
       </div><!-- container -->

@@ -10,6 +10,7 @@ class MacaronsGeantsController < ApplicationController
   end
 
   def show
+    @saison = false
     case params[:id]
     when "framboise-rose-litchi"
       @produit = @@macaron_geant_framboise_rose_litchi
@@ -40,8 +41,8 @@ class MacaronsGeantsController < ApplicationController
       @produit = @@macaron_geant_pistache_griotte
       @recommandations = [
         @@macaron_geant_framboise_rose_litchi,
-        @@macaron_geant_orange_passion,
-        @@macaron_pistache_griotte]
+        @@macaron_geant_orange_passion]
+      @saison = true
     end
   end
 

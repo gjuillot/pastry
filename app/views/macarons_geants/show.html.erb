@@ -38,8 +38,25 @@
               </div><!-- / container -->
             </div><!-- / page-heading -->
             <div class="alert animated bounceInRight"><%= raw @produit[:text] %></div>
+            
+            <!--table class="table">
+              <tr class="success">
+                <td>Coffret de 7 macarons</td>
+                <td>8,75 €</td>
+              </tr>
+            </table-->
+            <% if @saison %>
+              <span class="label label-primary">Produit disponible selon saison</span><br />
+            <% end %>
+            <span class="label label-success">Sans gluten</span>
+            <span class="label label-warning">Fruits à coque</span>
+            <span class="label label-warning">Lactose</span>
+            <span class="label label-warning">&OElig;uf</span>
+
+            <br /><br />
+              
             <form action="/contact">
-              <em>Toutes nos pâtisseries sont réalisées sur commande uniquement</em><br />
+              <em>Toutes nos pâtisseries sont réalisées sur commande uniquement, de préférence <strong>3 jours ouvrés</strong> avant retrait/livraison.</em><br />
               <button type="submit" class="btn btn-danger"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
             </form>
           </div><!-- / dish -->

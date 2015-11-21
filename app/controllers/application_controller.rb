@@ -6,25 +6,29 @@ class ApplicationController < ActionController::Base
   ###############
   
   @@entremet_chocolat_caramel = {
-    name: "Le Chocolat Caramel beurre sal&eacute;",
+    name: "Le Chocolat Tonka Caramel",
     images: [
       "https://40.media.tumblr.com/315c86f596f641289f261d03af188e4b/tumblr_nrkyp7ve2j1uadryro6_r1_1280.jpg",
       "https://36.media.tumblr.com/3978664abbc2cec1a13d8a874f924919/tumblr_nrkyp7ve2j1uadryro2_1280.jpg",
       "https://40.media.tumblr.com/4f4745e9f566ef417bc074504eab2f46/tumblr_nrkyp7ve2j1uadryro3_1280.jpg",
       "https://41.media.tumblr.com/71c6bc2360d92f9e51c8582ea4bf14e6/tumblr_nrkyp7ve2j1uadryro4_1280.jpg"],
     zoom: "https://41.media.tumblr.com/567f0aa045b31fc476523f131df53ac8/tumblr_nrkyp7ve2j1uadryro5_1280.jpg",
-    text: "Brownie, mousse chocolat au lait et f&egrave;ve de Tonka, cr&eacute;meux caramel au beurre sal&eacute; et mousse chocolat noir",
-    url: "/entremets/chocolat-caramel.html"
+    text: "Brownie, mousse chocolat au lait et f&egrave;ve de Tonka, cr&eacute;meux caramel au beurre sal&eacute; et mousse chocolat noir 70%",
+    url: "/entremets/chocolat-caramel.html",
+    allergenes: ["Fruits &agrave; coque (en d&eacute;coration)", "Lactose"],
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@entremet_exotique = {
-    name: "Exotique",
+    name: "Mangue Passion",
     images: [
       "https://40.media.tumblr.com/3f1816c3350e6ce6c5f42940ebc31b82/tumblr_nrl494jtjq1uadryro4_r1_1280.jpg",
       "https://40.media.tumblr.com/790db5407df4e9d6bea5ba7a7748d8ff/tumblr_nrl494jtjq1uadryro1_r1_1280.jpg"],
     zoom: "https://41.media.tumblr.com/5de7063036c9ea69b1cef64c433fc1ed/tumblr_nrl494jtjq1uadryro5_r1_540.jpg",
-    text: "Dacquoise coco, confit orange passion, mousse mague passion, cr&eacute;meux citron vert, nougatine coco, chantilly mascarpone des &icirc;les",
-    url: "/entremets/exotique.html"
+    text: "Dacquoise coco, confit orange passion, mousse mague passion, cr&eacute;meux citron vert, chantilly mascarpone des &icirc;les",
+    url: "/entremets/exotique.html",
+    allergenes: ["Fruits &agrave; coque", "Lactose", "&OElig;uf"],
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@entremet_myrtille_framboise = {
@@ -35,8 +39,10 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/bb42bb1f00513eac78d8a35ccb4dd705/tumblr_nrky0kS6I91uadryro3_1280.jpg",
       "https://41.media.tumblr.com/ce23cd4f7cc67ab967856c9b74b9c0a1/tumblr_nrky0kS6I91uadryro4_1280.jpg"],
     zoom: "https://41.media.tumblr.com/5d6ccd5b2dc3fec17c04ec6590147d1c/tumblr_nrky0kS6I91uadryro5_1280.jpg",
-    text: "Dacquoise pistache, mousse myrtille, confit framboise, nougatine amande",
-    url: "/entremets/myrtille-framboise.html"
+    text: "Dacquoise pistache, mousse myrtille, confit framboise",
+    url: "/entremets/myrtille-framboise.html",
+    allergenes: ["Fruits &agrave; coque", "Lactose", "&OElig;uf"],
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@entremet_mangue_fraise = {
@@ -47,7 +53,9 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/2aab5b10db3c84cbe02713da831f432a/tumblr_nrl53rmljM1uadryro3_1280.jpg"],
     zoom: "https://41.media.tumblr.com/03251c14f5d954cc97fe6773847870f0/tumblr_nrl53rmljM1uadryro4_1280.jpg",
     text: "Biscuit joconde, croustillant chocolat blanc et fraise, mousse fraise, mousse mangue",
-    url: "/entremets/mangue-fraise.html"
+    url: "/entremets/mangue-fraise.html",
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
+    prix: ["24", "36", "52"]
   }
   
   @@entremet_royal = {
@@ -58,8 +66,10 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/27455912ceae8b897e140b4eec1ff4e9/tumblr_nrkx7uyTo41uadryro3_1280.jpg",
       "https://40.media.tumblr.com/97a1b5b1b76a20d8cef1aabb6681c4e9/tumblr_nrkx7uyTo41uadryro4_1280.jpg"],
     zoom: "https://40.media.tumblr.com/911b8d2c05b0a20777446dad5e4ef92e/tumblr_nrkx7uyTo41uadryro5_1280.jpg",
-    text: "Dacquoise amande noisette, croustillant pralin&eacute;, mousse chocolat noir.",
-    url: "/entremets/royal.html"
+    text: "Dacquoise amande noisette, croustillant pralin&eacute;, mousse chocolat noir 70%.",
+    url: "/entremets/royal.html",
+    allergenes: ["Fruits &agrave; coque", "Lactose", "&OElig;uf"],
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@entremet_souffle_passion = {
@@ -70,7 +80,9 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/6738d1b27f19d4ebd0c0c01161b553dc/tumblr_nrl35jH0Cs1uadryro3_1280.jpg"],
     zoom: "https://40.media.tumblr.com/989d532d3bb25594c9452cf67d695289/tumblr_nrl35jH0Cs1uadryro7_r1_540.jpg",
     text: "Dacquoise coco, souffl&eacute; passion, &eacute;clats de framboises",
-    url: "/entremets/souffle-passion.html"
+    url: "/entremets/souffle-passion.html",
+    allergenes: ["Fruits &agrave; coque", "&OElig;uf"],
+    prix: ["24", "36", "52"]
   }
   
   @@entremet_trois_chocolats = {
@@ -81,8 +93,20 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/a542760838123c84f51115f0bb12169a/tumblr_nrjn24sycj1uadryro1_r2_1280.jpg",
       "http://40.media.tumblr.com/6bcca1793ee610381458e82ae20f5fba/tumblr_nrjn24sycj1uadryro4_r1_1280.jpg"],
     zoom: "https://40.media.tumblr.com/e27a2641b700ed57320eec1cf2353b69/tumblr_nrjn24sycj1uadryro5_r1_540.jpg",
-    text: "Biscuit chocolat, croustillant pralin&eacute;, mousse chocolat noir, mousse chocolat au lait, mousse chocolat blanc.",
-    url: "/entremets/trois-chocolats.html"
+    text: "Biscuit chocolat, croustillant pralin&eacute;, mousse chocolat noir 70%, mousse chocolat au lait, mousse chocolat blanc.",
+    url: "/entremets/trois-chocolats.html",
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
+    prix: ["21", "31,50", "45,50"]
+  }
+  
+  @@entremet_passionnement_framboise = {
+    name: "Passionn&eacute;ment Framboise",
+    text: "Dacquoise pistache, mousse framboise, confit fruit de la passion"
+  }
+  
+  @@entremet_orangette = {
+    name: "Orangette",
+    text: "Mousse chocolat noir 70%, cr&eacute;meux orange, financier orange",
   }
   
   ############
@@ -127,7 +151,7 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/7f9c205aa5a86a640323cbb28d150f02/tumblr_nrm35wWx3R1uadryro3_1280.jpg",
       "https://41.media.tumblr.com/2494281dc0f2dfc98e58bbe6095e2e14/tumblr_nrm35wWx3R1uadryro4_1280.jpg"],
     zoom: "https://40.media.tumblr.com/a2e0963cb2b570a435c4a6e82c6bad26/tumblr_nrm35wWx3R1uadryro5_1280.jpg",
-    text: "Confit orange passion, ganache mont&eacute;e chocolat noir, orange et fruit de la passion frais.",
+    text: "Confit orange passion, ganache mont&eacute;e chocolat noir 70%, orange et fruit de la passion frais.",
     url: "/macarons_geants/orange-passion.html"
   }
   
@@ -155,7 +179,7 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/86778015a5d2ffa271ff8fe7aeb2bf85/tumblr_nrmkryVHLV1uadryro3_1280.jpg",
       "https://41.media.tumblr.com/b1f8245d54ff1eed7f48e60041dee741/tumblr_nrmkryVHLV1uadryro4_1280.jpg"],
     zoom: "https://41.media.tumblr.com/5652d093686a149b503f5105c7013906/tumblr_nrmkryVHLV1uadryro1_r1_540.jpg",
-    text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.<br />Existe aussi en version Tarte Agrumes meringu&eacute;e",
+    text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.<br />Existe aussi en version <strong>Tarte Agrumes meringu&eacute;e</strong>",
     url: "/tartes/citron.html"
   }
   
@@ -208,7 +232,8 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/03ef2fd18b6914cf7ecc03e788ee1cd2/tumblr_nrmp6c3cYL1uadryro3_r1_540.jpg"],
     zoom: "https://40.media.tumblr.com/98617607dfef3fed7f291272657ffaa1/tumblr_nrmp6c3cYL1uadryro4_r1_1280.jpg",
     text: "Fond biscuit maison et cream cheese Philadelphia&reg; citron&eacute;. Coulis au choix : fraise, framboise, mangue, passion, lemon curd.",
-    url: "/patisseries_americaines/cheese-cake-nature.html"
+    url: "/patisseries_americaines/cheese-cake-nature.html",
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"]
   }
   
   @@cheese_cake_acidule = {
@@ -223,6 +248,16 @@ class ApplicationController < ActionController::Base
     images: ["amerique/cheese-cake-fruits-rouges"],
     text: "Fond biscuit maison aux flocons d'avoine et canneberges, cream cheese Philadelphia&reg; aux fruits rouges",
     url: "/patisseries_americaines/cheese-cake-fruits-rouges.html"
+  }
+  
+  @@brownie = {
+    name: "Brownie",
+    text: "Brownie chocolat, &eacute;clats de noix et noisettes"
+  }
+  
+  @@lemon_square = {
+    name: "Lemon square",
+    text: "P&acirc;te sabl&eacute; et flan citron"
   }
   
   @@cup_cakes = {

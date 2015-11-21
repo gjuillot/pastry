@@ -2897,7 +2897,7 @@ ul#ht-collapsed-list {
     right: 10px; }
 
 #ht-header {
-  height: 700px;
+  height: 600px;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -2940,7 +2940,7 @@ ul#ht-collapsed-list {
   #ht-header #ht-logo {
     position: relative;
     display: block;
-    margin-top: 100px; }
+    margin-top: 50px; }
   #ht-header .ht-navbar-toggle {
     position: relative;
     margin-top: 30px;
@@ -2970,7 +2970,7 @@ ul#ht-collapsed-list {
       background-color: rgba(218, 82, 82, 0.5); }
   @media (min-width: 768px) {
     #ht-header #ht-main-nav {
-      margin-top: 150px;
+      margin-top: 75px;
       display: block !important; }
       #ht-header #ht-main-nav .main-nav {
         padding: 0;
@@ -4038,3 +4038,7 @@ ul#ht-collapsed-list {
 #ht-main-content.other-page .other-page-content {
   padding-top: 100px;
   padding-bottom: 100px; }
+
+.label {
+  font-weight: normal; }
+
