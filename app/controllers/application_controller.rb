@@ -103,6 +103,7 @@ class ApplicationController < ActionController::Base
     name: "Passionn&eacute;ment Framboise",
     text: "Dacquoise pistache, mousse framboise, confit fruit de la passion",
     url: "/entremets/passionnement-framboise.html",
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
     prix: ["27", "40,50", "58,50"]
   }
   
@@ -110,6 +111,7 @@ class ApplicationController < ActionController::Base
     name: "Orangette",
     text: "Mousse chocolat noir 70%, cr&eacute;meux orange, financier orange",
     url: "/entremets/orangette.html",
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
     prix: ["27", "40,50", "58,50"]
   }
   

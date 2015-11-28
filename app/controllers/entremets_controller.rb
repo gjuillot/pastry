@@ -44,7 +44,6 @@ class EntremetsController < ApplicationController
       @produit = @@entremet_myrtille_framboise
       @recommandations = [
         @@macaron_geant_framboise_rose_litchi,
-        @@tarte_marron_myrtille,
         @@entremet_chocolat_caramel,
         @@entremet_exotique,
         @@entremet_mangue_fraise,
