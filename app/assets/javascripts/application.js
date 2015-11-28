@@ -23,7 +23,6 @@
 //= require validate.contact
 //= require jquery.isotope.min
 //= require jquery.columnizer
-//= require skrollr
 //= require SmoothScroll
 //= require jquery.flexslider
 //= require ht-js
