@@ -42,13 +42,14 @@
               <div class="content col-xs-12">
                 <br /><br />
                 <h2>Découvrez également</h2>
-                <br /><br />
+              </div>
 
   <% @also.each do |produit| %>
-                <h3><%= raw produit[:name] %></h3>
-                <p><%= raw produit[:text] %></p><br />
+                <div class="content col-xs-12">
+                  <a href="<%= produit[:url] %>"><h3><%= raw produit[:name] %></h3></a>
+                  <p><%= raw produit[:text] %></p>
+                </div>
   <% end %>
-              </div><!-- content -->
             </div><!-- / dish -->
 <% end %>
 

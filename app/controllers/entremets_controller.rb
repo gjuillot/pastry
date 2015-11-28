@@ -99,6 +99,22 @@ class EntremetsController < ApplicationController
         @@entremet_royal,
         @@entremet_souffle_passion
       ]
+    when "passionnement-framboise"
+      @produit = @@entremet_passionnement_framboise
+      @recommandations = [
+        @@entremet_exotique,
+        @@entremet_myrtille_framboise,
+        @@entremet_mangue_fraise,
+        @@entremet_souffle_passion
+      ]
+    when "orangette"
+      @produit = @@entremet_orangette
+      @recommandations = [
+        @@entremet_trois_chocolats,
+        @@entremet_chocolat_caramel,
+        @@entremet_exotique,
+        @@entremet_royal,
+      ]
     end
   end
 

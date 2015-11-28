@@ -1,78 +1,91 @@
-  <div id="ht-main-content" class="menu">
+<div id="ht-main-content" class="menu">
 
-    <div id="ht-menu-detail">
-      <div class="container">       
-        <div class="gallery-dish row">
-          <div class="gallery col-sm-6 col-xs-12 onscreen-marker">          
-            <div class="main-img media-container">
-              <div class="inner col-xs-12">
-                <!-- No need to define image source -->
-                <img class="img-responsive" src="" alt="">
-                <a class="hover-overlay nivo-lightbox" href=""></a>
-              </div><!-- / col-sm-4 col-xs-12 -->
-            </div><!-- / row -->
+  <div id="ht-menu-detail">
+    <div class="container">
+      <div class="gallery-dish row">
 
-            <div class="jcarousel-wrapper">
-              <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-                        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-                        <div class="jcarousel navigation">
-                          <ul>
-<% @produit[:images].each do |image| %>
-                            <li class="bw-wrapper onscreen-marker">
-                              <%= image_tag image, class: "img-responsive" %>
-                            </li>
-<% end %>
-                          </ul>
-                        </div><!-- / jcarousel -->
-            </div><!-- / jcarousel-wrapper -->
-          </div><!-- / gallery -->
+        <% unless @produit[:images].nil? %>
+        <div class="gallery col-sm-6 col-xs-12 onscreen-marker">
+          <div class="main-img media-container">
+            <div class="inner col-xs-12">
+              <!-- No need to define image source -->
+              <img class="img-responsive" src="" alt="">
+              <a class="hover-overlay nivo-lightbox" href=""></a>
+            </div><!-- / col-sm-4 col-xs-12 -->
+          </div><!-- / row -->
 
-          <div class="dish col-sm-6 col-xs-12 onscreen-marker">
-            <div class="ht-page-heading">
-              <div class="container">
-                <div class="row">
-                  <div class="main-heading col-sm-6 col-xs-12">
-                    <h1><strong>&middot;</strong> <%= raw @produit[:name] %> <strong>&middot;</strong></h1>
-                  </div><!-- / main-heading -->
-                </div><!-- / row -->
-              </div><!-- / container -->
-            </div><!-- / page-heading -->
-            <div class="alert animated bounceInRight"><%= raw @produit[:text] %></div>
-            <form action="/contact">
-              <em>Toutes nos pâtisseries sont réalisées sur commande uniquement</em><br />
-              <button type="submit" class="btn btn-danger"><i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter</button>
-            </form>
-          </div><!-- / dish -->
-        </div><!-- / row -->
-
-<% unless @recommandations.empty? %>
-        <div class="recommended">
-          <h2>Nous vous recommandons également</h2>
-          <div class="jcarousel-wrapper row">
+          <div class="jcarousel-wrapper">
             <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-                      <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-            <div class="jcarousel onscreen-marker">
-              <ul><!-- Jcarousel -->
-
-    <% @recommandations.shuffle.each do |r| %>
-
-                <li class="item col-sm-3 col-xs-6">
-                  <div class="media-container">
-                    <div class="inner">
-                      <%= image_tag r[:images][0], class: "img-responsive center-block" %>
-                      <a href="<%= r[:url] %>" class="hover-overlay" title="<%= raw r[:name] %>" data-lightbox-gallery="gallery1"></a><!-- / hover-overlay -->
-                    </div><!-- / inner -->
-                  </div><!-- / media-container -->
-                  <span class="name"><a href="#"><%= raw r[:name] %></a></span>
-                </li><!-- / item -->
-
-    <% end %>
-
-              </ul><!-- / Jcarousel -->
+            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+            <div class="jcarousel navigation">
+              <ul>
+                <% @produit[:images].each do |image| %>
+                <li class="bw-wrapper onscreen-marker">
+                  <%= image_tag image, class: "img-responsive" %>
+                </li>
+                <% end %>
+              </ul>
             </div><!-- / jcarousel -->
-          </div><!-- / kcarousel-wrapper -->
-        </div><!-- / recommended -->
-<% end %>
+          </div><!-- / jcarousel-wrapper -->
+        </div><!-- / gallery -->
+        <% end %>
+
+        <div class="dish col-sm-6 col-xs-12 onscreen-marker">
+          <div class="ht-page-heading">
+            <div class="container">
+              <div class="row">
+                <div class="main-heading col-sm-6 col-xs-12">
+                  <h1><strong>&middot;</strong> <%= raw @produit[:name] %> <strong>&middot;</strong></h1>
+                </div><!-- / main-heading -->
+              </div><!-- / row -->
+            </div><!-- / container -->
+          </div><!-- / page-heading -->
+          <div class="alert animated bounceInRight">
+            <%= raw @produit[:text] %>
+          </div>
+
+          <% if @produit[:prix].size == 1 %>
+            <table class="table">
+              <tr class="success">
+                <td>Le carré à partager (20x20cm)</td>
+                <td><%= @produit[:prix][0] %> €</td>
+              </tr>
+            </table>
+          <% else %>
+            <table class="table">
+              <tr class="success">
+                <td>6 personnes</td>
+                <td><%= @produit[:prix][0] %> €</td>
+              </tr>
+              <tr class="info">
+                <td>8-10 personnes</td>
+                <td><%= @produit[:prix][1] %> €</td>
+              </tr>
+              <tr class="success">
+                <td>12-14 personnes</td>
+                <td><%= @produit[:prix][2] %> €</td>
+              </tr>
+            </table>
+          <% end %>
+          <% if @saison %>
+          <span class="label label-primary">Produit disponible selon saison</span>
+          <br />
+          <% end %>
+          Allergènes: nous consulter
+
+          <br />
+          <br />
+
+          <form action="/contact">
+            <em>Toutes nos pâtisseries sont réalisées sur commande uniquement, de préférence <strong>3 jours ouvrés</strong> avant retrait ou livraison (avec supplément).</em>
+            <br />
+            <button type="submit" class="btn btn-danger">
+              <i class="fa fa-phone"></i>&nbsp;&nbsp;Nous contacter
+            </button>
+          </form>
+        </div><!-- / dish -->
+
+      </div>
 
       </div><!-- container -->
     </div><!-- / ht-menu -->

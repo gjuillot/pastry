@@ -45,7 +45,7 @@
                 <br /><br />
 
   <% @also.each do |produit| %>
-                <h3><%= raw produit[:name] %></h3>
+                <a href="<%= produit[:url] %>"><h3><%= raw produit[:name] %></h3></a>
                 <p><%= raw produit[:text] %></p><br />
   <% end %>
               </div><!-- content -->

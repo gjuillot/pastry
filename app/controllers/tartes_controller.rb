@@ -34,6 +34,20 @@ class TartesController < ApplicationController
         @@tarte_citron,
         @@tarte_orange_passion
       ]
+    when "automne"
+      @produit = @@tarte_automne
+      @recommandations = [
+        @@tarte_citron,
+        @@tarte_orange_passion,
+        @@tarte_rhubarbe_fraise
+      ]
+    when "marron-myrtille"
+      @produit = @@tarte_marron_myrtille
+      @recommandations = [
+        @@tarte_citron,
+        @@tarte_orange_passion,
+        @@tarte_rhubarbe_fraise
+      ]
     end
   end
 

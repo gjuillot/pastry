@@ -101,12 +101,16 @@ class ApplicationController < ActionController::Base
   
   @@entremet_passionnement_framboise = {
     name: "Passionn&eacute;ment Framboise",
-    text: "Dacquoise pistache, mousse framboise, confit fruit de la passion"
+    text: "Dacquoise pistache, mousse framboise, confit fruit de la passion",
+    url: "/entremets/passionnement-framboise.html",
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@entremet_orangette = {
     name: "Orangette",
     text: "Mousse chocolat noir 70%, cr&eacute;meux orange, financier orange",
+    url: "/entremets/orangette.html",
+    prix: ["27", "40,50", "58,50"]
   }
   
   ############
@@ -126,10 +130,9 @@ class ApplicationController < ActionController::Base
   
   @@macaron_geant_agrumes = {
     name: "Macaron g&eacute;ant Agrumes",
-    images: [""],
-    zoom: "",
     text: "Confit orange passion, cr&eacute;meux agrume, chantilly mascarpone des &icirc;les",
-    url: "/macarons_geants/agrumes.html"
+    url: "/macarons_geants/agrumes.html",
+    prix: ["33", "50", "72"]
   }
   
   @@macaron_geant_framboise_rose_litchi = {
@@ -140,7 +143,8 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/2ae5994d9089dc04824cb5bb43708110/tumblr_nrm3sk2XJA1uadryro8_r1_1280.jpg"],
     zoom: "https://41.media.tumblr.com/aca66381d5175401dca44b49f97829c0/tumblr_nrm3sk2XJA1uadryro7_r1_1280.jpg",
     text: "Confit framboise litchi, ganache mont&eacute;e rose litchi, framboises fraiches.",
-    url: "/macarons_geants/framboise-rose-litchi.html"
+    url: "/macarons_geants/framboise-rose-litchi.html",
+    prix: ["36", "54", "78"]
   }
   
   @@macaron_geant_orange_passion = {
@@ -152,7 +156,8 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/2494281dc0f2dfc98e58bbe6095e2e14/tumblr_nrm35wWx3R1uadryro4_1280.jpg"],
     zoom: "https://40.media.tumblr.com/a2e0963cb2b570a435c4a6e82c6bad26/tumblr_nrm35wWx3R1uadryro5_1280.jpg",
     text: "Confit orange passion, ganache mont&eacute;e chocolat noir 70%, orange et fruit de la passion frais.",
-    url: "/macarons_geants/orange-passion.html"
+    url: "/macarons_geants/orange-passion.html",
+    prix: ["36", "54", "78"]
   }
   
   @@macaron_geant_pistache_griotte = {
@@ -164,7 +169,8 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/a37659aa8cd27d6025b666ff72052dc0/tumblr_nrm1euHtdy1uadryro4_1280.jpg"],
     zoom: "https://40.media.tumblr.com/1b73d1b1b4c48d6196bed51344708ade/tumblr_nrm1euHtdy1uadryro5_1280.jpg",
     text: "Confit griotte, ganache mont&eacute;e pistache, &eacute;clats de griottes et de pistache.",
-    url: "/macarons_geants/pistache-griotte.html"
+    url: "/macarons_geants/pistache-griotte.html",
+    prix: ["39", "59", "85"]
   }
   
   ##########
@@ -180,14 +186,15 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/b1f8245d54ff1eed7f48e60041dee741/tumblr_nrmkryVHLV1uadryro4_1280.jpg"],
     zoom: "https://41.media.tumblr.com/5652d093686a149b503f5105c7013906/tumblr_nrmkryVHLV1uadryro1_r1_540.jpg",
     text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.<br />Existe aussi en version <strong>Tarte Agrumes meringu&eacute;e</strong>",
-    url: "/tartes/citron.html"
+    url: "/tartes/citron.html",
+    prix: ["20,50", "30,50", "44,50"]
   }
   
   @@tarte_automne = {
     name: "Tarte d'automne",
-    images: ["tartes/automne"],
     text: "Fond sucr&eacute;, cr&egrave;me de noisette, pomme poire, flan et fruits sec.",
-    url: "/tartes/automne.html"
+    url: "/tartes/automne.html",
+    prix: ["20,50", "30,50", "44,50"]
   }
   
   @@tarte_orange_passion = {
@@ -199,14 +206,15 @@ class ApplicationController < ActionController::Base
       "https://41.media.tumblr.com/4e92b1699ba78558c017eb217047bb18/tumblr_nrmhggwPL81uadryro4_1280.jpg"],
     zoom: "https://41.media.tumblr.com/db225e5532fce4f215eab9e5dc3e4416/tumblr_nrmhggwPL81uadryro5_1280.jpg",
     text: "Fond sucr&eacute;, confit orange passion, cr&eacute;meux passion fa&ccedil;on cr&egrave;me br&ucirc;l&eacute;e.",
-    url: "/tartes/orange-passion.html"
+    url: "/tartes/orange-passion.html",
+    prix: ["23", "34,50", "50"]
   }
   
   @@tarte_marron_myrtille = {
     name: "Tarte Marron Myrtille",
-    images: ["tartes/marron-myrtille"],
     text: "Fond sucr&eacute; frangipane, cr&egrave;me diplomate, meringue, cr&eacute;meux myrtille et ses vermicelles cr&eacute;me aux marrons.",
-    url: "/tartes/marron-myrtille.html"
+    url: "/tartes/marron-myrtille.html",
+    prix: ["22,50", "33,50", "48,50"]
   }
   
   @@tarte_rhubarbe_fraise = {
@@ -219,7 +227,8 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/a3485d7dc9b3d9d42e85de4936a1d525/tumblr_nrm60nDM6v1uadryro3_1280.jpg"],
     zoom: "https://40.media.tumblr.com/5aa3534da51de004086b26bf25991822/tumblr_nrm60nDM6v1uadryro5_1280.jpg",
     text: "Fond sucr&eacute;, compot&eacute; rhubarbe fraise, cr&eacute;meux vanille fa&ccedil;on cr&egrave;me br&ucirc;l&eacute;e et fraise fraiche et rhubarbe poch&eacute;e.",
-    url: "/tartes/rhubarbe-fraise.html"
+    url: "/tartes/rhubarbe-fraise.html",
+    prix: ["25", "37,50", "53,50"]
   }
   
   ###########################
@@ -233,31 +242,36 @@ class ApplicationController < ActionController::Base
     zoom: "https://40.media.tumblr.com/98617607dfef3fed7f291272657ffaa1/tumblr_nrmp6c3cYL1uadryro4_r1_1280.jpg",
     text: "Fond biscuit maison et cream cheese Philadelphia&reg; citron&eacute;. Coulis au choix : fraise, framboise, mangue, passion, lemon curd.",
     url: "/patisseries_americaines/cheese-cake-nature.html",
-    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"]
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
+    prix: ["24", "36", "52"]
   }
   
   @@cheese_cake_acidule = {
     name: "Cheese Cake acidul&eacute;",
-    images: ["amerique/cheese-cake-acidule"],
     text: "Fond biscuit maison et cream cheese Philadelphia&reg; au citron vert et sa gel&eacute;e de pamplemousse.",
-    url: "/patisseries_americaines/cheese-cake-acidule.html"
+    url: "/patisseries_americaines/cheese-cake-acidule.html",
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@cheese_cake_fruits_rouges = {
     name: "Cheese Cake non cuit aux fruits rouges",
-    images: ["amerique/cheese-cake-fruits-rouges"],
     text: "Fond biscuit maison aux flocons d'avoine et canneberges, cream cheese Philadelphia&reg; aux fruits rouges",
-    url: "/patisseries_americaines/cheese-cake-fruits-rouges.html"
+    url: "/patisseries_americaines/cheese-cake-fruits-rouges.html",
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@brownie = {
     name: "Brownie",
-    text: "Brownie chocolat, &eacute;clats de noix et noisettes"
+    text: "Brownie chocolat, &eacute;clats de noix et noisettes",
+    url: "/patisseries_americaines/brownie.html",
+    prix: ["20"]
   }
   
   @@lemon_square = {
     name: "Lemon square",
-    text: "P&acirc;te sabl&eacute; et flan citron"
+    text: "P&acirc;te sabl&eacute; et flan citron",
+    url: "/patisseries_americaines/lemon-square.html",
+    prix: ["20"]
   }
   
   @@cup_cakes = {

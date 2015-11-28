@@ -33,7 +33,6 @@ class MacaronsGeantsController < ApplicationController
     when "agrumes"
       @produit = @@macaron_geant_agrumes
       @recommandations = [
-        @@tarte_agrumes,
         @@macaron_geant_framboise_rose_litchi,
         @@macaron_geant_orange_passion,
         @@macaron_geant_pistache_griotte]
