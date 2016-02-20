@@ -1,5 +1,5 @@
 Pastry::Application.routes.draw do  
-  
+
   devise_for :users
 
   resources :ingredients
@@ -34,5 +34,5 @@ Pastry::Application.routes.draw do
   match '/contact', :to => "home#contact"
   match '/legal', :to => "home#legal"
   match '/admin', :to => "home#admin"
-  root :to => "home#welcome"
+  root :to => "home#index"
 end
