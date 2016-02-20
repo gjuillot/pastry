@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     text: "Dacquoise pistache, mousse myrtille, confit framboise",
     url: "/entremets/myrtille-framboise.html",
     allergenes: ["Fruits &agrave; coque", "Lactose", "&OElig;uf"],
-    prix: ["27", "40,50", "58,50"]
+    prix: ["31", "47", "67,50"]
   }
   
   @@entremet_mangue_fraise = {
@@ -82,7 +82,7 @@ class ApplicationController < ActionController::Base
     text: "Dacquoise coco, souffl&eacute; passion, &eacute;clats de framboises",
     url: "/entremets/souffle-passion.html",
     allergenes: ["Fruits &agrave; coque", "&OElig;uf"],
-    prix: ["24", "36", "52"]
+    prix: ["27", "40,50", "58,50"]
   }
   
   @@entremet_trois_chocolats = {
@@ -96,7 +96,7 @@ class ApplicationController < ActionController::Base
     text: "Biscuit chocolat, croustillant pralin&eacute;, mousse chocolat noir 70%, mousse chocolat au lait, mousse chocolat blanc.",
     url: "/entremets/trois-chocolats.html",
     allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
-    prix: ["21", "31,50", "45,50"]
+    prix: ["24", "36", "52"]
   }
   
   @@entremet_passionnement_framboise = {
@@ -104,7 +104,7 @@ class ApplicationController < ActionController::Base
     text: "Dacquoise pistache, mousse framboise, confit fruit de la passion",
     url: "/entremets/passionnement-framboise.html",
     allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
-    prix: ["27", "40,50", "58,50"]
+    prix: ["29", "43", "62,50"]
   }
   
   @@entremet_orangette = {
@@ -113,6 +113,30 @@ class ApplicationController < ActionController::Base
     url: "/entremets/orangette.html",
     allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
     prix: ["27", "40,50", "58,50"]
+  }
+  
+  @@entremet_cafe = {
+    name: "Caf&eacute;",
+    text: "Biscuit caf&eacute;, cr&eacute;meux caf&eacute;, mousse chocolat noir et caf&eacute;",
+    url: "/entremets/cafe.html",
+    allergenes: ["Fruits &agrave; coque", "Gluten", "Lactose", "&OElig;uf"],
+    prix: ["27", "40,50", "58,50"]
+  }
+  
+  @@entremet_chocolat_griotte = {
+    name: "Chocolat Griotte",
+    text: "Biscuit chocolat noir, confit cerise noire, mousse griotte et chocolat noir 60%, cr&eacute;meux cerise noire",
+    url: "/entremets/chocolat_griotte.html",
+    allergenes: ["Gluten", "Lactose", "&OElig;uf"],
+    prix: ["27", "40,50", "58,50"]
+  }
+  
+  @@entremet_amoureux = {
+    name: "Amoureux",
+    text: "Biscuit chocolat noir, confit framboise et rose, cr&eacute;meux framboise et citron vert. Mousse au choix: litchi ou mascarpone citron vert et vanille</li></ul>",
+    url: "/entremets/amoureux.html",
+    allergenes: ["Gluten", "Lactose", "&OElig;uf"],
+    prix: ["15.50"]
   }
   
   ############
@@ -134,7 +158,7 @@ class ApplicationController < ActionController::Base
     name: "Macaron g&eacute;ant Agrumes",
     text: "Confit orange passion, cr&eacute;meux agrume, chantilly mascarpone des &icirc;les",
     url: "/macarons_geants/agrumes.html",
-    prix: ["33", "50", "72"]
+    prix: ["36", "54", "78"]
   }
   
   @@macaron_geant_framboise_rose_litchi = {
@@ -146,7 +170,7 @@ class ApplicationController < ActionController::Base
     zoom: "https://41.media.tumblr.com/aca66381d5175401dca44b49f97829c0/tumblr_nrm3sk2XJA1uadryro7_r1_1280.jpg",
     text: "Confit framboise litchi, ganache mont&eacute;e rose litchi, framboises fraiches.",
     url: "/macarons_geants/framboise-rose-litchi.html",
-    prix: ["36", "54", "78"]
+    prix: ["39", "58.50", "84.50"]
   }
   
   @@macaron_geant_orange_passion = {
@@ -172,7 +196,7 @@ class ApplicationController < ActionController::Base
     zoom: "https://40.media.tumblr.com/1b73d1b1b4c48d6196bed51344708ade/tumblr_nrm1euHtdy1uadryro5_1280.jpg",
     text: "Confit griotte, ganache mont&eacute;e pistache, &eacute;clats de griottes et de pistache.",
     url: "/macarons_geants/pistache-griotte.html",
-    prix: ["39", "59", "85"]
+    prix: ["42", "63", "91"]
   }
   
   ##########
@@ -187,16 +211,23 @@ class ApplicationController < ActionController::Base
       "https://40.media.tumblr.com/86778015a5d2ffa271ff8fe7aeb2bf85/tumblr_nrmkryVHLV1uadryro3_1280.jpg",
       "https://41.media.tumblr.com/b1f8245d54ff1eed7f48e60041dee741/tumblr_nrmkryVHLV1uadryro4_1280.jpg"],
     zoom: "https://41.media.tumblr.com/5652d093686a149b503f5105c7013906/tumblr_nrmkryVHLV1uadryro1_r1_540.jpg",
-    text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.<br />Existe aussi en version <strong>Tarte Agrumes meringu&eacute;e</strong>",
+    text: "Fond sucr&eacute; frangipane, cr&eacute;meux au citron et meringue.",
     url: "/tartes/citron.html",
-    prix: ["20,50", "30,50", "44,50"]
+    prix: ["24", "36", "52"]
+  }
+  
+  @@tarte_agrumes = {
+    name: "Tarte Agrumes meringu&eacute;e",
+    text: "Fond sucr&eacute; frangipane, cr&eacute;meux aux agrumes et meringue.",
+    url: "/tartes/agrumes.html",
+    prix: ["26", "39", "56,50"]
   }
   
   @@tarte_automne = {
     name: "Tarte d'automne",
     text: "Fond sucr&eacute;, cr&egrave;me de noisette, pomme poire, flan et fruits sec.",
     url: "/tartes/automne.html",
-    prix: ["20,50", "30,50", "44,50"]
+    prix: ["26", "39", "56,50"]
   }
   
   @@tarte_orange_passion = {
@@ -209,14 +240,14 @@ class ApplicationController < ActionController::Base
     zoom: "https://41.media.tumblr.com/db225e5532fce4f215eab9e5dc3e4416/tumblr_nrmhggwPL81uadryro5_1280.jpg",
     text: "Fond sucr&eacute;, confit orange passion, cr&eacute;meux passion fa&ccedil;on cr&egrave;me br&ucirc;l&eacute;e.",
     url: "/tartes/orange-passion.html",
-    prix: ["23", "34,50", "50"]
+    prix: ["29", "43,50", "56,50"]
   }
   
   @@tarte_marron_myrtille = {
     name: "Tarte Marron Myrtille",
     text: "Fond sucr&eacute; frangipane, cr&egrave;me diplomate, meringue, cr&eacute;meux myrtille et ses vermicelles cr&eacute;me aux marrons.",
     url: "/tartes/marron-myrtille.html",
-    prix: ["22,50", "33,50", "48,50"]
+    prix: ["26", "39", "56,50"]
   }
   
   @@tarte_rhubarbe_fraise = {
@@ -230,7 +261,7 @@ class ApplicationController < ActionController::Base
     zoom: "https://40.media.tumblr.com/5aa3534da51de004086b26bf25991822/tumblr_nrm60nDM6v1uadryro5_1280.jpg",
     text: "Fond sucr&eacute;, compot&eacute; rhubarbe fraise, cr&eacute;meux vanille fa&ccedil;on cr&egrave;me br&ucirc;l&eacute;e et fraise fraiche et rhubarbe poch&eacute;e.",
     url: "/tartes/rhubarbe-fraise.html",
-    prix: ["25", "37,50", "53,50"]
+    prix: ["26", "39", "56,50"]
   }
   
   ###########################

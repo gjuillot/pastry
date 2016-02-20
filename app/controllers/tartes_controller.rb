@@ -7,6 +7,7 @@ class TartesController < ApplicationController
       @@tarte_rhubarbe_fraise
     ]
     @also = [
+      @@tarte_agrumes,
       @@tarte_automne,
       @@tarte_marron_myrtille
     ]
@@ -33,6 +34,13 @@ class TartesController < ApplicationController
       @recommandations = [
         @@tarte_citron,
         @@tarte_orange_passion
+      ]
+    when "agrumes"
+      @produit = @@tarte_agrumes
+      @recommandations = [
+        @@tarte_citron,
+        @@tarte_orange_passion,
+        @@tarte_rhubarbe_fraise
       ]
     when "automne"
       @produit = @@tarte_automne

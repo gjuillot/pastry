@@ -11,7 +11,10 @@ class EntremetsController < ApplicationController
         ]
     @also = [
         @@entremet_passionnement_framboise,
-        @@entremet_orangette
+        @@entremet_orangette,
+        @@entremet_cafe,
+        @@entremet_chocolat_griotte,
+        @@entremet_amoureux
     ]
   end
 
@@ -113,6 +116,36 @@ class EntremetsController < ApplicationController
         @@entremet_chocolat_caramel,
         @@entremet_exotique,
         @@entremet_royal,
+      ]
+    when "cafe"
+      @produit = @@entremet_cafe
+      @recommandations = [
+        @@entremet_chocolat_caramel,
+        @@entremet_exotique,
+        @@entremet_myrtille_framboise,
+        @@entremet_mangue_fraise,
+        @@entremet_royal,
+        @@entremet_souffle_passion
+      ]
+    when "chocolat_griotte"
+      @produit = @@entremet_chocolat_griotte
+      @recommandations = [
+        @@entremet_chocolat_caramel,
+        @@entremet_exotique,
+        @@entremet_myrtille_framboise,
+        @@entremet_mangue_fraise,
+        @@entremet_royal,
+        @@entremet_souffle_passion
+      ]
+    when "amoureux"
+      @produit = @@entremet_amoureux
+      @recommandations = [
+        @@entremet_chocolat_caramel,
+        @@entremet_exotique,
+        @@entremet_myrtille_framboise,
+        @@entremet_mangue_fraise,
+        @@entremet_royal,
+        @@entremet_souffle_passion
       ]
     end
   end

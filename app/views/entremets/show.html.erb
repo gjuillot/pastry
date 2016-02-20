@@ -45,18 +45,29 @@
           </div>
 
           <table class="table">
+<% if @produit[:prix].size == 3 %>
             <tr class="success">
+              <td>Individuel</td>
+              <td>3,80 €</td>
+            </tr>
+            <tr class="info">
               <td>6 personnes</td>
               <td><%= @produit[:prix][0] %> €</td>
             </tr>
-            <tr class="info">
+            <tr class="success">
               <td>8-10 personnes</td>
               <td><%= @produit[:prix][1] %> €</td>
             </tr>
-            <tr class="success">
+            <tr class="info">
               <td>12-14 personnes</td>
               <td><%= @produit[:prix][2] %> €</td>
             </tr>
+<% else %>
+            <tr class="info">
+              <td>C&oelig;ur 2/3 personnes</td>
+              <td><%= @produit[:prix][0] %> €</td>
+            </tr>
+<% end %>
           </table>
           <% if @saison %>
           <span class="label label-primary">Produit disponible selon saison</span>
