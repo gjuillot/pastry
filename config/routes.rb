@@ -45,6 +45,7 @@ Pastry::Application.routes.draw do
   match '/admin', :to => "home#admin"
   match '/admin/macarons', :to => "admin#macarons"
   match '/admin/html_snippets', :to => "admin#html_snippets"
+  match '/admin/investments', :to => "admin#investments"
   
   root :to => "home#index"
 end

@@ -1,11 +1,6 @@
 class InvestmentsController < ApplicationController
   
   layout "admin"
-  
-  def index
-    @investments = Investment.all
-    @users = User.all
-  end
 
   def create
     @investment = Investment.new(params[:investment])
