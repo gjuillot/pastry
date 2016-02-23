@@ -21,6 +21,7 @@ Pastry::Application.routes.draw do
   resources :macaron_categories
   resources :macaron_parfums
   resources :macaron_prices
+  resources :html_snippets
   
   resources :macarons_geants
   resources :tartes
@@ -43,6 +44,7 @@ Pastry::Application.routes.draw do
   
   match '/admin', :to => "home#admin"
   match '/admin/macarons', :to => "admin#macarons"
+  match '/admin/html_snippets', :to => "admin#html_snippets"
   
   root :to => "home#index"
 end

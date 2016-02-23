@@ -4,5 +4,8 @@ class AdminController < ApplicationController
   
   def macarons
   end
+  
+  def html_snippets
+  end
 
 end
