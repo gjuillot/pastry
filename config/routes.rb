@@ -18,6 +18,10 @@ Pastry::Application.routes.draw do
   resources :investments
   resources :investment_categories
   
+  resources :macaron_categories
+  resources :macaron_parfums
+  resources :macaron_prices
+  
   resources :macarons_geants
   resources :tartes
   resources :entremets
@@ -25,7 +29,10 @@ Pastry::Application.routes.draw do
   
   match '/index', :to => "home#index"
   match '/produits', :to => "home#produits"
+  
   match '/macarons', :to => "home#macarons"
+  match '/macarons2', :to => "home#macarons2"
+  
   match '/desserts_glaces', :to => "home#desserts_glaces"
   match '/gateaux_decores', :to => "home#gateaux_decores"
   match '/pour_vos_evenements', :to => "home#pour_vos_evenements"
@@ -33,6 +40,9 @@ Pastry::Application.routes.draw do
   match '/partenaires', :to => "home#partenaires"
   match '/contact', :to => "home#contact"
   match '/legal', :to => "home#legal"
+  
   match '/admin', :to => "home#admin"
+  match '/admin/macarons', :to => "admin#macarons"
+  
   root :to => "home#index"
 end

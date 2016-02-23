@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for MacaronPrice.new do |f| %>
+      <%= f.text_field :text, size: 20 %><br />
+      <%= f.text_field :price, size: 5 %> €
+      <%= f.submit "Ajouter prix" %>
+    <% end %>
+    <hr />
+    <% MacaronPrice.all.each do |price| %>
+     <%= delete_icon price %> <strong><%= price.text %></strong> - <%= price.price %> €<br />
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <%= form_for MacaronCategory.new do |f| %>
+      <%= f.text_field :name, size: 20 %>
+      <%= f.submit "Ajouter catégorie" %>
+    <% end %>
+    <hr />
+    <%= form_for MacaronParfum.new do |f| %>
+      <%= f.text_field :name, size: 20 %>
+       <%= f.collection_select :macaron_category_id, MacaronCategory.all, :id, :name %>
+      <%= f.submit "Ajouter parfum" %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <% MacaronParfum.all.each do |parfum| %>
+     <%= delete_icon parfum %> <strong><%= parfum.macaron_category.name %></strong> - <%= parfum.name %><br />
+    <% end %>
+  </div>
+</div>

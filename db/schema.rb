@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141220165756) do
+ActiveRecord::Schema.define(:version => 20160222155253) do
 
   create_table "ingredient_categories", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(:version => 20141220165756) do
 
   add_index "investments", ["investment_category_id"], :name => "index_investments_on_investment_category_id"
   add_index "investments", ["user_id"], :name => "index_investments_on_user_id"
+
+  create_table "macaron_categories", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "macaron_parfums", :force => true do |t|
+    t.string  "name"
+    t.integer "macaron_category_id"
+  end
+
+  create_table "macaron_prices", :force => true do |t|
+    t.string  "text"
+    t.decimal "price"
+  end
 
   create_table "prices", :force => true do |t|
     t.integer  "ingredient_id"
