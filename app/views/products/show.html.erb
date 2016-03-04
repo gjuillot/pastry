@@ -1,10 +1,12 @@
+<!-- TODO : message si non public -->
+
 <div id="ht-main-content" class="menu">
 
   <div id="ht-menu-detail">
     <div class="container">
       <div class="gallery-dish row">
 
-        <% unless @produit[:images].nil? %>
+        <% unless @product.images.empty? %>
         <div class="gallery col-sm-6 col-xs-12 onscreen-marker">
           <div class="main-img media-container">
             <div class="inner col-xs-12">
@@ -19,14 +21,29 @@
             <a href="#" class="jcarousel-control-next">&rsaquo;</a>
             <div class="jcarousel navigation">
               <ul>
-                <% @produit[:images].each do |image| %>
+                <% @product.images.each do |image| %>
                 <li class="bw-wrapper onscreen-marker">
-                  <%= image_tag image, class: "img-responsive" %>
+                  <%= image_tag image.url, class: "img-responsive" %>
                 </li>
                 <% end %>
               </ul>
             </div><!-- / jcarousel -->
           </div><!-- / jcarousel-wrapper -->
+          
+          <% if user_signed_in? and current_user.id == 1 %>
+            <hr />
+            <% @product.images.each do |image| %>
+              <%= form_for image, method: 'delete' do |f| %>
+                <%= f.submit 'Delete' %> - <%= link_to image.url.truncate(50), image.url, target: "_blank" %>
+              <% end %>
+            <% end %>
+            <% unless @product.zoom.nil? %>
+              <%= form_for @product.zoom, method: 'delete' do |f| %>
+                <%= f.submit 'Delete' %> - <%= link_to @product.zoom.url.truncate(50), @product.zoom.url, target: "_blank" %>
+              <% end %>
+            <% end %>
+          <% end %>
+          
         </div><!-- / gallery -->
         <% end %>
 
@@ -35,37 +52,61 @@
             <div class="container">
               <div class="row">
                 <div class="main-heading col-sm-6 col-xs-12">
-                  <h1><strong>&middot;</strong> <%= raw @produit[:name] %> <strong>&middot;</strong></h1>
+                  <h1><strong>&middot;</strong> <%= raw @product.name %> <strong>&middot;</strong></h1>
                 </div><!-- / main-heading -->
               </div><!-- / row -->
             </div><!-- / container -->
           </div><!-- / page-heading -->
           <div class="alert animated bounceInRight">
-            <%= raw @produit[:text] %>
+            <% if user_signed_in? and current_user.id == 1 %>
+              <%= form_for @product do |f| %>
+                <%= f.text_field :name, size: 40 %><br />
+                <%= f.text_field :description, size: 75 %><br />
+                <%= f.text_field :allergenes, size: 40 %>
+                <%= f.submit "Mettre à jour" %>
+              <% end %><br />
+              <%= form_for ProductImage.new do |f| %>
+                <%= f.hidden_field :product_id, value: @product.id %>
+                <%= f.select :usage, ["other", "main", "zoom"] %>
+                <%= f.text_field :url, size: 45, value: "url" %>
+                <%= f.submit "Ajouter image" %>
+              <% end %>
+            <% else %>
+              <%= raw @product.description %>
+            <% end %>
           </div>
 
           <table class="table">
-            <tr class="success">
-              <td>6 personnes</td>
-              <td><%= @produit[:prix][0] %> €</td>
-            </tr>
-            <tr class="info">
-              <td>8-10 personnes</td>
-              <td><%= @produit[:prix][1] %> €</td>
-            </tr>
-            <tr class="success">
-              <td>12-14 personnes</td>
-              <td><%= @produit[:prix][2] %> €</td>
-            </tr>
+            <% i = 0 %>
+            <% @product.prices.each do |price| %>
+              <tr class="<%=i%2 == 0 ? "success" : "info"  %>">
+                <td><%= price.text %></td>
+                <td><%= price.price %> €</td>
+                <% if user_signed_in? and current_user.id == 1 %>
+                  <td>
+                    <%= form_for price, method: 'delete' do |f| %>
+                      <%= f.submit 'Delete' %>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+              <% i = i + 1 %>
+            <% end %>
+            <% if user_signed_in? and current_user.id == 1 %>
+              <tr>
+              <%= form_for ProductPrice.new do |f| %>
+                <%= f.hidden_field :product_id, value: @product.id %>
+                <td><%= f.text_field :text, size: 20 %></td>
+                <td><%= f.text_field :price, size: 5 %> €</td>
+                <td><%= f.submit "Ajouter prix" %></td>
+              <% end %>
+              </tr>
+            <% end %>
           </table>
-          <% if @saison %>
-          <span class="label label-primary">Produit disponible selon saison</span>
-          <br />
+          
+          <% @product.allergenes_array.each do |allergene| %>
+            <span class="label label-warning"><%= raw allergene %></span>
           <% end %>
-          <span class="label label-warning">Fruits à coque</span>
-          <span class="label label-warning">Gluten</span>
-          <span class="label label-warning">Lactose</span>
-          <span class="label label-warning">&OElig;uf</span>
 
           <br />
           <br />
@@ -79,7 +120,7 @@
           </form>
         </div><!-- / dish -->
 
-        <% if @produit[:images].nil? %>
+        <% if @product.images.empty? %>
         <div class="recommended col-sm-6 col-xs-12 onscreen-marker" style="padding-top: 100px;">
           <h2>Nous vous recommandons également</h2>
           <div class="jcarousel-wrapper">

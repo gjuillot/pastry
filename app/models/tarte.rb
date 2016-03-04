@@ -1,0 +1,2 @@
+class Tarte < Product
+end

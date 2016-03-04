@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160223074624) do
+ActiveRecord::Schema.define(:version => 20160223134737) do
 
   create_table "html_snippets", :force => true do |t|
     t.string "location"
@@ -75,6 +75,26 @@ ActiveRecord::Schema.define(:version => 20160223074624) do
   end
 
   add_index "prices", ["ingredient_id"], :name => "index_prices_on_ingredient_id"
+
+  create_table "product_images", :force => true do |t|
+    t.integer "product_id"
+    t.string  "url"
+    t.string  "usage"
+  end
+
+  create_table "product_prices", :force => true do |t|
+    t.integer "product_id"
+    t.string  "text"
+    t.decimal "price"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string  "type"
+    t.string  "name"
+    t.string  "description"
+    t.string  "allergenes"
+    t.boolean "published"
+  end
 
   create_table "recipe_categories", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for Product.new do |f| %>
+      <%= f.hidden_field :published, value: "false" %>
+      <%= f.select :type, Product.types %> <%= f.text_field :name, size: 20, value: "Nom" %><br />
+      <%= f.text_field :description, size: 50, value: "Description" %><br />
+      <%= f.text_field :allergenes, size: 40, value: "Fruits à coque, Gluten, Lactose, Oeuf" %><br />
+      <%= f.submit "Ajouter produit" %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h1>Public</h1>
+    <% Tarte.where("published = ?", true).all.each do |product| %>
+      <%= form_for product do |f| %>
+        <%= delete_icon product %> <%= link_to raw(product.name), product %>
+        <%= f.hidden_field :published, value: "false" %>
+        <%= f.submit "Cacher" %>
+      <% end %>
+      <br />
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h1>Non Public</h1>
+    <% Tarte.where("published = ?", false).all.each do |product| %>
+      <%= form_for product do |f| %>
+        <%= delete_icon product %> <%= link_to raw(product.name), product %>
+        <%= f.hidden_field :published, value: "true" %>
+        <%= f.submit "Publier" %>
+      <% end %>
+      <br />
+    <% end %>
+  </div>
+</div>

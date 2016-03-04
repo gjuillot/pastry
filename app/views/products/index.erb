@@ -1,4 +1,4 @@
-
+<% also = [] %>
   <div id="ht-main-content" class="menu">
 
     <div class="ht-page-heading">
@@ -19,27 +19,29 @@
         <div id="filter-container" class="menu-single-grid grid-2col">
           <div class="row">
             
-<% @produits.each do |produit| %>
-
+<% @products.each do |product| %>
+  <% if product.image.nil? %>
+    <% also << product %>
+    <% next %>
+  <% end %>
             <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
               <div class="media-container col-xs-12">
                 <div class="inner" style="background-color: white">
-                   <%= image_tag produit[:images][0], class: "img-responsive" %>
-                    <a href="<%= produit[:url] %>" class="icon">
-                      <%= image_tag produit[:zoom], class: "img-responsive" %>
+                   <img alt="<%= product.name %>" class="img-responsive" src="<%= product.image.url %>" />
+                    <a href="<%= product_path(product) %>" class="icon">
+                      <img alt="<%= product.name %>" class="img-responsive" src="<%= (product.zoom.nil? ? product.image : product.zoom).url %>" />
                     </a>
                 </div><!-- / inner -->
 
               </div><!-- media-container -->
               <div class="content col-xs-12">
-                <a href="<%= produit[:url] %>"><h3><%= raw produit[:name] %></h3></a>
-                <p><%= raw produit[:text] %></p>
+                <a href="<%= product_path(product) %>"><h3><%= raw product.name %></h3></a>
+                <p><%= raw product.description %></p>
               </div><!-- content -->
             </div><!-- / dish -->
-
 <% end %>
 
-<% unless @also.empty? %>
+<% unless also.empty? %>
 
             <div class="dish drink col-sm-6 col-xs-12 onscreen-marker">
               <div class="content col-xs-12">
@@ -47,9 +49,9 @@
                 <h2>Découvrez également</h2>
                 <br /><br />
 
-  <% @also.each do |produit| %>
-                <a href="<%= produit[:url] %>"><h3><%= raw produit[:name] %></h3></a>
-                <p><%= raw produit[:text] %></p><br />
+  <% also.each do |product| %>
+                <a href="<%= product_path(product) %>"><h3><%= raw product.name %></h3></a>
+                <p><%= raw product.description %></p><br />
   <% end %>
               </div><!-- content -->
             </div><!-- / dish -->

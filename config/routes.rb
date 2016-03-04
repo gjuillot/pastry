@@ -2,6 +2,7 @@ Pastry::Application.routes.draw do
 
   devise_for :users
 
+  # Admin pages
   resources :ingredients
   resources :ingredient_categories
   resources :prices
@@ -18,13 +19,23 @@ Pastry::Application.routes.draw do
   resources :investments
   resources :investment_categories
   
+  # Admin for public
   resources :macaron_categories
   resources :macaron_parfums
   resources :macaron_prices
+  resources :product_images
+  resources :product_prices
   resources :html_snippets
   
+  #Public
+  resources :products do
+    collection do
+      get 'generate_tartes'
+    end
+  end
+  resources :tartes, controller: 'products', type: 'tarte'
+  
   resources :macarons_geants
-  resources :tartes
   resources :entremets
   resources :patisseries_americaines
   
@@ -46,6 +57,7 @@ Pastry::Application.routes.draw do
   match '/admin/macarons', :to => "admin#macarons"
   match '/admin/html_snippets', :to => "admin#html_snippets"
   match '/admin/investments', :to => "admin#investments"
+  match '/admin/products', :to => "admin#products"
   
   root :to => "home#index"
 end
