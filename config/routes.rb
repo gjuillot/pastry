@@ -33,7 +33,7 @@ Pastry::Application.routes.draw do
       get 'generate_tartes'
     end
   end
-  resources :tartes, controller: 'products', type: 'tarte'
+  resources :tartes, controller: 'products', type: 'Tarte'
   
   resources :macarons_geants
   resources :entremets
